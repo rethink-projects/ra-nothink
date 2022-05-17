@@ -1,4 +1,4 @@
-![foo](<https://github.com/filiperethink/ra-nothink/blob/dev/Nothink.%20(1).png?raw=true>)
+![foo](https://github.com/filiperethink/ra-nothink/blob/dev/extras/logo.png?raw=true)
 
 Esse projeto está sendo desenvolvido pelos estagiários do rethink academy, a ideia é criar um repositório para anotações de códigos ou explicações sobre alguma tecnologia.
 
