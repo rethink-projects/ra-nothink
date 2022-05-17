@@ -1,10 +1,14 @@
+<br>
+
 ![foo](https://github.com/filiperethink/ra-nothink/blob/dev/extras/logo.png?raw=true)
 
+<br>
 Esse projeto está sendo desenvolvido pelos estagiários do rethink academy, a ideia é criar um repositório para anotações de códigos ou explicações sobre alguma tecnologia.
 
 <br>
+<br>
 
-# UI do projeto
+# Design do projeto
 
 [Link para acessar o figma](https://www.figma.com/file/Ss2atdwxFVc4Wr1xuD5kip/Nothink)
 
@@ -13,11 +17,10 @@ Esse projeto está sendo desenvolvido pelos estagiários do rethink academy, a i
 # O que vamos fazer?
 
 Vamos criar um sistema que deve permitir que o usuário crie snippets de código de forma fácil e disponibilize para todos os usuários da plataforma.
+
 <br>
 
 ## Requisitos
-
-<br>
 
 - Sistema de Autenticação.
 - Sistema de rotas das paginas com Autenticação.
@@ -33,12 +36,16 @@ Vamos criar um sistema que deve permitir que o usuário crie snippets de código
 
 <br>
 
-### O que precisamos fazer?
+# O que precisamos fazer?
+
+> Novas tarefas serão inseridas
 
 <br>
 
 ✅ Inicializar repositório no github. \
 ⬜️ Iniciar boilerplate com React e fazer ajustes.\
+⬜️ Configurar Firebase e Firestor.\
+⬜️ Configurar deploy na vercel.\
 ⬜️ Implementar sistema de rotas usando `react-router-dom.`\
 ⬜️ Implementar sistema de Autenticação usando `conxtex api`.
 
@@ -55,13 +62,13 @@ git clone git@github.com:filiperethink/ra-nothink.git
 Acesse o diretório.
 
 ```bash
-cd ra-nothink`
+cd ra-nothink
 ```
 
 Instale as dependências.
 
 ```bash
-npm install`
+ npm install
 ```
 
 Inicie o servidor na porta 3000.
