@@ -44,7 +44,7 @@ Vamos criar um sistema que deve permitir que o usuário crie snippets de código
 
 ✅ Inicializar repositório no github. \
 ⬜️ Iniciar boilerplate com React e fazer ajustes.\
-⬜️ Configurar Firebase e Firestor.\
+⬜️ Configurar Firebase e Firestore.\
 ⬜️ Configurar deploy na vercel.\
 ⬜️ Implementar sistema de rotas usando `react-router-dom.`\
 ⬜️ Implementar sistema de Autenticação usando `conxtex api`.
@@ -75,6 +75,53 @@ Inicie o servidor na porta 3000.
 
 ```bash
 npm run start
+```
+
+<br>
+
+# Trabalhando com Github
+
+Trazendo codigo remoto.
+
+```bash
+git pull
+```
+
+Criando sua branch
+
+```bash
+git checkout -b nome-da-sua-branch
+```
+
+Verificando status de arquivos alterados no projeto.
+
+```bash
+git status
+```
+
+Enviando codigo alterado para staged.
+
+```js
+git add .
+
+// Adicionando apenas um arquivo.
+git add ./nome-arquivo
+```
+
+Commitando arquivos em staged.
+
+```bash
+ git commit -m "Criando rotas no projeto utilizando react-router-dom"
+```
+
+Enviando codigo commitado para repositorio no github.
+
+```js
+// Se for o primeiro push você deve usar esse comando.
+git push -u origin nome-da-sua-branch
+
+// Nas outras vezes pode usar de forma simplificado.
+git push
 ```
 
 <br>
