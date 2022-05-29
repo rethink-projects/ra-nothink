@@ -1,160 +1,46 @@
-<br>
+# Getting Started with Create React App
 
-![foo](https://github.com/filiperethink/ra-nothink/blob/dev/extras/logo.png?raw=true)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<br>
-Esse projeto está sendo desenvolvido pelos estagiários do rethink academy, a ideia é criar um repositório para anotações de códigos ou explicações sobre alguma tecnologia.
+## Available Scripts
 
-<br>
-<br>
+In the project directory, you can run:
 
-# Design do projeto
+### `npm start`
 
-[Link para acessar o figma](https://www.figma.com/file/Ss2atdwxFVc4Wr1xuD5kip/Nothink)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-<br>
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-# O que vamos fazer?
+### `npm test`
 
-Vamos criar um sistema que deve permitir que o usuário crie snippets de código de forma fácil e disponibilize para todos os usuários da plataforma.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-<br>
+### `npm run build`
 
-## Requisitos
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- Sistema de Autenticação.
-- Sistema de rotas das paginas com Autenticação.
-- Integração com o Firebase e Firestore.
-- Permitir que o usuario logado Visualize lista de Categorias.
-- Permitir que o usuario logado Visualize Lista de snippets por categoria.
-- Permitir que o usuario logado Visualize um Snippet.
-- Permitir que o usuario logado Edite apenas seus snippets.
-- Permitir que o usuario logado Exclua apenas seus snippets.
-- Permitir que o usuario logado Favorite qualquer snippets.
-- Deploy feito na Vercel.
-- Responsidade e Fidelidade ao protótipo do figma.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-<br>
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# O que precisamos fazer?
+### `npm run eject`
 
-> Novas tarefas serão inseridas
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-<br>
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-✅ Inicializar repositório no github. \
-⬜️ Iniciar boilerplate com React e fazer ajustes.\
-⬜️ Configurar Firebase e Firestore.\
-⬜️ Configurar deploy na vercel.\
-⬜️ Implementar sistema de rotas usando `react-router-dom.`\
-⬜️ Implementar sistema de Autenticação usando `conxtex api`.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-<br>
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-# Rodando localmente
+## Learn More
 
-Faça o clone do projeto
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-```bash
-git clone git@github.com:filiperethink/ra-nothink.git
-```
-
-Acesse o diretório.
-
-```bash
-cd ra-nothink
-```
-
-Instale as dependências.
-
-```bash
- npm install
-```
-
-Inicie o servidor na porta 3000.
-
-```bash
-npm run start
-```
-
-<br>
-
-# Trabalhando com Github
-
-Trazendo codigo remoto.
-
-```bash
-git pull
-```
-
-Criando sua branch
-
-```bash
-git checkout -b nome-da-sua-branch
-```
-
-Verificando status de arquivos alterados no projeto.
-
-```bash
-git status
-```
-
-Enviando codigo alterado para staged.
-
-```js
-git add .
-
-// Adicionando apenas um arquivo.
-git add ./nome-arquivo
-```
-
-Commitando arquivos em staged.
-
-```bash
- git commit -m "Criando rotas no projeto utilizando react-router-dom"
-```
-
-Enviando codigo commitado para repositorio no github.
-
-```js
-// Se for o primeiro push você deve usar esse comando.
-git push -u origin nome-da-sua-branch
-
-// Nas outras vezes pode usar de forma simplificado.
-git push
-```
-
-<br>
-
-# Melhorias
-
-Que melhorias você fez no seu código? Ex: refatorações, melhorias de performance, acessibilidade, etc...
-
-<br>
-
-# Aprendizados
-
-O que você aprendeu construindo esse projeto? Quais desafios você enfrentou e como você superou-os?
-
-<br>
-
-# Autores
-
-- [@filiperethink](https://api.github.com/repos/filiperethink)
-- [@gabrielgomes](https://api.github.com/repos/gabrielgomes)
-
-<br>
-
-# Etiquetas
-
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-
-<br>
-
-# Variáveis de Ambiente ( Implementar\*)
-
-Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
+To learn React, check out the [React documentation](https://reactjs.org/).
