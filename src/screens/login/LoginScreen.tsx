@@ -43,11 +43,7 @@ const LoginScreen = () => {
             <div className={styles.right_side}>
               
               <div className={styles.inside}>
-              <div className={styles.social_media}>
-                    <img src={Images.icons.linkedin} />
-                    <img src={Images.icons.instagram} />
-
-              </div>
+              
                 <img src={Images.logo.default} />
 
                 <p>Escolha sua forma de login</p>
@@ -67,6 +63,11 @@ const LoginScreen = () => {
                     <img src={Images.icons.github} />
                     Entrar com GitHub
                   </div>
+                  <div className={styles.social_media}>
+                    <img src={Images.icons.linkedin} />
+                    <img src={Images.icons.instagram} />
+
+              </div>
                 </div>
               </div>
             </div>

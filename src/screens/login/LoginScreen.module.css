@@ -147,6 +147,10 @@
 
 .social_media {
   position: relative;
-  left: 90%;
-  top: -30%;
+  left: 85%;
+  top: -230%;
+}
+
+.social_media img {
+  margin-right: 15px;
 }
