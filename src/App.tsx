@@ -3,6 +3,7 @@ import Images from "./assets";
 import AuthProvider from "./context/providers/AuthProvider";
 import DashboardScreen from "./screens/dashboard/DashboardScreen";
 import LoginScreen from "./screens/login/LoginScreen";
+import RequireAuth from "./services/auth/Auth";
 
 function App() {
   return (
@@ -12,7 +13,14 @@ function App() {
           <Route path="/">
             <Route index element={<LoginScreen />} />
             <Route path="/login" element={<LoginScreen />} />
-            <Route path="/dashboard" element={<DashboardScreen />} />
+            <Route
+              path="/dashboard"
+              element={
+                <RequireAuth>
+                  <DashboardScreen />
+                </RequireAuth>
+              }
+            />
           </Route>
         </Routes>
       </AuthProvider>
