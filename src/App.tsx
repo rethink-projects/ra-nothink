@@ -1,11 +1,19 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Images from "./assets";
+import DashboardScreen from "./screens/dashboard/DashboardScreen";
+import LoginScreen from "./screens/login/LoginScreen";
 
 function App() {
   return (
-    <div>
-      <img src={Images.logo.default} alt="logo padrão Nothink" />
-      <h3>Anotações rápidas para devs</h3>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<LoginScreen />} />
+          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/dashboard" element={<DashboardScreen />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
