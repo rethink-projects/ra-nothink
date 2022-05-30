@@ -1,0 +1,27 @@
+button {
+  box-sizing: border-box;
+
+  /* Auto layout */
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15.6154px 17.8462px;
+  gap: 11.15px;
+
+  width: 464px;
+  height: 58px;
+
+  border: 1.11538px solid rgba(0, 0, 0, 0.4);
+  border-radius: 4.46154px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 120%;
+  cursor: pointer;
+}
+
+.github {
+  background-color: #000000;
+  color: white;
+}

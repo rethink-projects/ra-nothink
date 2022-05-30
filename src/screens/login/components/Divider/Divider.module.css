@@ -1,0 +1,21 @@
+.frame {
+  display: flex;
+  justify-content: space-between;
+}
+
+.frame p {
+  /* ou */
+
+  width: 21px;
+  height: 22px;
+  padding-top: 26.94px;
+  padding-bottom: 27.06px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 120%;
+  /* identical to box height, or 22px */
+
+  color: #000000;
+}

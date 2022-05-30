@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Images from "../../assets";
 import { useAuth } from "../../context/AuthContext";
 import { LocationParams } from "../../types";
+import Form from "./components/Form/Form";
+import Presentation from "./components/Presentation/Presentation";
+import styles from "./LoginScreen.module.css";
 
 export const LoginScreen = () => {
   let auth = useAuth();
@@ -34,10 +38,10 @@ export const LoginScreen = () => {
 
   if (!auth.user) {
     return (
-      <div>
-        <h1>Login Screen</h1>
-        <p>Sem usuário no momento</p>
-        <button onClick={handleLogin}>Login</button>
+      <div className={styles.container}>
+        <Presentation />
+        <Form />
+        {/* <button onClick={handleLogin}>Login</button> */}
       </div>
     );
   }

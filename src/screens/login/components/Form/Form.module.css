@@ -1,0 +1,33 @@
+.container {
+  width: 728px;
+  height: 820px;
+}
+
+.social {
+  padding: 59px 0 0 504px;
+  width: 64px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form {
+  padding: 149.98px 0 240px 112px;
+  width: 464px;
+  height: 347.02px;
+}
+
+.paragraph {
+  width: 291px;
+  height: 29px;
+  padding-top: 38px;
+  padding-bottom: 39.02px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+  /* identical to box height, or 29px */
+
+  color: #000000;
+}
+
+
+
