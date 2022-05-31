@@ -1,5 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
+import {Navbar} from "../../components";
 import { useAuth } from "../../context/AuthContext";
 
 
@@ -7,11 +6,6 @@ import { useAuth } from "../../context/AuthContext";
 export const DashboardScreen = () => {
 
     const auth = useAuth();
-    let navigate = useNavigate();
-  
-    const onSignout = () => {
-      auth.signOut(() => navigate("/"));
-    };
 
   return (
     <div>

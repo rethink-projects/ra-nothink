@@ -1,0 +1,30 @@
+.defaultLoginButton {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15.6154px 17.8462px;
+  gap: 11.15px;
+  width: 464px;
+  height: 58px;
+  border: 1.11538px solid var(--color-border);
+  border-radius: 4.46154px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 120%;
+  cursor: pointer;
+}
+
+.githubButtonClass {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+.defaultLoginButton:hover {
+  background-color: var(--color-button-opacity);
+}
+
+.githubButtonClass:hover{
+    background-color: var(--color-button-opacity-dark);
+  }
