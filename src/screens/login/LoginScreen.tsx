@@ -1,13 +1,14 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import LoginButton from "../../components/LoginButton";
 import { useAuth } from "../../context/AuthContext";
-import { LocationParams } from "../../types";
+import Intro from "./components/Intro";
+import Login from "./components/Login";
+import Styles from "./LoginScreen.module.css";
 
 const LoginScreen = () => {
   let auth = useAuth();
   let navigate = useNavigate();
-  let location: LocationParams = useLocation();
-  let from = location.state?.from?.path || "/";
 
   const handleLogin = () => {
     auth.signIn(
@@ -33,10 +34,9 @@ const LoginScreen = () => {
 
   if (!auth.user) {
     return (
-      <div>
-        <h1>LoginScreeen</h1>
-        <p>Sem usuario Logado</p>
-        <button onClick={handleLogin}>Login</button>
+      <div className={Styles["LoginContainer"]}>
+        <Intro />
+        <Login login={handleLogin} />
       </div>
     );
   }
