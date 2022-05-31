@@ -1,20 +1,27 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Images from './assets';
+import AuthProvider from './context/providers/AuthProvider';
 import DashBoardScreen from './screens/dashboard/DashBoardScreen';
 import LoginScreen from './screens/login/LoginScreen';
+import RequireAuth from './services/auth/Auth';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <Routes>
-          <Route path="/">
-            <Route index element={<LoginScreen />}></Route>
-            <Route path="/login" element={<LoginScreen />}></Route>
-            <Route path="/dashboard" element={<DashBoardScreen />}></Route>
-          </Route>
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/">
+              <Route index element={<LoginScreen />} />
+              <Route path="/login" element={<LoginScreen />} />
+              <Route path="/dashboard" element={
+                <RequireAuth>
+                  <DashBoardScreen />
+                </RequireAuth>
+              } />
+            </Route>
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </div>
   );
