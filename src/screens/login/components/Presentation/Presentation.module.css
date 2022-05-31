@@ -1,32 +1,32 @@
 .container {
-    background-color: #1b1b1b;
-    color: white;
-    width: 712px;
-    height: 820px;
-    overflow: hidden;
-  }
-  
-  .container p {
-    /* Anotações rápidas para devs! */
-    width: 324px;
-    height: 92px;
-    padding: 182px 0 0 152px;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 38px;
-    line-height: 120%;
-    /* or 46px */
-    letter-spacing: 0.01em;
-  
-    color: #ffffff;
-  }
-  
-  .container img {
-    /* RTHK0002_rethink_rgb_fb_25 1 */
-  
-    width: 299px;
-    height: 390px;
-    padding: 156px 0 0 108px;
-  }
-  
+  background-color: #1b1b1b;
+  color: white;
+  width: 712px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container p {
+  /* Anotações rápidas para devs! */
+  width: 324px;
+  height: 92px;
+  padding: 182px 0 0 152px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 38px;
+  line-height: 120%;
+  /* or 46px */
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+.container img {
+  /* RTHK0002_rethink_rgb_fb_25 1 */
+
+  width: 299px;
+  height: 390px;
+  margin-left: 108px;
+  position: absolute;
+  bottom: 0;
+}

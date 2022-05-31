@@ -1,6 +1,8 @@
+import styles from "./LoginScreen.module.css";
+
+//components
 import Form from "./components/Form/Form";
 import Presentation from "./components/Presentation/Presentation";
-import styles from "./LoginScreen.module.css";
 
 export const LoginScreen = () => {
  
