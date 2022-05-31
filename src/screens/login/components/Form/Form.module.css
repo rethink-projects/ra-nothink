@@ -24,7 +24,7 @@
   line-height: 120%;
   /* identical to box height, or 29px */
 
-  color: #000000;
+  color: var(--color-dark);
 }
 
 
