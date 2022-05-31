@@ -1,0 +1,61 @@
+.container {
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  width: 1440px;
+  height: 61px;
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar img {
+  padding-left: 160px;
+  width: 85px;
+}
+
+.navbuttons {
+  width: 226px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  padding-right: 152px;
+}
+
+.navbuttons img {
+  width: 29px;
+  height: 29px;
+  padding: 0;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 42px;
+  gap: 8.18px;
+  width: 176px;
+  height: 34px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  /* identical to box height, or 17px */
+
+  letter-spacing: -0.02em;
+
+  color: #000000;
+
+  /* Verde Lima - Rethink */
+
+  background: #d3fa3a;
+  border-radius: 3px;
+  cursor: pointer;
+}
