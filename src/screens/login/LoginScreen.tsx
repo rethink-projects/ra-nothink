@@ -4,10 +4,12 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import Images from "../../assets";
+import LoginButton from "../../components/ui/loginbuttons/LoginButton";
 
 const LoginScreen = () => {
   let auth = useAuth();
   let navigate = useNavigate();
+  // let screenCssPixelRatio = window.outerWidth / window.innerWidth;
 
   const handleLogin = () => {
     auth.signin(
@@ -47,20 +49,17 @@ const LoginScreen = () => {
                 <p>Escolha sua forma de login</p>
 
                 <div className={styles.login_options}>
-                  <div className={styles.google_login} onClick={handleLogin}>
-                    <img src={Images.icons.google} />
-                    Entrar com Google
-                  </div>
+                  <LoginButton
+                    type="google"
+                    underDivider
+                    onClick={handleLogin}
+                  />
+                  <LoginButton
+                    type="github"
+                    
+                    onClick={handleLogin}
+                  />
 
-                  <div className={styles.divisoria}>
-                    <img src={Images.icons.hl} />
-                    ou
-                    <img src={Images.icons.hl} />
-                  </div>
-                  <div className={styles.git_login} onClick={handleLogin}>
-                    <img src={Images.icons.github} />
-                    Entrar com GitHub
-                  </div>
                   <div className={styles.social_media}>
                     <img src={Images.icons.linkedin} />
                     <img src={Images.icons.instagram} />

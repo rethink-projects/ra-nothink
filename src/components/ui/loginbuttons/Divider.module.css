@@ -1,0 +1,25 @@
+.divisoria {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19.6154px;
+    line-height: 120%;
+    /* identical to box height, or 24px */
+  
+    color: #000000;
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 10px auto;
+  }
+  .divisoria img {
+    height: 2px;
+    margin-bottom: none;
+  }
