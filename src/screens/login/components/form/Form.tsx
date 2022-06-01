@@ -1,7 +1,13 @@
 import React from "react";
+
+// Assets
 import Images from "../../../../assets";
 
+// Styles
 import styles from "./Form.module.css";
+
+// Components
+import { IconButton, Divider } from "../../../../components";
 
 function Form() {
   return (
@@ -28,27 +34,9 @@ function Form() {
           <p className={styles.form_texts_main}>Escolha sua forma de login</p>
         </div>
         <div className={styles.form_actions}>
-          <button className={styles.form_actions_google}>
-            <img
-              className={styles.form_actions_google_img}
-              src={Images.icons.google}
-              alt="Google Icon Nothink"
-            />
-            Entrar com o Google
-          </button>
-          <div className={styles.form_action_divider}>
-            <div className={styles.divider} />
-            <p className={styles.divider_text}>ou</p>
-            <div className={styles.divider} />
-          </div>
-          <button className={styles.form_actions_github}>
-            <img
-              className={styles.form_actions_github_img}
-              src={Images.icons.github}
-              alt="Github Icon"
-            />
-            Entrar com o Github
-          </button>
+          <IconButton type="google" />
+          <Divider />
+          <IconButton type="github" />
         </div>
       </div>
     </div>

@@ -1,0 +1,31 @@
+/* Padrão default do botao */
+.defaultIconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4.4px;
+  width: 100%;
+  height: 60px;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+}
+
+.defaultIconButton:hover {
+  background-color: var(--color-button-opacity);
+}
+
+.default_img {
+  margin-right: 10px;
+}
+/* Padrão para botão dark */
+.darkButtonClass {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+.darkButtonClass:hover {
+  background-color: var(--color-button-opacity-dark);
+}
