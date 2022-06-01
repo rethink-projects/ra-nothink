@@ -1,0 +1,46 @@
+.form_conatiner{
+flex: 1;
+}
+
+.form_inner{
+    margin-left: 152px;
+    margin-right: 152px;
+    height: 100%;
+}
+
+.form_social{
+    padding-top: 60px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+
+.form_social_icon{
+    cursor: pointer;
+}
+
+.form_texts{
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    padding-top: 150px;
+}
+
+.form_texts_logo{
+width: 152px;
+height: 50px;
+}
+
+.form_texts_main{
+    font-size: 24px;
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+.form_actions{
+    display: flex;
+    flex-direction: column;
+    margin-top: 38px;
+    gap: 26px;
+}

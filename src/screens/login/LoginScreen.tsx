@@ -3,8 +3,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { LocationParams } from '../../types';
 
+// Styles
+import styles from "./Login.module.css"
+
 // Components
 import Intro from './components/intro/Intro';
+import Form from './components/form/Form';
+
 
 const LoginScreen = () => {
     let auth = useAuth();
@@ -29,8 +34,9 @@ const LoginScreen = () => {
     }, [auth, navigate])
 
     return (
-        <div>
+        <div className={styles.login_container}>
             <Intro />
+            <Form />
         </div>
     );
 
