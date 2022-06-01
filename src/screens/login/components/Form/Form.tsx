@@ -39,22 +39,23 @@ const Form = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.social}>
-        <img src={Images.icons.linkedin} alt="Linkedin" />
-        <img src={Images.icons.instagram} alt="Instagram" />
-      </div>
-      <div className={styles.form}>
-        <img src={Images.logo.default} alt="Logo Nothink" />
-        <div className={styles.paragraph}>
-          <p>Escolha sua forma de login</p>
+      <div className={styles.form_inner}>
+        <div className={styles.social}>
+          <img src={Images.icons.linkedin} alt="Linkedin" />
+          <img src={Images.icons.instagram} alt="Instagram" />
         </div>
-        <LoginButton type="google" onClick={handleLogin} />
-        <Divider />
-        <LoginButton type="github" onClick={handleLogin} />
+        <div className={styles.form}>
+          <img src={Images.logo.default} alt="Logo Nothink" />
+          <div className={styles.paragraph}>
+            <p>Escolha sua forma de login</p>
+          </div>
+          <LoginButton type="google" onClick={handleLogin} />
+          <Divider />
+          <LoginButton type="github" onClick={handleLogin} />
+        </div>
       </div>
     </div>
   );
-
 };
 
 export default Form;

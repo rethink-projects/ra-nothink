@@ -1,19 +1,28 @@
 .container {
-  width: 51%;
-  height: 100vh;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.form_inner {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  min-width: 50%;
+  height: 100%;
 }
 
 .social {
   padding: 7.2% 0 0 0;
   width: 64px;
-  flex: end;
   display: flex;
   justify-content: space-between;
-  margin-left: 69.23%;
+  margin-left: 89%;
 }
 
 .form {
-  padding: 18.17% 20.88% 0 112px;
+  padding: 18.17% 0 0 0;
   min-width: 50%;
 }
 
@@ -27,6 +36,3 @@
 
   color: var(--color-dark);
 }
-
-
-
