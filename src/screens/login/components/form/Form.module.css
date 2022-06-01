@@ -1,15 +1,20 @@
 .form_conatiner{
-flex: 1;
+    display: flex;
+    flex: 1;
+    justify-content: center;
 }
 
 .form_inner{
-    margin-left: 152px;
-    margin-right: 152px;
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    margin-left: 10.9%;
+    margin-right: 10.9%;
     height: 100%;
 }
 
 .form_social{
-    padding-top: 60px;
+    padding-top: 10%;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -24,7 +29,7 @@ flex: 1;
     display: flex;
     flex-direction: column;
     gap: 38px;
-    padding-top: 150px;
+    padding-top: 30%;
 }
 
 .form_texts_logo{
@@ -43,4 +48,19 @@ height: 50px;
     flex-direction: column;
     margin-top: 38px;
     gap: 26px;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1500px){
+    .form_inner {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+    }
+
+    .form_texts{
+        display: flex;
+        flex-direction: column;
+        gap: 38px;
+        padding-top: 23%;
+    }
 }
