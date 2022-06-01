@@ -6,7 +6,7 @@
   align-items: center;
   padding: 15.6154px 17.8462px;
   gap: 11.15px;
-  width: 464px;
+  width: 100%;
   height: 58px;
   border: 1.11538px solid var(--color-border);
   border-radius: 4.46154px;
@@ -14,6 +14,7 @@
   font-size: 18px;
   line-height: 120%;
   cursor: pointer;
+  min-width: 464px;
 }
 
 .githubButtonClass {

@@ -1,7 +1,7 @@
 .container {
   background-color: #1b1b1b;
   color: white;
-  width: 712px;
+  width: 49%;
   height: 100vh;
   overflow: hidden;
 }
@@ -10,7 +10,7 @@
   /* Anotações rápidas para devs! */
   width: 324px;
   height: 92px;
-  padding: 182px 0 0 152px;
+  padding: 18% 0 0 21.2%;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -26,7 +26,29 @@
 
   width: 299px;
   height: 390px;
-  margin-left: 108px;
+  margin-left: 7%;
   position: absolute;
   bottom: 0;
 }
+
+
+@media screen and (min-width: 1020px) and (max-width:1500px){
+
+  .container img{
+    margin-left: 13%;
+  }
+
+  .container img{
+    max-width: 300px;
+  }
+  
+}
+
+@media screen and (min-width: 300px) and (max-width:1024px){
+
+  .container{
+    display: none;
+  }
+  
+}
+
