@@ -3,6 +3,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { LocationParams } from '../../types';
 
+// Components
+import Intro from './components/intro/Intro';
+
 const LoginScreen = () => {
     let auth = useAuth();
     let navigate = useNavigate();
@@ -25,20 +28,12 @@ const LoginScreen = () => {
         }
     }, [auth, navigate])
 
-    if (!auth.user) {
-        return (
-            <div>
-                <h1>Login Screen</h1>
-                <button onClick={handleLogin}>Fazer Login</button>
-            </div>
-        );
-    }
     return (
         <div>
-            <h1>Login Screen</h1>
-            <p>{auth.user?.name}</p>
+            <Intro />
         </div>
-    )
+    );
+
 }
 
 export default LoginScreen
