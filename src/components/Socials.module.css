@@ -1,0 +1,11 @@
+.socials {
+  position: absolute;
+  display: flex;
+  gap: 16px;
+  right: 160px;
+  top: 59px;
+}
+
+a img {
+  border: 0;
+}

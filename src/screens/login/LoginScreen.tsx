@@ -34,7 +34,7 @@ const LoginScreen = () => {
 
   if (!auth.user) {
     return (
-      <div className={Styles["LoginContainer"]}>
+      <div className={Styles.LoginContainer}>
         <Intro />
         <Login login={handleLogin} />
       </div>

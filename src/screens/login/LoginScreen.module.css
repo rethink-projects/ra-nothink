@@ -1,19 +1,21 @@
 .LoginContainer {
   display: flex;
   flex-direction: row;
-
   height: 100vh;
 }
+
 .introContainer {
   height: 100vh;
-  width: 712px;
+  width: 50vw;
   background-color: black;
   color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .introTitle {
   margin-top: 173px;
-  margin-left: 152px;
+
   font: Roboto;
   font-weight: 500;
   font-size: 38px;
@@ -23,10 +25,11 @@
 .IntroArrow {
   position: absolute;
   bottom: 0;
-  margin-left: 108px;
+  margin-left: -40px;
   width: 300px;
   height: 390px;
 }
+
 .Nothink {
   font-family: "Messina Sans";
   font-style: normal;
@@ -43,10 +46,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 26px; */
-  width: 712px;
   height: 100vh;
+  width: 50vw;
   position: relative;
+}
+
+.innerForm {
+  width: 464px;
+  height: 347.02px;
 }
 
 .LoginButtons {
