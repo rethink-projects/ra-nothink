@@ -1,0 +1,15 @@
+/* arquivo extendido por todos os outros arquivos de css na nosssa classe */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap");
+@import url("./reset.css");
+
+:root {
+  --color-dark: #1b1b1b;
+  --color-light: #ffffff;
+  --color-detail: #d3fa3a;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
