@@ -1,11 +1,14 @@
+import styles from "./Form.module.css";
+
+import Images from "../../../../assets";
+
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Images from "../../../../assets";
-import { LoginButton } from "../../../../components";
+
 import { useAuth } from "../../../../context/AuthContext";
 import Divider from "../Divider/Divider";
 
-import styles from "./Form.module.css";
+import { LoginButton } from "../../../../components";
 
 const Form = () => {
   let auth = useAuth();
@@ -51,7 +54,7 @@ const Form = () => {
       </div>
     </div>
   );
-  
+
 };
 
 export default Form;
