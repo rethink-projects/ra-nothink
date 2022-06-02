@@ -26,10 +26,12 @@
 
   letter-spacing: 0.01em;
 
-  color: #ffffff;
+  color: var(--color-light);
 }
 
 .left_side img {
+  position: absolute;
+  bottom: 0;
   overflow: hidden;
   height: 55%;
   width: 50%;
@@ -71,4 +73,32 @@
 
 .social_media img {
   margin-right: 15px;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1500px) {
+  .intro_title {
+    margin-left: 13%;
+  }
+  .intro_image {
+    max-width: 300px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+  /* .login {
+    overflow: visible;
+  } */
+  .left_side {
+    display: none;
+  }
+  .right_side {
+    width: 100%;
+  }
+  .social_media {
+    top: -150%;
+    left: 70%;
+  }
+  .margin {
+    margin-left: 40px;
+  }
 }

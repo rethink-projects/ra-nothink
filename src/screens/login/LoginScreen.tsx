@@ -31,53 +31,36 @@ const LoginScreen = () => {
     }
   }, [auth, navigate]);
 
-  if (!auth.user) {
-    return (
-      <>
-        <div>
-          <div className={styles.login}>
-            <div className={styles.left_side}>
-              <h1>
-                Anotações rápidas <br></br>para devs!{" "}
-              </h1>
-              <img src={Images.icons.arrow} />
-            </div>
-            <div className={styles.right_side}>
-              <div className={styles.inside}>
-                <img src={Images.logo.default} />
+  return (
+    <>
+      <div>
+        <div className={styles.login}>
+          <div className={styles.left_side}>
+            <h1>
+              Anotações rápidas <br></br>para devs!{" "}
+            </h1>
+            <img src={Images.icons.arrow} />
+          </div>
+          <div className={styles.right_side}>
+            <div className={styles.inside}>
+              <img src={Images.logo.default} className={styles.margin} />
 
-                <p>Escolha sua forma de login</p>
+              <p className={styles.margin}>Escolha sua forma de login</p>
 
-                <div className={styles.login_options}>
-                  <LoginButton
-                    type="google"
-                    underDivider
-                    onClick={handleLogin}
-                  />
-                  <LoginButton
-                    type="github"
-                    
-                    onClick={handleLogin}
-                  />
+              <div className={styles.login_options}>
+                <LoginButton type="google" underDivider onClick={handleLogin} />
+                <LoginButton type="github" onClick={handleLogin} />
 
-                  <div className={styles.social_media}>
-                    <img src={Images.icons.linkedin} />
-                    <img src={Images.icons.instagram} />
-                  </div>
+                <div className={styles.social_media}>
+                  <img src={Images.icons.linkedin} />
+                  <img src={Images.icons.instagram} />
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </>
-    );
-  }
-  return (
-    <div>
-      <h1>Login Screen</h1>
-      <p>{auth.user?.name}</p>
-    </div>
+      </div>
+    </>
   );
 };
-
 export default LoginScreen;
