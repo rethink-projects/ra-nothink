@@ -1,66 +1,33 @@
 import styles from "./LoginScreen.module.css";
-import NavBar from "../../components/NavBar";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import Images from "../../assets";
-import LoginButton from "../../components/ui/loginbuttons/LoginButton";
+import Form from "./components/Form";
+import Intro from "./components/Intro";
+import { TypeProvider } from "../../types";
 
 const LoginScreen = () => {
   let auth = useAuth();
   let navigate = useNavigate();
   // let screenCssPixelRatio = window.outerWidth / window.innerWidth;
 
-  const handleLogin = () => {
-    auth.signin(
-      {
-        name: "Lucas Araújo",
-        avatarUrl: "https://www.github.com/lucaspaula6.png",
-        email: "lucas.paula@rethink.dev",
-      },
-      () => navigate("/dashboard", { replace: true })
-    );
+  const handleLogin = (type: TypeProvider) => {
+    auth.signin(type, () => navigate("/dashboard", { replace: true }));
   };
 
   useEffect(() => {
-    let localStorageUser = localStorage.getItem("@nothink:user");
-    if (localStorageUser) {
-      auth.signin(JSON.parse(localStorageUser), () => {
-        navigate("/dashboard", { replace: true });
-      });
-    }
+    const localStorageUser = JSON.parse(localStorage.getItem("@nothink:user")!);
+    console.log("Antes", auth.user);
+    localStorageUser && auth.setCurrentUser(localStorageUser);
+    console.log("Depois", auth.user);
+    auth.user && navigate("/dashboard", { replace: true });
   }, [auth, navigate]);
 
   return (
-    <>
-      <div>
-        <div className={styles.login}>
-          <div className={styles.left_side}>
-            <h1>
-              Anotações rápidas <br></br>para devs!{" "}
-            </h1>
-            <img src={Images.icons.arrow} />
-          </div>
-          <div className={styles.right_side}>
-            <div className={styles.inside}>
-              <img src={Images.logo.default} className={styles.margin} />
-
-              <p className={styles.margin}>Escolha sua forma de login</p>
-
-              <div className={styles.login_options}>
-                <LoginButton type="google" underDivider onClick={handleLogin} />
-                <LoginButton type="github" onClick={handleLogin} />
-
-                <div className={styles.social_media}>
-                  <img src={Images.icons.linkedin} />
-                  <img src={Images.icons.instagram} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <div className={styles.login}>
+      <Intro />
+      <Form onLogin={handleLogin} />
+    </div>
   );
 };
 export default LoginScreen;

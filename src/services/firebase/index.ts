@@ -4,6 +4,8 @@ import { getFirestore } from "firebase/firestore";
 
 import { firebaseConfig } from "./config";
 
+import { loginWithFirebase } from "./authentication"; 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -11,6 +13,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // console.log({ db });
-const firebaseInstance = { app, db };
+const firebaseInstance = { app, db, loginWithFirebase };
 
 export default firebaseInstance;
