@@ -2,40 +2,19 @@ import styles from "./Form.module.css";
 
 import Images from "../../../../assets";
 
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-import { useAuth } from "../../../../context/AuthContext";
 import Divider from "../Divider/Divider";
 
 import { LoginButton } from "../../../../components";
 
-const Form = () => {
-  let auth = useAuth();
-  let navigate = useNavigate();
+import { TypeProvider } from "../../../../types";
 
-  const handleLogin = () => {
-    auth.signIn(
-      {
-        name: "Gabriel Melo",
-        email: "gabriel.melo@rethink.dev",
-        avatarUrl: "https://github.com/gabsrethink.png",
-      },
-      () => {
-        navigate("/dashboard", { replace: true });
-      }
-    );
-  };
 
-  useEffect(() => {
-    let localStorageUser = localStorage.getItem("@nothink:user");
-    console.log(localStorageUser);
-    if (localStorageUser) {
-      auth.signIn(JSON.parse(localStorageUser), () =>
-        navigate("/dashboard", { replace: true })
-      );
-    }
-  }, [auth, navigate]);
+
+type FormParams = { 
+  onLogin: (type: TypeProvider) => void;
+}
+const Form = ({onLogin}: FormParams) => {
+
 
   return (
     <div className={styles.container}>
@@ -49,9 +28,9 @@ const Form = () => {
           <div className={styles.paragraph}>
             <p>Escolha sua forma de login</p>
           </div>
-          <LoginButton type="google" onClick={handleLogin} />
+          <LoginButton type="google" onClick={() => onLogin("google")} />
           <Divider />
-          <LoginButton type="github" onClick={handleLogin} />
+          <LoginButton type="github" onClick={() => onLogin("github")} />
         </div>
       </div>
     </div>

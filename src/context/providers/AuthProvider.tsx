@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { AuthContext, UserType } from "../AuthContext";
+import firebaseInstance from "../../services/firebase";
+import { ICurrentUser, TypeProvider } from "../../types";
+import { AuthContext } from "../AuthContext";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  let [user, setUser] = useState<UserType>(null!);
+  let [user, setUser] = useState<ICurrentUser>(null!);
 
-  let signIn = (newUser: UserType, callback: VoidFunction) => {
+  let setCurrentUser = (user: ICurrentUser) => {
+    setUser(user);
+  };
+
+  let signIn = async (type: TypeProvider, callback: VoidFunction) => {
+    const newUser = await firebaseInstance.loginWithFirebase(type!);
+    setUser({ ...newUser, type });
     localStorage.setItem("@nothink:user", JSON.stringify(newUser));
-    setUser(newUser);
     callback();
   };
 
@@ -16,7 +23,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     callback();
   };
 
-  let value = { user, signIn, signOut };
+  let value = { user, signIn, signOut, setCurrentUser };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
