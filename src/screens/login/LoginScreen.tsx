@@ -5,6 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 import Form from "./components/Form";
 import Intro from "./components/Intro";
 import { TypeProvider } from "../../types";
+import Images from "../../assets";
 
 const LoginScreen = () => {
   let auth = useAuth();
@@ -23,9 +24,11 @@ const LoginScreen = () => {
     auth.user && navigate("/dashboard", { replace: true });
   }, [auth, navigate]);
 
+
   return (
     <div className={styles.login}>
       <Intro />
+
       <Form onLogin={handleLogin} />
     </div>
   );

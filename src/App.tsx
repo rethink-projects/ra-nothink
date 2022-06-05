@@ -1,16 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Images from "./assets";
 import AuthProvider from "./context/providers/AuthProvider";
+
+//Screens
 import DashboardScreen from "./screens/dashboard/DashboardScreen";
 import LoginScreen from "./screens/login/LoginScreen";
-import RequireAuth from "./services/auth/Auth";
+
+//components
+import { Layout } from "./components";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          <Route path="/">
+          {/* <Route path="/">
             <Route index element={<LoginScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route
@@ -21,6 +24,15 @@ function App() {
                 </RequireAuth>
               }
             />
+          </Route> */}
+
+          <Route path="/">
+            <Route index element={<LoginScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/dashboard" element={<Layout />}>
+              <Route index element={<DashboardScreen />} />
+              <Route path="liked" element={<DashboardScreen />} />
+            </Route>
           </Route>
         </Routes>
       </AuthProvider>
@@ -29,3 +41,11 @@ function App() {
 }
 
 export default App;
+
+const SnnipetScreen = () => {
+  return (
+    <div>
+      <h1>Snnipet Screen</h1>
+    </div>
+  );
+};

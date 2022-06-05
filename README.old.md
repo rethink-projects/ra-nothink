@@ -50,9 +50,9 @@ Vamos criar um sistema que deve permitir que o usuário crie snippets de código
 ✅ Implementar sistema de Autenticação usando `conxtex api`.
 ✅ Implementar Tela de Login. 
 ✅ Implementar Autenticação usando Firebase ( Google e Github ). 
-⬜️ Configurar sub rotas para a aplicação. 
-⬜️ Desafio Header no Dashboard. 
-⬜️ Implementar Header no Dashboard. 
+✅  Configurar sub rotas para a aplicação. 
+✅  Desafio Header no Dashboard. 
+✅ Implementar Header no Dashboard. 
 ⬜️ Implementar Lista de Snippets usando Firestore na tela de Dashboard.
 
 <br>
