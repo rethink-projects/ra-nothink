@@ -12,6 +12,15 @@
   margin: 0;
   color: #ffffff;
   font-weight: 400;
+  font-size: 22px;
+  background: -webkit-linear-gradient(
+    45deg,
+    var(--color-light),
+    var(--color-todark) 80%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
 }
 
 .header_right_side {

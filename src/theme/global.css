@@ -3,6 +3,7 @@
 
 :root {
   --color-dark: #1b1b1b;
+  --color-todark: rgba(91, 91, 91, 0.5);
   --color-light: #ffffff;
   --color-detail: #d3fa3a;
 }
