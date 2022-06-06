@@ -1,11 +1,16 @@
 import React from 'react'
 import Images from '../../../../assets';
 import { Divider, IconButton } from '../../../../components';
+import { TypeProvider } from '../../../../types';
 
 // Styles
 import styles from "./Form.module.css";
 
-function Form() {
+type FormParams = {
+    onLogin: (type: TypeProvider) => void;
+}
+
+function Form({ onLogin }: FormParams) {
     return (
         <div className={styles.form_conatiner}>
             <div className={styles.form_inner}>
@@ -18,9 +23,9 @@ function Form() {
                     <p className={styles.form_texts_main}>Escolha sua forma de login</p>
                 </div>
                 <div className={styles.form_actions}>
-                    <IconButton type="google" />
+                    <IconButton type="google" onClick={() => onLogin("google")} />
                     <Divider />
-                    <IconButton type="github" />
+                    <IconButton type="github" onClick={() => onLogin("github")} />
                 </div>
             </div>
         </div>

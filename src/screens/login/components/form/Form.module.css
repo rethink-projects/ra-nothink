@@ -46,7 +46,7 @@ height: 50px;
 .form_actions{
     display: flex;
     flex-direction: column;
-    margin-top: 38px;
+    margin-top: 10%;
     gap: 26px;
 }
 
