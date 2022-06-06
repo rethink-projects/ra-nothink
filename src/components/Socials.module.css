@@ -1,9 +1,10 @@
 .socials {
   position: absolute;
   display: flex;
-  gap: 16px;
-  right: 160px;
-  top: 59px;
+  gap: 10px;
+  top: 5%;
+  right: 0px;
+  margin-right: 9%;
 }
 
 a img {

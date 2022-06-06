@@ -1,0 +1,44 @@
+.nav_bar {
+  background: var(--color-dark);
+  width: 100vw;
+  height: 61px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav_bar_logo {
+  display: flex;
+  align-self: center;
+  width: 85px;
+  height: 22px;
+}
+.nav_bar_right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 223px;
+}
+.nav_bar_avatar {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+.nav_bar_button {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+
+  padding: 6px 0px;
+  width: 176px;
+  height: 29px;
+  background: var(--color-detail);
+  border-radius: 3px;
+  border: 2px solid var(--color-detail);
+}
+
+.nav_bar_button:hover {
+  border: 2px solid #ffffff;
+}

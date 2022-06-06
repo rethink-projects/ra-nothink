@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthProvider from "./context/providers/AuthProvider";
-import Dashboard from "./screens/dashboard/Dashboard";
+import DashboardScreen from "./screens/dashboard/DashboardScreen";
 import LoginScreen from "./screens/login/LoginScreen";
 import RequireAuth from "./services/auth/Auth";
 
@@ -18,7 +18,7 @@ function App() {
               path="/dashboard"
               element={
                 <RequireAuth>
-                  <Dashboard />
+                  <DashboardScreen />
                 </RequireAuth>
               }
             />

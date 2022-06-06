@@ -1,17 +1,17 @@
-import logo from "./logo.png";
-import arrow from "./arrow.png";
+import logo from "./logo.svg";
+import arrow from "./arrow.svg";
 import Linkedin from "./linkedin.png";
 import GitHub from "./github.png";
 import Instagram from "./instagram.png";
 import Google from "./google.png";
-import Nothink from "./Nothink.png";
+import logoNav from "./logoNav.png";
 
 const Imagens = {
   logo: {
     default: logo,
+    nav: logoNav,
   },
   arrow: arrow,
-  title: Nothink,
   icons: {
     Linkedin,
     GitHub,

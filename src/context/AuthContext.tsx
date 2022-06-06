@@ -1,15 +1,11 @@
 import { createContext, useContext } from "react";
-
-type UserType = {
-  name: string;
-  email: string;
-  avatarUrl: string;
-};
+import { ICurrentUser, TypeProvider } from "../types";
 
 interface AuthContextType {
-  user: UserType;
+  user: ICurrentUser;
   signOut: (callback: VoidFunction) => void;
-  signIn: (newUser: UserType, callback: VoidFunction) => void;
+  signIn: (type: TypeProvider, callback: VoidFunction) => void;
+  setCurrentUser: (user: ICurrentUser) => void;
 }
 
 const AuthContext = createContext<AuthContextType>(null!);
@@ -19,4 +15,3 @@ function useAuth() {
 }
 
 export { useAuth, AuthContext };
-export type { UserType };

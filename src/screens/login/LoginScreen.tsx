@@ -1,49 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginButton from "../../components/LoginButton";
 import { useAuth } from "../../context/AuthContext";
 import Intro from "./components/Intro";
-import Login from "./components/Login";
+import FormLogin from "./components/FormLogin";
 import Styles from "./LoginScreen.module.css";
+import { TypeProvider } from "../../types";
 
 const LoginScreen = () => {
   let auth = useAuth();
   let navigate = useNavigate();
 
-  const handleLogin = () => {
-    auth.signIn(
-      {
-        name: "Gabriel",
-        email: "gabriel.gomes@rethink.dev",
-        avatarUrl: "https://avatars.githubusercontent.com/u/82178938?v=4",
-      },
-      () => navigate("/dashboard", { replace: true })
-    );
+  const handleLogin = (type: TypeProvider) => {
+    auth.signIn(type, () => navigate("/dashboard", { replace: true }));
   };
 
   useEffect(() => {
-    let localStorageUser = localStorage.getItem("@nothink:user");
-    console.log(localStorageUser);
-
+    const localStorageUser = JSON.parse(localStorage.getItem("@nothink:user")!);
     if (localStorageUser) {
-      auth.signIn(JSON.parse(localStorageUser), () =>
-        navigate("/dashboard", { replace: true })
-      );
+      auth.setCurrentUser(localStorageUser);
     }
-  }, [auth, navigate]);
+    if (auth.user) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [navigate, auth]);
 
-  if (!auth.user) {
-    return (
-      <div className={Styles.LoginContainer}>
-        <Intro />
-        <Login login={handleLogin} />
-      </div>
-    );
-  }
   return (
-    <div>
-      <h1>LoginScreen</h1>
-      <p>{auth.user?.name}</p>
+    <div className={Styles.login_container}>
+      <Intro />
+      <FormLogin onLogin={handleLogin} />
     </div>
   );
 };
