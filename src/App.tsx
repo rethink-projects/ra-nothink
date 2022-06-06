@@ -1,8 +1,9 @@
-import Images from "./assets";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//components
 import { LoginScreen } from "./screens/login/LoginScreen";
 import { DashboardScreen } from "./screens/dashboard/DashboardScreen";
-import { RequireAuth } from "./services/auth/Auth";
+import { Layout } from "./components";
 
 function App() {
   return (
@@ -11,14 +12,9 @@ function App() {
         <Route path="/">
           <Route index element={<LoginScreen />} />
           <Route path="/login" element={<LoginScreen />} />
-          <Route
-            path="/dashboard"
-            element={
-              <RequireAuth>
-                <DashboardScreen />
-              </RequireAuth>
-            }
-          />
+          <Route path="/dashboard" element={<Layout />}>
+            <Route index element={<DashboardScreen />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
