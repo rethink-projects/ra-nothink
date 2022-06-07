@@ -1,6 +1,6 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../context/AuthContext';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/AuthContext";
 
 const DashboardScreen = () => {
   let auth = useAuth();
@@ -8,7 +8,7 @@ const DashboardScreen = () => {
 
   const onSignout = () => {
     auth.signout(() => navigate("/"));
-  }
+  };
 
   return (
     <div>
@@ -16,7 +16,7 @@ const DashboardScreen = () => {
       <h2>{auth.user.email}</h2>
       <button onClick={onSignout}>Fazer Logout</button>
     </div>
-  )
-}
+  );
+};
 
-export default DashboardScreen
+export default DashboardScreen;
