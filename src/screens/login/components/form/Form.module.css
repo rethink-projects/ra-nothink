@@ -1,0 +1,107 @@
+.form_container {
+  /* flex: 1 vai ocupar todo espaço que ele puder */
+  flex: 1;
+}
+
+.form_inner {
+  margin-left: 112px;
+  height: 100%;
+  margin-right: 152px;
+}
+
+.form_social {
+  display: flex;
+  padding-top: 60px;
+  justify-content: flex-end;
+  align-items: center;
+  /* distância entre os dois */
+  gap: 10px;
+}
+
+.form_social_icon {
+  cursor: pointer;
+}
+
+.form_texts {
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+}
+
+.form_texts_logo {
+  width: 152px;
+  height: 50px;
+}
+
+.form_texts_main {
+  font-size: 24px;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+.form_actions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 38px;
+  gap: 26px;
+}
+
+.form_actions_google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 464px;
+  height: 60px;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: 4.4px;
+}
+
+.form_actions_google:hover {
+  background-color: var(--color-button-opacity);
+}
+
+.form_actions_google_image {
+  margin-right: 10px;
+}
+
+.form_actions_github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 464px;
+  height: 60px;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: 4.4px;
+}
+
+.form_actions_github:hover {
+  background-color: var(--color-button-opacity-dark);
+}
+
+.form_actions_github_image {
+  margin-right: 10px;
+}
+
+.form_action_divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.divider {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border);
+}

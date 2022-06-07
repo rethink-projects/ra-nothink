@@ -2,7 +2,11 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
+// styles
+import styles from "./Login.module.css";
+
 // Components
+import Form from "./components/form/Form";
 import Intro from "./components/intro/Intro";
 
 const LoginScreen = () => {
@@ -32,27 +36,10 @@ const LoginScreen = () => {
     }
   }, []);
 
-  // if (!auth.user) {
-  //   return (
-  //     <div>
-  //       <h1>Login Screen</h1>
-  //       <button onClick={handleLogin}>Fazer login</button>
-  //     </div>
-  //   );
-  // }
-  // return (
-  //   <div>
-  //     <h1>Login Screen</h1>
-  //     <p>{auth.user?.name}</p>
-  //   </div>
-  // );
   return (
-    <div>
-      {/* <h1>Login Screen</h1> */}
-      {/* <button onClick={handleLogin}>Fazer login</button> */}
-      {/* {auth.user && <p>{auth.user?.name}</p>}
-      {!auth.user && <button onClick={handleLogin}>Fazer login</button>} */}
+    <div className={styles.login_container}>
       <Intro />
+      <Form />
     </div>
   );
 };
