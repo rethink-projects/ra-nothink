@@ -8,6 +8,7 @@
   --color-border: rgba(0, 0, 0, 0.4);
   --color-button-opacity: #f4f2f2;
   --color-button-opacity-dark: #1b1b1be8;
+  --color-hover-button: #d4fa3ac7;
 }
 
 * {

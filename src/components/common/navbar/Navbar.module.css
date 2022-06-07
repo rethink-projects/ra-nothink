@@ -10,11 +10,15 @@
   background-color: #1b1b1b;
   display: flex;
   justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
-.navbar img {
-  padding-left: 160px;
+.logoImage {
+  margin-left: 160px;
   width: 85px;
+  height: 26px;
+  cursor: pointer;
 }
 
 .navbuttons {
@@ -23,7 +27,7 @@
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-between;
-  padding-right: 152px;
+  margin-right: 152px;
 }
 
 .navbuttons img {
@@ -33,6 +37,7 @@
   border: 1px solid #ffffff;
   border-radius: 50%;
 }
+
 
 .button {
   display: flex;

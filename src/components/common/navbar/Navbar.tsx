@@ -1,33 +1,41 @@
 import Images from "../../../assets";
 import styles from "./Navbar.module.css";
 
-import { useNavigate } from "react-router-dom";
+//context
 import { useAuth } from "../../../context/AuthContext";
 
-import {GeneralButton} from "../..";
-import { ICurrentUser } from "../../../types";
+//component
+import { GeneralButton } from "../..";
 
+import { useNavigate } from "react-router-dom";
+
+import { ICurrentUser } from "../../../types";
 
 const Navbar = () => {
   const auth = useAuth();
   const currentUser: ICurrentUser = auth.user;
   let navigate = useNavigate();
 
-  if(!currentUser){
-    return <p>Carregando...</p>
+  if (!currentUser) {
+    return <p>Carregando...</p>;
   }
-
-  const onSignout = () => {
-    auth.signOut(() => navigate("/"));
-  };
 
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
-        <img src={Images.logo.navbarLogo} alt="" />
+        <img
+          className={styles.logoImage}
+          src={Images.logo.navbarLogo}
+          alt="Nothink Header Logo"
+          onClick={() => navigate("/dashboard")}
+        />
         <div className={styles.navbuttons}>
-          <img src={currentUser.avatarUrl} alt="" />
-          <GeneralButton onClick={onSignout} children="Logout"/>
+          <img src={currentUser.avatarUrl} alt="User" />
+          <GeneralButton
+            onClick={() => navigate("/dashboard/create")}
+            children="Criar Snnipet"
+            height="29px"
+          />
         </div>
       </div>
     </div>

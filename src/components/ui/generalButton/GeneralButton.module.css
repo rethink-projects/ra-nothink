@@ -1,18 +1,23 @@
 .generalButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 6px 42px;
-    gap: 8.18px;
-    width: 176px;
-    height: 34px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 120%;
-    letter-spacing: -0.02em;
-    color: var(--color-dark);
-    background: var(--color-detail);
-    border-radius: 3px;
-    cursor: pointer;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8.18px;
+  width: 176px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+  background: var(--color-detail);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-style: normal;
+}
+
+.generalButton:hover {
+  background: var(--color-hover-button)
+}
