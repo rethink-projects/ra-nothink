@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
+// login components
+import Intro from "./components/intro/Intro";
+
 export default function LoginScreen() {
   let auth = useAuth();
   let navigate = useNavigate();
@@ -27,18 +30,9 @@ export default function LoginScreen() {
     }
   }, [auth, navigate]);
 
-  if (!auth.user) {
-    return (
-      <div>
-        <h1>LoginScreen</h1>
-        <button onClick={handleLogin}>Fazer Login</button>
-      </div>
-    );
-  }
   return (
     <div>
-      <h1>LoginScreen</h1>
-      <p>{auth.user?.name}</p>
+      <Intro />
     </div>
   );
 }
