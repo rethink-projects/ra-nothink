@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+import navLogo from "./Nothink.svg";
 import githubIcon from "./github.png";
 import intro from "./arrow.png";
 import googleIcon from "./google.png";
@@ -8,7 +9,8 @@ import linkedinIcon from "./linkedin.png";
 
 const Images = {
     logo: {
-        default: logo
+        default: logo,
+        navbar: navLogo
     },
     intro: intro,
     icons: {
