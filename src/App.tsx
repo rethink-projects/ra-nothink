@@ -1,9 +1,9 @@
-import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./components/common/Layout/Layout";
 import AuthProvider from "./context/providers/AuthProvider";
+import Add from "./screens/dashboard/Add";
 import DashboardScreen from "./screens/dashboard/DashboardScreen";
 import LoginScreen from "./screens/login/LoginScreen";
-import RequireAuth from "./services/auth/Auth";
 
 function App() {
   return (
@@ -12,16 +12,12 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<LoginScreen />} />
-            <Route path="/login" element={<LoginScreen />} />
 
-            <Route
-              path="/dashboard"
-              element={
-                <RequireAuth>
-                  <DashboardScreen />
-                </RequireAuth>
-              }
-            />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/dashboard" element={<Layout />}>
+              <Route index element={<DashboardScreen />} />
+              <Route path="add" element={<Add />} />
+            </Route>
           </Route>
         </Routes>
       </AuthProvider>

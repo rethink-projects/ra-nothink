@@ -1,12 +1,16 @@
-import Imagens from "../assets";
+import { useNavigate } from "react-router-dom";
+import Imagens from "../../../assets";
 
-import { ICurrentUser } from "../types";
-import Styles from "./NavBar.module.css";
+import { ICurrentUser } from "../../../types";
+import Styles from "./Header.module.css";
 
-const NavBar = () => {
+const Header = () => {
   let localStorageUser: ICurrentUser = JSON.parse(
     localStorage.getItem("@nothink:user") || ""
   );
+  let navigate = useNavigate();
+
+  console.log({ localStorageUser });
 
   return (
     <div className={Styles.nav_bar}>
@@ -22,10 +26,16 @@ const NavBar = () => {
           src={localStorageUser.avatarUrl}
           alt="User Imagem"
         />
-        <button className={Styles.nav_bar_button}>Criar Snnipet</button>
+
+        <button
+          className={Styles.nav_bar_button}
+          onClick={() => navigate("add")}
+        >
+          Criar Snnipet
+        </button>
       </div>
     </div>
   );
 };
 
-export default NavBar;
+export default Header;

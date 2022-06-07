@@ -25,6 +25,7 @@
   border: 2px solid #ffffff;
 }
 .nav_bar_button {
+  appearance: none;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
