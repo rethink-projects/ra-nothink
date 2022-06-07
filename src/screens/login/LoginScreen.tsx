@@ -2,8 +2,12 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
+//Styles
+import styles from "./Login.module.css";
+
 //Components
 import Intro from "./components/intro/Intro";
+import Form from "./components/form/Form";
 
 export default function LoginScreen() {
   let auth = useAuth();
@@ -31,8 +35,9 @@ export default function LoginScreen() {
   }, [auth, navigate]);
 
   return (
-    <div>
+    <div className={styles.login_container}>
       <Intro />
+      <Form />
     </div>
   );
 }
