@@ -17,8 +17,7 @@ export default function DashboardScreen() {
 
   return (
     <div>
-      <h1>{currentUser.name}</h1>
-      <h1>{currentUser.email}</h1>
+      <h1>Tela de Dashboard / Outlet </h1>
       <button onClick={onSignout}> Fazer Logout</button>
     </div>
   );

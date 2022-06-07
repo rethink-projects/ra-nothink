@@ -1,0 +1,17 @@
+.defaultButton {
+  width: 180px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: var(--color-detail);
+  color: var(--color-dark);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: none;
+  appearance: none;
+}
+
+.defaultButton:hover {
+  transform: translateY(-3px);
+}

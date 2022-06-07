@@ -1,0 +1,34 @@
+.header_container {
+  background-color: var(--color-dark);
+  width: 100%;
+  height: 60px;
+}
+
+.header_inner {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header_logo {
+  width: 100px;
+}
+
+.header_actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.header_user_avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--color-light);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.header_user_avatar:hover {
+  transform: translateY(-3px);
+}
