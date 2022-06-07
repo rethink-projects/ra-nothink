@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-// import { LocationParams } from "../../types";
+
+// Components
+import Intro from "./components/intro/Intro";
 
 const LoginScreen = () => {
   let auth = useAuth();
   let navigate = useNavigate();
-  // let location: LocationParams = useLocation();
-  // pega onde o usuár'io estava
-  // let from = location.state?.from?.path || "/";
 
   const handleLogin = () => {
     auth.signin(
@@ -49,9 +48,11 @@ const LoginScreen = () => {
   // );
   return (
     <div>
-      <h1>Login Screen</h1>
-      {auth.user && <p>{auth.user?.name}</p>}
-      {!auth.user && <button onClick={handleLogin}>Fazer login</button>}
+      {/* <h1>Login Screen</h1> */}
+      {/* <button onClick={handleLogin}>Fazer login</button> */}
+      {/* {auth.user && <p>{auth.user?.name}</p>}
+      {!auth.user && <button onClick={handleLogin}>Fazer login</button>} */}
+      <Intro />
     </div>
   );
 };
