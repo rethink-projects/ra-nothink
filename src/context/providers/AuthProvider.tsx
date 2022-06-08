@@ -10,7 +10,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
         setUser(user);
     }
 
-
     let signin = async (type: TypeProvider, callback: VoidFunction) => {
         const newUser = await firebaseInstance.loginWithFireBase(type);
         setUser({ ...newUser, type });

@@ -19,7 +19,6 @@ export default function DashBoardScreen() {
     return (
         <div>
             <h1>DashBoard Screen</h1>
-            <h2>{auth.user.email}</h2>
             <button onClick={onSignout}>Fazer Logout</button>
         </div>
     )

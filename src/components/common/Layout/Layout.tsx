@@ -1,40 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink, Outlet } from 'react-router-dom';
-import { useAuth } from '../../../context/AuthContext'
+import { Outlet } from 'react-router-dom';
 import RequireAuth from '../../../services/auth/Auth';
+import Header from '../Header/Header';
 
-import styles from "./Layout.module.css";
 
-import Images from "../../../assets/index"
-import { ICurrentUser } from '../../../types';
-import DefaultButton from '../../ui/DefaultButton/DefaultButton';
+// Components
+import Wrapper from '../Wrapper/Wrapper';
 
 const Layout = () => {
-    const auth = useAuth();
-
-    const currentUser: ICurrentUser = auth.user;
-
-
 
     return (
         <RequireAuth>
             <>
-                <nav className={styles.navbar}>
-                    <div className={styles.content}>
+                <Header />
 
-                        <NavLink to="/dashboard">
-                            <img src={Images.logo.navbar} alt="" />
-                        </NavLink>
+                <Wrapper>
+                    <Outlet />
+                </Wrapper>
 
-                        <div className={styles.options}>
-                            {currentUser && <img src={currentUser.avatarUrl} alt="foto usuário" />}
-                            <DefaultButton text="Criar Snnipet" />
-                        </div>
-                    </div>
-
-                </nav>
-
-                <Outlet />
             </>
         </RequireAuth>
     )

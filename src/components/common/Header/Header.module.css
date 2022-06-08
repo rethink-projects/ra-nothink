@@ -1,0 +1,32 @@
+.navbar{
+    width: 100%;
+    margin-bottom: 80px;
+    height: 60px;
+
+    background-color: var(--color-dark);
+}
+
+.content{
+    
+    height: 60px;
+
+
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.options img{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--color-light);
+}
