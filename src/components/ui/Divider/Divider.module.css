@@ -1,0 +1,18 @@
+.divider_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.divider{
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-border);
+}
+
+.divider_text{
+    font-size: 18px;
+    color: var(--color-dark);
+    font-weight: 500;
+}
