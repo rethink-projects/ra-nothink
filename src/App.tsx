@@ -5,9 +5,8 @@ function App() {
   return (
     <div>
       <img src={Images.logo.default} alt="logo padrão nothink" />
-      <h3>Anotações rápidas para devs!</h3>
     </div>
-  )
+  );
 }
 
 export default App;
