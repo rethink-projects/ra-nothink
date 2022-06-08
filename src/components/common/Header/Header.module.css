@@ -22,8 +22,14 @@
   width: 29px;
   height: 29px;
   border-radius: 50%;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--color-light);
 }
+.nav_bar_avatar:hover {
+  transform: translateY(-3px);
+  border: 2px solid var(--color-detail);
+  transition: transform 0.3s ease;
+}
+
 .nav_bar_button {
   appearance: none;
   font-family: "Roboto";
@@ -42,4 +48,6 @@
 
 .nav_bar_button:hover {
   border: 2px solid #ffffff;
+  transform: translateY(-3px);
+  transition: transform 0.3s ease;
 }
