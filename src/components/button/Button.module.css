@@ -1,0 +1,31 @@
+.defaultButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap:8px;
+    width: 12vw;
+    max-width: 176px;
+    /* height: 4vh; */
+    height: 29px;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-detail);
+
+    font-size: 14;
+    font-weight: 500;
+}
+
+.defaultMidButton{
+    height: 34px;
+}
+
+.defaultBigButton{
+    width: 272px;
+    height: 58px;
+    gap: 11.15px;
+}
+
+.lightButton{
+    background-color: var(--color-light);
+}

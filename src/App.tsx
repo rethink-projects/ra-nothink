@@ -1,9 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Images from "./assets";
+
+// Screens
 import AuthProvider from "./context/providers/AuthProvider";
 import DashboardScreen from "./screens/dashboard/DashboardScreen";
 import LoginScreen from "./screens/login/LoginScreen";
-import RequireAuth from "./services/auth/Auth";
+
+// Components
+import { Layout } from "./components";
 
 function App() {
   return (
@@ -13,14 +16,9 @@ function App() {
           <Route path="/">
             <Route index element={<LoginScreen />} />
             <Route path="/login" element={<LoginScreen />} />
-            <Route
-              path="/dashboard"
-              element={
-                <RequireAuth>
-                  <DashboardScreen />
-                </RequireAuth>
-              }
-            />
+            <Route path="/dashboard" element={<Layout />}>
+              <Route index element={<DashboardScreen />} />
+            </Route>
           </Route>
         </Routes>
       </AuthProvider>

@@ -1,0 +1,30 @@
+.header_container{
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-dark);
+    align-items: center;
+    align-content: center;
+    /* height: 7.5vh; */
+    height: 61px;
+    width: 100vw;
+}
+
+.header_intern_container{
+    display: flex;
+    width: 78%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_assets{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header_avatar{
+    max-height: 25px;
+    max-width: 25px;
+    border-radius: 100%;
+    border: 2px solid var(--color-light);
+}

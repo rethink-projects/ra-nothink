@@ -8,36 +8,32 @@ import styles from "./Login.module.css";
 // login components
 import Intro from "./components/intro/Intro";
 import Form from "./components/form/Form";
+import { ICurrentUser, TypeProvider } from "../../types";
 
 export default function LoginScreen() {
   let auth = useAuth();
   let navigate = useNavigate();
 
-  const handleLogin = () => {
-    auth.signin(
-      {
-        name: "Felipe Reggiane",
-        avatarUrl: "https://www.github.com/FelipeReggiane.png",
-        email: "felipe.reggiane@rethink.dev",
-      },
-      () => navigate("/dashboard", { replace: true })
-    );
+  const handleLogin = (type: TypeProvider) => {
+    auth.signin(type, () => navigate("/dashboard", { replace: true }));
   };
 
   useEffect(() => {
-    let localStorageUser = localStorage.getItem("@nothink:user");
-    console.log({ localStorageUser });
-    if (localStorageUser) {
-      auth.signin(JSON.parse(localStorageUser), () =>
-        navigate("/dashboard", { replace: true })
-      );
+    const localStorageUser = JSON.parse(localStorage.getItem("@nothink:user")!);
+    console.log("antes", auth.user);
+    if(localStorageUser){
+      auth.setCurrentUser(localStorageUser);
+    }
+    console.log("depois", auth.user);
+    if(auth.user){
+      navigate("/dashboard", { replace: true });
     }
   }, [auth, navigate]);
 
   return (
     <div className={styles.login_container}>
       <Intro />
-      <Form />
+      <Form onLogin={handleLogin} />
     </div>
   );
 }
