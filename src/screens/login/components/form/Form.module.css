@@ -1,16 +1,21 @@
 .form_container {
+    display: flex;
     flex: 1;
+    justify-content: center;
 }
 
 .form_inner {
-    margin-left: 112px;
-    margin-right: 152px;
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    margin-right: 10.9%;
+    margin-left: 10.9%;
     height: 100%;
 }
 
 .form_social {
     display: flex;
-    padding-top: 60px;
+    padding-top: 10%;
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
@@ -23,7 +28,7 @@
 .form_texts {
     display: flex;
     flex-direction: column;
-    padding-top: 150px;
+    padding-top: 30%;
     gap: 38px;
 }
 
@@ -41,6 +46,21 @@
 .form_actions {
     display: flex;
     flex-direction: column;
-    margin-top: 38px;
+    margin-top: 10%;
     gap: 26px;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1500px) {
+    .form_inner {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+    }
+
+    .form_texts {
+        display: flex;
+        flex-direction: column;
+        gap: 38px;
+        padding-top: 23%;
+    }
 }
