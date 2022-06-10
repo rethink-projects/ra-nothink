@@ -16,8 +16,9 @@
   cursor: pointer;
   font-family: "Roboto";
   font-style: normal;
+  transition: transform 0.3s ease;
 }
 
 .generalButton:hover {
-  background: var(--color-hover-button)
+  transform:translateY(-3px)
 }

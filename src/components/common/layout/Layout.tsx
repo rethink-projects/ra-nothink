@@ -1,29 +1,28 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 
 //components
-import { Navbar } from '../..';
+import { Navbar } from "../..";
 
 //context
-import { useAuth } from '../../../context/AuthContext'
+import { useAuth } from "../../../context/AuthContext";
 
-import { RequireAuth } from '../../../services/auth/Auth';
-
-
-
+import { RequireAuth } from "../../../services/auth/Auth";
+import Wrapper from "../wrapper/Wrapper";
 
 const Layout = () => {
-    const auth = useAuth();
-    console.log({auth})
-
+  const auth = useAuth();
+  console.log({ auth });
 
   return (
-      <RequireAuth>
-          <>
-          <Navbar/>
-          <Outlet/>
-          </>
-      </RequireAuth>
-  )
-}
+    <RequireAuth>
+      <>
+        <Navbar />
+        <Wrapper>
+          <Outlet />
+        </Wrapper>
+      </>
+    </RequireAuth>
+  );
+};
 
-export default Layout
+export default Layout;

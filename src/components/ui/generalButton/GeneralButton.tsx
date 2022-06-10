@@ -2,14 +2,14 @@ import styles from "./GeneralButton.module.css";
 
 interface Props {
   onClick?: () => void;
-  children?: React.ReactNode;
+  text?: string;
   height?: string;
 }
 
-const GeneralButton: React.FC<Props> = ({ onClick, children, height }) => {
+const GeneralButton: React.FC<Props> = ({ onClick, text, height }) => {
   return (
     <button onClick={onClick} className={styles.generalButton} style={{height}}>
-      {children}
+      {text}
     </button>
   );
 };

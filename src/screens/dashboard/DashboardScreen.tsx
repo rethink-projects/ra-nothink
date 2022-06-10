@@ -27,7 +27,7 @@ export const DashboardScreen = () => {
       <h1>Dashboard Screen</h1>
       <h2>{currentUser.name}</h2>
       <h2>{currentUser.email}</h2>
-      <GeneralButton onClick={onSignout} children="Logout" height="34px" />
+      <GeneralButton onClick={onSignout} text="Logout" height="34px" />
     </div>
   );
 };

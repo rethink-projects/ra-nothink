@@ -10,6 +10,7 @@ import { GeneralButton } from "../..";
 import { useNavigate } from "react-router-dom";
 
 import { ICurrentUser } from "../../../types";
+import Wrapper from "../wrapper/Wrapper";
 
 const Navbar = () => {
   const auth = useAuth();
@@ -21,23 +22,25 @@ const Navbar = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.navbar}>
-        <img
-          className={styles.logoImage}
-          src={Images.logo.navbarLogo}
-          alt="Nothink Header Logo"
-          onClick={() => navigate("/dashboard")}
-        />
-        <div className={styles.navbuttons}>
-          <img src={currentUser.avatarUrl} alt="User" />
-          <GeneralButton
-            onClick={() => navigate("/dashboard/create")}
-            children="Criar Snnipet"
-            height="29px"
+    <div className={styles.navbar_container}>
+      <Wrapper>
+        <div className={styles.navbar_main}>
+          <img
+            className={styles.navbar_logoImage}
+            src={Images.logo.navbarLogo}
+            alt="Nothink Header Logo"
+            onClick={() => navigate("/dashboard")}
           />
+          <div className={styles.navbar_navbuttons}>
+            <img src={currentUser.avatarUrl} alt="User" />
+            <GeneralButton
+              onClick={() => navigate("create")}
+              text="Criar Snnipet"
+              height="29px"
+            />
+          </div>
         </div>
-      </div>
+      </Wrapper>
     </div>
   );
 };
