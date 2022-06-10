@@ -1,6 +1,11 @@
-// CSS
+// Assets
 import Images from "../../../../assets";
+
+// CSS
 import styles from "./Form.module.css";
+
+// Components
+import { IconButton, Divider } from "../../../../components";
 
 const Form = () => {
   return (
@@ -27,27 +32,34 @@ const Form = () => {
           <p className={styles.form_texts_main}>Escolha a forma de Login</p>
         </div>
         <div className={styles.form_actions}>
-          <button className={styles.form_actions_google}>
+          <IconButton type="google" />
+
+          {/* Objetivo: limpar o código. Separar em classes */}
+
+          {/* <button className={styles.form_actions_google}>
             <img
               className={styles.form_actions_google_img}
               src={Images.icons.google}
               alt="Google Icon"
             />
             Entrar com Google
-          </button>
-          <div className={styles.form_action_divider}>
+          </button> */}
+          {/* <div className={styles.form_action_divider}>
             <div className={styles.divider} />
             <p className={styles.divider_text}>ou</p>
             <div className={styles.divider} />
-          </div>
-          <button className={styles.form_actions_github}>
+          </div> */}
+          <Divider />
+          {/* <button className={styles.form_actions_github}>
             <img
               className={styles.form_actions_github_img}
               src={Images.icons.github}
               alt="Github Icon"
             />
             Entrar com Github
-          </button>
+          </button> */}
+          <IconButton type="github" />
+          {/* <IconButton type="github" isDark/> */}
         </div>
       </div>
     </div>

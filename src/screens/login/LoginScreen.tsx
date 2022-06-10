@@ -15,7 +15,7 @@ export default function LoginScreen() {
   let navigate = useNavigate();
   let location: LocationParams = useLocation();
 
-  let from = location.state?.from?.path || "/";
+  // let from = location.state?.from?.path || "/";
 
   const handleLogin = () => {
     auth.signin(
