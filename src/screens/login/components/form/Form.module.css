@@ -1,0 +1,105 @@
+.form_container {
+    flex: 1;
+}
+
+.form_inner {
+    margin-left: 112px;
+    margin-right: 152px;
+    height: 100%;
+}
+
+.form_social {
+    display: flex;
+    padding-top: 60px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.form_social_icon {
+    cursor: pointer;
+}
+
+.form_texts {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    padding-top: 150px;
+}
+
+.form_texts_logo {
+    width: 152px;
+    height: 50px;
+}
+
+.form_texts_main {
+    font-size: 24px;
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+.form_actions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 38px;
+    gap: 26px;
+}
+
+.form_actions_google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4.4px;
+    cursor: pointer;
+    width: 464px;
+    height: 60px;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+}
+
+.form_actions_google:hover {
+    background-color: var(--color-button-opacity);
+}
+
+.form_actions_google_img {
+    margin-right: 10px;
+}
+
+.form_actions_github {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4.4px;
+    cursor: pointer;
+    width: 464px;
+    height: 60px;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+}
+
+.form_actions_github:hover {
+    background-color: var(--color-button-opacity-dark);
+}
+
+.form_actions_github_img {
+    margin-right: 10px;
+}
+
+.form_actions_divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.divider {
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-border);
+}
