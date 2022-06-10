@@ -47,7 +47,11 @@ Vamos criar um sistema que deve permitir que o usuário crie snippets de código
 ✅ Configurar Firebase e Firestore.\
 ✅ Configurar deploy na vercel.\
 ✅ Implementar sistema de rotas usando `react-router-dom.`\
-⬜️ Implementar sistema de Autenticação usando `conxtex api`.
+✅ Implementar sistema de Autenticação usando `conxtex api`.
+✅ Implementar Tela de Login.
+✅ Implementar Autenticação usando Firebase (Google e Gitgub).
+⬜️ Implementar Header no Dashboard.
+⬜️ Implementar Lista de Snippets usando Firestore na tela de Dashboard.
 
 <br>
 
