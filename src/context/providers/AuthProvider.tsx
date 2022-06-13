@@ -3,7 +3,7 @@ import firebaseInstance from "../../services/firebase";
 import { ICurrentUser, TypeProvider } from "../../types";
 import { AuthContext } from "../AuthContext";
 
-function AuthProvider({ children }: { children: React.ReactNode }) {
+const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<ICurrentUser>(null!);
 
   const setCurrentUser = (user: ICurrentUser) => {
@@ -25,6 +25,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   const value = { user, signin, signout, setCurrentUser };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+};
 
 export default AuthProvider;

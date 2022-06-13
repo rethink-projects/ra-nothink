@@ -1,0 +1,53 @@
+.allbuttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn_detail {
+  background-color: var(--color-detail);
+  color: var(--color-dark);
+}
+.btn_light {
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+.btn_dark {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+.btn_danger {
+  color: var(--color-light);
+  background-color: var(--color-danger);
+}
+.btn_mini {
+  width: 50px;
+  height: 34px;
+}
+.btn_small {
+  width: 150px;
+  height: 27px;
+}
+.btn_medium {
+  width: 200px;
+  height: 34px;
+  gap: 8px;
+}
+.btn_large {
+  width: 480px;
+  height: 60px;
+  gap: 12px;
+}
+
+.btn_large img {
+  width: 28px;
+}
+.btn_medium img {
+  width: 13.5px;
+}
+.btn_mini img {
+  width: 18px;
+}
