@@ -5,7 +5,7 @@ import Divider from "../../ui/loginbuttons/Divider";
 //
 
 type ButtonsProps = {
-  image?: "github" | "google" | "check" | "cancel" | "share" | "delete"; //image
+  image?: "github" | "google" | "check" | "cancel" | "share" | "del"; //image
   underDivider?: boolean; //divider for different buttons
   size: "mini" | "small" | "medium" | "large" | "almostmedium";
   color: "detail" | "light" | "dark" | "danger";
@@ -26,46 +26,14 @@ const Buttons = ({
   return (
     <>
       <button
-        className={
-          styles.allbuttons +
-          " " +
-          extrabehavior +
-          " " +
-          (size === "small"
-            ? styles.btn_small
-            : size === "medium"
-            ? styles.btn_medium
-            : size === "almostmedium"
-            ? styles.btn_almost_medium
-            : styles.btn_large) +
-          " " +
-          (color === "detail"
-            ? styles.btn_detail
-            : color === "danger"
-            ? styles.btn_danger
-            : color === "light"
-            ? styles.btn_light
-            : styles.btn_dark)
-        }
-        onClick={onClick}
+        className={[
+          styles.allbuttons,
+          styles["btn_" + size],
+          styles["btn_" + color],
+          extrabehavior,
+        ].join(" ")}
       >
-        {image && (
-          <img
-            src={
-              image === "github"
-                ? Images.icons.github
-                : image === "google"
-                ? Images.icons.google
-                : image === "check"
-                ? Images.icons.check
-                : image === "delete"
-                ? Images.icons.del
-                : image === "share"
-                ? Images.icons.share
-                : Images.icons.del
-            }
-          />
-        )}
+        {image && <img src={Images.icons[image]} />}
         <span>{text}</span>
       </button>
 
