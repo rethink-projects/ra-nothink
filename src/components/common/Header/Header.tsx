@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 
 
 // Images
@@ -17,15 +17,26 @@ import { useAuth } from '../../../context/AuthContext';
 import Wrapper from "../Wrapper/Wrapper";
 import DefaultButton from '../../ui/DefaultButton/DefaultButton';
 import { usePageActive } from "../../../hooks";
+import { useState } from "react";
 
 
 const Header = () => {
-
+    const [isFormOpen, toggleForm] = useState(false);
     const auth = useAuth();
     const isPageActive = usePageActive();
+    const navigate = useNavigate();
 
     const currentUser: ICurrentUser = auth.user;
 
+    const handleClick = () => {
+        isPageActive ? toggleForm(!isFormOpen) : navigate("add");
+    }
+
+    const onSubmitCategory = () => {
+        toggleForm(!isFormOpen);
+    }
+
+    const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria"
 
     return (
         <nav className={isPageActive ? styles.header_container_active : styles.header_container_off}>
@@ -39,7 +50,13 @@ const Header = () => {
 
                     <div className={styles.options}>
                         {currentUser && <img src={currentUser.avatarUrl} alt="foto usuário" />}
-                        <DefaultButton text="Criar Snnipet" />
+                        <DefaultButton onClick={handleClick} text={isPageActive ? headerButtonText : "Criar Snnipets"} />
+
+
+                        <div className={isFormOpen ? styles.header_modal_container : styles.header_modal_container_off}>
+                            <input className={styles.header_modal_input} placeholder="Digite o nome para essa categoria" name="category" type="text" />
+                            <DefaultButton text="Salvar" onClick={onSubmitCategory} />
+                        </div>
                     </div>
                 </div>
 
