@@ -17,7 +17,6 @@ function App() {
               <Route path='/login' element={<LoginScreen />} />
               <Route path="/dashboard" element={<Layout />}>
                 <Route index element={<DashBoardScreen />} />
-                <Route path="liked" />
               </Route>
             </Route>
           </Routes>

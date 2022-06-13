@@ -9,8 +9,9 @@
     cursor: pointer;
     border: none;
     appearance: none;
-  }
+    transition: transform 0.3s ease;
+}
 
-  .defaultButton:hover{
-    border: 1px solid var(--color-light);
-  }
+.defaultButton:hover{
+    transform: translateY(-3px);
+}
