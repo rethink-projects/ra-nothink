@@ -1,0 +1,1 @@
+export { usePageActive } from "./usePageActive";
