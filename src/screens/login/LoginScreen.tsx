@@ -8,35 +8,30 @@ import styles from "./Login.module.css";
 // Components
 import Intro from "./components/intro/Intro";
 import Form from "./components/form/Form";
+import { TypeProvider } from "../../types";
 
 export default function LoginScreen() {
   let auth = useAuth();
   let navigate = useNavigate();
 
-  const handleLogin = () => {
-    auth.signin(
-      {
-        name: "Carolina Valeriano",
-        avatarUrl: "https://www.github.com/carolinavaleriano.png",
-        email: "carolina.valeriano@rethink.dev",
-      },
-      () => navigate("/dashboard", { replace: true })
-    );
+  const handleLogin = (type: TypeProvider) => {
+    auth.signin(type, () => navigate("/dashboard", { replace: true }));
   };
 
   useEffect(() => {
-    let localStorageUser = localStorage.getItem("@nothink:user");
+    const localStorageUser = JSON.parse(localStorage.getItem("@nothink:user")!);
     if (localStorageUser) {
-      auth.signin(JSON.parse(localStorageUser), () =>
-        navigate("/dashboard", { replace: true })
-      );
+      auth.setCurrentUser(localStorageUser);
+    }
+    if (auth.user) {
+      navigate("/dashboard", { replace: true });
     }
   }, [auth, navigate]);
 
   return (
-    <div className={styles.login_container} >
+    <div className={styles.login_container}>
       <Intro />
-      <Form />
+      <Form onLogin={handleLogin} />
     </div>
   );
 }

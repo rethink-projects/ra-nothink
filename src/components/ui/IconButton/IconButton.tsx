@@ -9,7 +9,7 @@ type IconButtonProps = {
 
 function IconButton({ type, onClick }: IconButtonProps) {
   const defaultIconClass =
-    type == "github"
+    type == "google"
       ? styles.defaultIconButton
       : `${styles.defaultIconButton} ${styles.darkButtonClass}`;
   return (
