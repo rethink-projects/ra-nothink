@@ -1,6 +1,8 @@
 // vai renderizar o provider no app
 import React, { useState } from "react";
-import { AuthContext, UserType } from "../AuthContext";
+import firebaseInstance from "../../services/firebase";
+import { ICurrentUser, TypeProvider } from "../../types";
+import { AuthContext } from "../AuthContext";
 
 {
   /* <AuthProvider>
@@ -12,12 +14,18 @@ import { AuthContext, UserType } from "../AuthContext";
 </AuthProvider> */
 }
 function AuthProvider({ children }: { children: React.ReactNode }) {
-  let [user, setUser] = useState<UserType>(null!);
+  let [user, setUser] = useState<ICurrentUser>(null!);
 
-  let signin = (newUser: UserType, callback: VoidFunction) => {
-    setUser(newUser);
+  let setCurrentUser = (user: ICurrentUser) => {
+    setUser(user);
+  };
+
+  let signin = async (type: TypeProvider, callback: VoidFunction) => {
+    const newUser = await firebaseInstance.loginWithFirebase(type);
+
+    setUser({ ...newUser, type });
     // guarda o novo usuário no navegador
-    localStorage.setItem("@nothink:user", JSON.stringify(newUser));
+    localStorage.setItem("@nothink:user", JSON.stringify({ ...newUser, type }));
     callback();
   };
 
@@ -27,7 +35,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     callback();
   };
 
-  let value = { user, signin, signout };
+  let value = { user, signin, signout, setCurrentUser };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
