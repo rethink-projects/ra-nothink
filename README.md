@@ -54,6 +54,7 @@ Vamos criar um sistema que deve permitir que o usuário crie snippets de código
 ✅ Desafio Header no Dashboard. 
 ✅ Implementar Header no Dashboard. 
 ✅ Implementar o Wrapper
+✅ Implementar Header dinâmico. 
 ⬜️ Implementar Lista de Snippets usando Firestore na tela de Dashboard.
 
 <br>

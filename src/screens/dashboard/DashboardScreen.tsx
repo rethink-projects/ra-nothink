@@ -9,10 +9,13 @@ import { useAuth } from "../../context/AuthContext";
 //types
 import { ICurrentUser } from "../../types";
 
+
 export const DashboardScreen = () => {
   const auth = useAuth();
   const currentUser: ICurrentUser = auth.user;
   let navigate = useNavigate();
+
+  
 
   const onSignout = () => {
     auth.signOut(() => navigate("/"));
@@ -21,6 +24,8 @@ export const DashboardScreen = () => {
   if (!currentUser) {
     return <p>Carregando...</p>;
   }
+
+ 
 
   return (
     <div>

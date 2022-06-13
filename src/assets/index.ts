@@ -6,11 +6,13 @@ import google from "./google.svg";
 import line from "./line.svg";
 import github from "./github.svg";
 import navbarLogo from "./navbarLogo.svg";
+import pattern from "./pattern.png";
 
 const Images = {
   logo: {
     default: logo,
-    navbarLogo: navbarLogo
+    navbarLogo: navbarLogo,
+    pattern: pattern,
   },
   arrow: {
     default: arrow,

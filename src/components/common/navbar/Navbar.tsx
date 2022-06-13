@@ -7,6 +7,9 @@ import { useAuth } from "../../../context/AuthContext";
 //component
 import { GeneralButton } from "../..";
 
+//hooks
+import { usePageActive } from "../../../hooks";
+
 import { useNavigate } from "react-router-dom";
 
 import { ICurrentUser } from "../../../types";
@@ -15,6 +18,7 @@ import Wrapper from "../wrapper/Wrapper";
 const Navbar = () => {
   const auth = useAuth();
   const currentUser: ICurrentUser = auth.user;
+  const isPageActive = usePageActive();
   let navigate = useNavigate();
 
   if (!currentUser) {
@@ -22,7 +26,13 @@ const Navbar = () => {
   }
 
   return (
-    <div className={styles.navbar_container}>
+    <div
+      className={
+        isPageActive
+          ? styles.navbar_container_active
+          : styles.navbar_container_off
+      }
+    >
       <Wrapper>
         <div className={styles.navbar_main}>
           <img
@@ -39,6 +49,18 @@ const Navbar = () => {
               height="29px"
             />
           </div>
+        </div>
+        <div
+          className={
+            isPageActive ? styles.navbar_info_active : styles.navbar_info_off
+          }
+        >
+          <h1 className={styles.navbar_welcome_title}>
+            Olá, <strong>{currentUser.name}!</strong>
+          </h1>
+          <span className={styles.navbar_welcome_description}>
+            Essas são as categorias disponíveis para você
+          </span>
         </div>
       </Wrapper>
     </div>
