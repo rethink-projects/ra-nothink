@@ -7,7 +7,7 @@ import Divider from "../../ui/loginbuttons/Divider";
 type ButtonsProps = {
   image?: "github" | "google" | "check" | "cancel" | "share" | "delete"; //image
   underDivider?: boolean; //divider for different buttons
-  size: "mini" | "small" | "medium" | "large";
+  size: "mini" | "small" | "medium" | "large" | "almostmedium";
   color: "detail" | "light" | "dark" | "danger";
   text?: string; // inner content
   onClick?: () => void; //todo
@@ -35,6 +35,8 @@ const Buttons = ({
             ? styles.btn_small
             : size === "medium"
             ? styles.btn_medium
+            : size === "almostmedium"
+            ? styles.btn_almost_medium
             : styles.btn_large) +
           " " +
           (color === "detail"

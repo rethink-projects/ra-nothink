@@ -41,18 +41,18 @@ const Header = () => {
             </button>
             <Buttons
               extrabehavior={styles.header_test}
-              size="medium"
+              size="almostmedium"
               color="detail"
               text="Criar snippet"
             ></Buttons>
           </div>
         </div>
-        <Buttons
+        {/* <Buttons
           size="large"
           color="light"
           image="google"
           text="Entrar com o Google"
-        ></Buttons>
+        ></Buttons> */}
       </Wrapper>
     </div>
   );

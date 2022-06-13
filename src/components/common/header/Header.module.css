@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   height: 59px;
+  width: 100%;
 }
 
 .header_logo {
@@ -52,11 +53,9 @@
   transition: transform 0.3s ease;
 }
 .header_test {
-
   transition: transform 0.3s ease;
 }
 .header_test:hover {
-
   transform: translateY(-3px);
 }
 
