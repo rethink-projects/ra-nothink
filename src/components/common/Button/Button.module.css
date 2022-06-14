@@ -1,0 +1,18 @@
+.defaultButton {
+  /* remove o estilo padrão do botão */
+  width: 180px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: var(--color-detail);
+  color: var(--color-dark);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.defaultButton:hover {
+  transform: translateY(-3px);
+}

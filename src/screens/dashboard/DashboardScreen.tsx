@@ -17,9 +17,7 @@ export default function DashboardScreen() {
 
   return (
     <div>
-      <h1>Dahsboard Screen</h1>
-      <h2>{auth.user.name}</h2>
-      <h2>{auth.user.email}</h2>
+      <h1>DashboardScreen</h1>
       <button onClick={onSignout}>Fazer Logout</button>
     </div>
   );

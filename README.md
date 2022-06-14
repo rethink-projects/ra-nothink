@@ -48,11 +48,17 @@ Vamos criar um sistema que deve permitir que o usuário crie snippets de código
 ✅ Configurar deploy na vercel.\
 ✅ Implementar sistema de rotas usando `react-router-dom.`\
 ✅ Implementar sistema de Autenticação usando `conxtex api`.
-✅ Implementar Tela de Login.
-✅ Implementação Autenticação usando Firebase (Google e Github).
-✅ Configurando sub rotas para a aplicação.
-✅ Implementar Header no Dashboard.
-⬜️ Implementar Lista de Snippets usando Firestore na tela de Dashboard.
+✅ Implementar Tela de Login.\
+✅ Implementação Autenticação usando Firebase (Google e Github).\
+✅ Configurando sub rotas para a aplicação.\
+✅ Desafio Header no Dashboard.\
+⬜️ Criar Wrapper com espaçamento.\
+⬜️ Utilizar Wrapper para as rotas.\
+⬜️ Criar Componente Header utilizando Wrapper.\
+⬜️ Componentizar o Button.\
+
+⬜️ Implementar Header no Dashboard.\
+⬜️ Implementar Lista de Snippets usando Firestore na tela de Dashboard.\
 <br>
 
 # Rodando localmente
