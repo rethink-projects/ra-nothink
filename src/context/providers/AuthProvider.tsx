@@ -1,24 +1,30 @@
-import { ReactNode, useState } from "react";
-import { callbackify } from "util";
-import { AuthContext, UserType } from "../AuthContext";
+import React, { useState } from "react";
+import firebaseInstance from "../../services/firebase";
+import { ICurrentUser, TypeProvider } from "../../types";
+import { AuthContext } from "../AuthContext";
 
-{
-  /* <AuthProvider>
-    O que tiver aqui dentro são children
-    <AlgumComponente/>
-    <AlgumComponente/>
-</AuthProvider> */
-}
+// {
+//   /* <AuthProvider>
+//     O que tiver aqui dentro são children
+//     <AlgumComponente/>
+//     <AlgumComponente/>
+// </AuthProvider> */
+// }
 
 // Função AuthProvider seta as informações do usuario do tipo UserType que foi definido pelo AuthContext
-function AuthProvider({ children }: { children: ReactNode }) {
-  let [user, setUser] = useState<UserType>(null!);
+function AuthProvider({ children }: { children: React.ReactNode }) {
+  let [user, setUser] = useState<ICurrentUser>(null!);
+
+  let setCurrentUser = (user: ICurrentUser) => {
+    setUser(user);
+  };
 
   // Função pra setar o usuário na variável user pra ser inserida no Provider
-  let signin = (newUser: UserType, callback: VoidFunction) => {
-    setUser(newUser);
+  let signin = async (type: TypeProvider, callback: VoidFunction) => {
+    const newUser = await firebaseInstance.loginWithFirebase(type!);
+    setUser({ ...newUser, type });
     // Armazenando localmente as informações do usuario
-    localStorage.setItem("@nothink:user", JSON.stringify(newUser));
+    localStorage.setItem("@nothink:user", JSON.stringify({ ...newUser, type }));
     callback();
   };
 
@@ -28,7 +34,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
     callback();
   };
 
-  let value = { user, signin, signout };
+  let value = { user, signin, signout, setCurrentUser };
 
   // Provider que por sua vez recebe o user e vai transmitir as informações pra outros componentes
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

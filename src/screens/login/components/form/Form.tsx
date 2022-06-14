@@ -6,8 +6,13 @@ import styles from "./Form.module.css";
 
 // Components
 import { IconButton, Divider } from "../../../../components";
+import { TypeProvider } from "../../../../types";
 
-const Form = () => {
+type FormParams = {
+  onLogin: (type: TypeProvider) => void;
+};
+
+function Form({ onLogin }: FormParams) {
   return (
     <div className={styles.form_container}>
       <div className={styles.form_inner}>
@@ -32,7 +37,7 @@ const Form = () => {
           <p className={styles.form_texts_main}>Escolha a forma de Login</p>
         </div>
         <div className={styles.form_actions}>
-          <IconButton type="google" />
+          <IconButton type="google" onClick={() => onLogin("google")} />
 
           {/* Objetivo: limpar o código. Separar em classes */}
 
@@ -58,12 +63,12 @@ const Form = () => {
             />
             Entrar com Github
           </button> */}
-          <IconButton type="github" />
+          <IconButton type="github" onClick={() => onLogin("github")} />
           {/* <IconButton type="github" isDark/> */}
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Form;

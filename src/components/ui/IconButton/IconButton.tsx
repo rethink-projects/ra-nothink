@@ -16,7 +16,7 @@ function IconButton({ type, onClick }: IconButtonProps) {
       ? styles.defaultIconButton
       : `${styles.defaultIconButton} ${styles.darkButtonClass}`;
   return (
-    <button className={darkButtonClass}>
+    <button className={darkButtonClass} onClick={onClick}>
       <img
         className={styles.default_img}
         src={Images.icons[type]}
