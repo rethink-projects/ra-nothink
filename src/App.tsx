@@ -32,6 +32,7 @@ function App() {
             <Route path="/dashboard" element={<Layout />}>
               <Route index element={<DashboardScreen />} />
               <Route path="liked" element={<DashboardScreen />} />
+              <Route path="add" element={<DashboardScreen />} />
             </Route>
           </Route>
         </Routes>

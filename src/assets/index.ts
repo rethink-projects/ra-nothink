@@ -10,6 +10,7 @@ import share from "./share.png";
 import del from "./delete.svg";
 import cancel from "./cancel.svg";
 import horizontalline from "./horizontalline.png";
+import headerbackgroung from "./headerbackgroung.svg";
 
 const Images = {
   logo: {
@@ -27,6 +28,9 @@ const Images = {
     del,
     share,
     cancel,
+  },
+  header: {
+    headerbackgroung,
   },
 };
 

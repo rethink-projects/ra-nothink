@@ -17,8 +17,8 @@ type ButtonsProps = {
 const Buttons = ({
   image,
   underDivider = false,
-  size,
-  color,
+  size = "medium",
+  color = "light",
   text,
   extrabehavior,
   onClick,
@@ -32,6 +32,7 @@ const Buttons = ({
           styles["btn_" + color],
           extrabehavior,
         ].join(" ")}
+        onClick={onClick}
       >
         {image && <img src={Images.icons[image]} />}
         <span>{text}</span>

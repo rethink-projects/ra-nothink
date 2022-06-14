@@ -1,7 +1,17 @@
 .header_container {
   display: flex;
   background-color: var(--color-dark);
+  background-image: url("../../../assets/headerbackgroung.svg");
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
+.header_container_active {
+  height: 336px;
+}
+
+.header_container_off {
+  height: 64px;
+}
+
 .header_inner {
   display: flex;
   flex-direction: row;
@@ -13,6 +23,7 @@
 
 .header_logo {
   height: 26px;
+  cursor: pointer;
 }
 
 /* .header h1 {
@@ -37,14 +48,6 @@
   gap: 18px;
 }
 
-.header_text {
-  font-weight: 500;
-  font-size: 11.4545px;
-  line-height: 120%;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-}
-
 .header_profile_image {
   border-radius: 100%;
   border: 2px solid var(--color-light);
@@ -64,15 +67,33 @@
   transform: translateY(-3px);
 }
 
-.create_snippet_button {
-  background-color: var(--color-detail);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 6.54545px 42.5455px;
-  gap: 8.18px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+.header_info_active {
+  margin-top: 80px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.header_info_off {
+  opacity: 0;
+  transform: translateY(-150px);
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.header_welcome_title {
+  font-size: 35px;
+  font-weight: normal;
+  color: var(--color-detail);
+  margin-bottom: 10px;
+}
+
+.header_welcome_title strong {
+  color: var(--color-light);
+}
+
+.header_welcome_description {
+  font-size: 22px;
+  font-weight: 300;
+
+  color: var(--color-light);
 }
