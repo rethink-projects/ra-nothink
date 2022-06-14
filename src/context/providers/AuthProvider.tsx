@@ -4,15 +4,13 @@ import firebaseInstance from "../../services/firebase";
 import { ICurrentUser, TypeProvider } from "../../types";
 import { AuthContext } from "../AuthContext";
 
-{
-  /* <AuthProvider>
+/* <AuthProvider>
     <Children />
     <Children />
     <Children />
     <Children />
     <Children />
 </AuthProvider> */
-}
 function AuthProvider({ children }: { children: React.ReactNode }) {
   let [user, setUser] = useState<ICurrentUser>(null!);
 

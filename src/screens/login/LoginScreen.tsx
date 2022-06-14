@@ -8,8 +8,7 @@ import styles from "./Login.module.css";
 // Components
 import Form from "./components/form/Form";
 import Intro from "./components/intro/Intro";
-import { ICurrentUser, TypeProvider } from "../../types";
-import { parse } from "path";
+import { TypeProvider } from "../../types";
 
 const LoginScreen = () => {
   let auth = useAuth();
