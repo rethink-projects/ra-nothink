@@ -9,6 +9,7 @@ import styles from "./Form.module.css";
 // Components
 import {IconButton, Divider} from "../../../../components";
 import { TypeProvider } from "../../../../types";
+import { NavLink } from "react-router-dom";
 
 type FormParams ={
   onLogin: (type: TypeProvider) => void;
@@ -19,16 +20,20 @@ function Form({onLogin}: FormParams) {
     <div className={styles.form_container}>
       <div className={styles.form_inner}>
         <div className={styles.form_social}>
-          <img
-            className={styles.form_social_icon}
-            src={Images.icons.linkedin}
-            alt="Linkedin social Rethink"
-          />
-          <img
-            className={styles.form_social_icon}
-            src={Images.icons.instagram}
-            alt="Instagram social Rethink"
-          />
+          <a href="https://www.linkedin.com/company/rethinkdigitalco/mycompany/verification/" target="_blank" >
+            <img
+              className={styles.form_social_icon}
+              src={Images.icons.linkedin}
+              alt="Linkedin social Rethink"
+            />
+          </a>
+          <a href="https://www.instagram.com/rethink.digital/" target="_blank" >
+            <img
+              className={styles.form_social_icon}
+              src={Images.icons.instagram}
+              alt="Instagram social Rethink"
+            />
+          </a>
         </div>
         <div className={styles.form_texts}>
           <img

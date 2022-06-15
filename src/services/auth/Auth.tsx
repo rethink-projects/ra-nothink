@@ -17,13 +17,13 @@ function RequireAuth({ children }: RequireAuthType) {
 
     useEffect(() => {
       if(localStorageUser){
-        return auth.setCurrentUser(localStorageUser);
+        auth.setCurrentUser(localStorageUser);
       }
 
 
     }, [])
 
-    if(!auth.user){
+    if(!localStorageUser){
         return <Navigate to="/login" state={{from: location}} replace />
     }
 

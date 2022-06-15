@@ -10,6 +10,7 @@ import vectorIcon from "./Vector.png";
 import cancelIcon from "./Cancel.png";
 import saveIcon from "./Done.png";
 import returnIcon from "./return.png"
+import deleteIcon from "./Delete.png"
 
 const Images = {
   logo: {
@@ -31,19 +32,9 @@ const Images = {
     cancel: cancelIcon,
     save: saveIcon,
     return: returnIcon,
+    delete: deleteIcon,
   }
 };
 
-export const Messages = {
-  buttons: {
-    share: "Compartilhar",
-    edit: "Editar",
-    cancel: "Cancelar",
-    save: "Salvar",
-    default: "Criar Snnipets",
-    return: "Voltar para o início",
-
-  }
-}
 
 export default Images;

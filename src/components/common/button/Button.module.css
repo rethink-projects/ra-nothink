@@ -1,0 +1,55 @@
+.defaultButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap:8px;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-detail);
+    appearance: none;
+    height: 30px;
+    width: 180px;
+
+    color: var(--color-dark);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+.defaultButton:hover{
+    transform: translateY(-3px);
+}
+
+.button_size_small{
+    height: 34px;
+    width: 80px;
+}
+
+.button_size_mid{
+    height: 34px;
+}
+
+.button_size_big{
+    width: 272px;
+    height: 58px;
+    gap: 11.15px;
+}
+
+.button_color_light{
+    background-color: var(--color-light);
+}
+
+.button_color_red{
+    background-color: var(--color-red);
+}
+
+.inner_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    line-height: 120%;
+    height: 18px;
+}

@@ -20,11 +20,9 @@ export default function LoginScreen() {
 
   useEffect(() => {
     const localStorageUser = JSON.parse(localStorage.getItem("@nothink:user")!);
-    console.log("antes", auth.user);
     if(localStorageUser){
       auth.setCurrentUser(localStorageUser);
     }
-    console.log("depois", auth.user);
     if(auth.user){
       navigate("/dashboard", { replace: true });
     }

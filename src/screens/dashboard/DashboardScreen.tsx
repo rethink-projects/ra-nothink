@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext'
+import { usePageActive } from '../../hooks';
 import { ICurrentUser } from '../../types';
 
 export default function DashboardScreen() {
@@ -15,10 +16,10 @@ export default function DashboardScreen() {
     return <p>Carregando...</p>
   }
 
+
   return (
     <div>
-      <h1>{currentUser.name}</h1>
-      <h2>{currentUser.email}</h2>
+      <h1>Tela do dashboard/outlet</h1>
       <button onClick={onSignout}>Fazer Logout</button>
     </div>
   )
