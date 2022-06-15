@@ -1,4 +1,6 @@
-import React from "react";
+// CSS
+import styles from "./DashboardScreen.module.css";
+
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { ICurrentUser } from "../../types";
@@ -16,7 +18,7 @@ export default function DashboardScreen() {
   }
 
   return (
-    <div>
+    <div className={styles.dashboard}>
       <h2>{currentUser.name}</h2>
       <h2>{currentUser.email}</h2>
       <button onClick={onSignout}>Logout</button>
