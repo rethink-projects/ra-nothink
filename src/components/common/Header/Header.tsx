@@ -11,7 +11,12 @@ import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import Wrapper from "../Wrapper/Wrapper";
 
+// Hooks
+import { usePageActive } from "../../../hooks";
+
 const Header = () => {
+  const isPageActive = usePageActive();
+
   const auth = useAuth();
   const currentUser = auth.user;
 
@@ -26,7 +31,13 @@ const Header = () => {
   }
 
   return (
-    <div className={styles.header_container}>
+    <div
+      className={
+        isPageActive
+          ? styles.header_container_active
+          : styles.header_container_off
+      }
+    >
       <Wrapper>
         <div className={styles.header_inner}>
           <img
@@ -50,6 +61,18 @@ const Header = () => {
               onClick={() => navigate("add")}
             />
           </div>
+        </div>
+        <div
+          className={
+            isPageActive ? styles.header_info_active : styles.header_info_off
+          }
+        >
+          <h1 className={styles.header_welcome_title}>
+            Olá, <strong>{currentUser.name}!</strong>
+          </h1>
+          <span className={styles.header_welcome_description}>
+            Essas são as categorias disponíveis para você
+          </span>
         </div>
       </Wrapper>
     </div>
