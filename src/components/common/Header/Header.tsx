@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Styles
 import styles from "./Header.module.css";
 import Images from "../../../assets/index";
 
 import { useAuth } from "../../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Components
 import Button from "../button/Button";
@@ -15,6 +15,8 @@ import Wrapper from "../Wrapper/Wrapper";
 import { usePageActive } from "../../../hooks";
 
 const Header = () => {
+  const [isFormOpen, toggleForm] = useState(false);
+
   const isPageActive = usePageActive();
 
   const auth = useAuth();
@@ -22,13 +24,19 @@ const Header = () => {
 
   const navigate = useNavigate();
 
-  const redirect = () => {
-    navigate("/dashboard");
-  };
-
   if (!currentUser) {
     return <p>Carregando...</p>;
   }
+
+  const onSubmitCategory = () => {
+    toggleForm(!isFormOpen);
+  };
+
+  const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
+
+  const handleClick = () => {
+    isPageActive ? toggleForm(!isFormOpen) : navigate("add");
+  };
 
   return (
     <div
@@ -40,12 +48,13 @@ const Header = () => {
     >
       <Wrapper>
         <div className={styles.header_inner}>
-          <img
-            onClick={redirect}
-            className={styles.header_logo}
-            src={Images.logo.light}
-            alt="Logo Nothink Light"
-          />
+          <Link to="">
+            <img
+              className={styles.header_logo}
+              src={Images.logo.light}
+              alt="Logo Nothink Light"
+            />
+          </Link>
 
           <div className={styles.header_user_actions}>
             {currentUser && currentUser.avatarUrl && (
@@ -57,9 +66,25 @@ const Header = () => {
             )}
             <Button
               type="lime"
-              text="Criar Snnipet"
-              onClick={() => navigate("add")}
+              text={isPageActive ? headerButtonText : "Criar Snnipets"}
+              onClick={handleClick}
             />
+
+            <div
+              className={
+                isFormOpen
+                  ? styles.header_modal_container
+                  : styles.header_modal_container_off
+              }
+            >
+              <input
+                className={styles.header_modal_input}
+                placeholder="Digite o nome para essa categoria"
+                name="category"
+                type="text"
+              />
+              <Button type="lime" text="Salvar" onClick={onSubmitCategory} />
+            </div>
           </div>
         </div>
         <div
