@@ -19,8 +19,7 @@ export default function DashboardScreen() {
 
   return (
     <div className={styles.dashboard}>
-      <h2>{currentUser.name}</h2>
-      <h2>{currentUser.email}</h2>
+      <h1>Dashboard</h1>
       <button onClick={onSignout}>Logout</button>
     </div>
   );

@@ -1,0 +1,21 @@
+.header_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 30px;
+    width: 180px;
+    height: 30px;
+    background: var(--color-detail);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.header_btn:hover {
+    background-color: var(--color-detail-opacity);
+    /* opacity: 0.9; */
+    transform: translateY(-3px);
+}
