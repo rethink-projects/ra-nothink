@@ -13,9 +13,14 @@ const DashboardScreen = () => {
     auth.signout(() => navigate("/"));
   };
 
+  if (!currentUser) {
+    return <p>Carregando...</p>;
+  }
+
   return (
     <div>
       <h1>Dashboard Screen</h1>
+      <h2>{currentUser.name}</h2>
       <h2>{currentUser.email}</h2>
       <button onClick={onSignout}>Fazer Logout</button>
     </div>
