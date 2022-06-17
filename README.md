@@ -53,6 +53,12 @@ Vamos criar um sistema que deve permitir que o usuário crie snippets de código
 ✅ Configurando sub rotas na aplicação.
 ✅ Desafio Header no Dashboard.
 ✅ Implementar Solução do Header no Dashboard.
+✅ Desafio Header no Dashboard.\
+ ✅ Criar Wrapper com espaçamento.\
+ ✅ Utilizar Wrapper com espaçamento.\
+ ✅Criar Componente Header utilizando Wrapper.\
+ ✅ Componentizar o button.\
+
 ⬜️ Implementar Lista de Snippets usando Firestore na tela de Dashboard.
 
 <br>

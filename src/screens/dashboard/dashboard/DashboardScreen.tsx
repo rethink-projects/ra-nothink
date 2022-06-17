@@ -19,9 +19,7 @@ const DashboardScreen = () => {
 
   return (
     <div>
-      <h1>Dashboard Screen</h1>
-      <h2>{currentUser.name}</h2>
-      <h2>{currentUser.email}</h2>
+      <h1>Tela de Dashboard / Outlet</h1>
       <button onClick={onSignout}>Fazer Logout</button>
     </div>
   );

@@ -3,14 +3,17 @@ import { Outlet } from "react-router-dom";
 import RequireAuth from "../../../services/auth/Auth";
 
 //Components
-import Header from "./components/Header";
+import Header from "../Header/Header";
+import Wrapper from "../Wrapper/Wrapper";
 
 const Layout = () => {
   return (
     <RequireAuth>
       <>
         <Header />
-        <Outlet />
+        <Wrapper>
+          <Outlet />
+        </Wrapper>
       </>
     </RequireAuth>
   );

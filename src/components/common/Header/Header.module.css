@@ -1,9 +1,14 @@
 .header_container{
+    background-color: var(--color-dark);
+    width: 100%;
+    height: 60px;
+}
+
+.header_inner{
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-dark);
-    padding: 16px 160px 16px 160px;
     align-items: center;
+    height: 60px;
 }
 
 .header_logo{
@@ -11,18 +16,24 @@
     height: 26px;
 }
 
-.header_user{
+.header_user_actions{
     display: flex;
-    gap: 16px;
+    gap: 18px;
     justify-content: space-between;
     align-items: center;
 }
 
-.header_user_icon{
-    width: 28px;
-    height: 28px;
+.header_user_avatar{
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    border: 1px solid var(--color-light);
+    border: 2px solid var(--color-light);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.header_user_avatar:hover{
+    transform: translateY(-3px);
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px){
@@ -31,13 +42,13 @@
         height: 59px;
         justify-content: center;
     }
-    .header_user{
+    .header_user_actions{
         gap: 40px;
     }
     .header_logo{
         display: none;
     }
-    .header_user_icon{
+    .header_user_avatar{
         width: 38px;
         height: 38px;
     }

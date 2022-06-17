@@ -3,16 +3,21 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 176px;
-    height: 27.1px;
+    width: 180px;
+    height: 30px;
     border-radius: 3px;
     border: 1px solid rgba(0, 0, 0, 0.4);
+    appearance: none;
     font-weight: 500;
-    font-size: 11.4545px;
-    line-height: 120%;
+    font-size: 14px;
     color: var(--color-dark);
     cursor: pointer;
     background-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.button:hover{
+    transform: translateY(-3px);
 }
 
 .limeButton{

@@ -21,7 +21,7 @@ const Button = ({ type, text, icon, onClick }: ButtonProps) => {
   }
 
   return (
-    <button className={defaultButtonClass}>
+    <button className={defaultButtonClass} onClick={onClick}>
       {icon && (
         <img
           className={styles.default_icon}
