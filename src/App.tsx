@@ -8,6 +8,21 @@ import LoginScreen from "./screens/login/LoginScreen";
 // Services
 import RequireAuth from "./services/auth/Auth";
 
+// Components
+import { Layout } from "./components";
+
+function AddSnippetScreen() {
+  return <div>Add Snnipet Screen</div>;
+}
+
+function SnnipedScreen() {
+  return <div>Snnipet Screen</div>;
+}
+
+function MostLiked() {
+  return <div>Most Liked</div>;
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -16,14 +31,12 @@ function App() {
           <Route path="/">
             <Route index element={<LoginScreen />} />
             <Route path="/login" element={<LoginScreen />} />
-            <Route
-              path="/dashboard"
-              element={
-                <RequireAuth>
-                  <DashboardScreen />
-                </RequireAuth>
-              }
-            />
+            <Route path="/dashboard" element={<Layout />}>
+              <Route index element={<DashboardScreen />} />
+              <Route path="add" element={<AddSnippetScreen />} />
+              <Route path=":id" element={<SnnipedScreen />} />
+              <Route path="liked" element={<MostLiked />} />
+            </Route>
           </Route>
         </Routes>
       </AuthProvider>
