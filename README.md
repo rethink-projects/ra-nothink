@@ -51,7 +51,7 @@ Vamos criar um sistema que deve permitir que o usuário crie snippets de código
 ✅ Implementar Tela de Login.
 ✅ Implementar Autenticação usando Firebase ( Google e GitHub ).
 ✅ Configurando novas rotas no aplicativo.
-⬜️ Desafio Header no Dashboard.
+✅ Desafio Header no Dashboard.
 ⬜️ Implementar Solução do Header no Dashboard.
 ⬜️ Implementar Lista de Snippets usando Firestore na tela de Dashboard.
 
