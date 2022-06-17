@@ -18,7 +18,7 @@ export default function DashboardScreen() {
   }
 
   return (
-    <div className={styles.dashboard}>
+    <div>
       <h1>Dashboard</h1>
       <button onClick={onSignout}>Logout</button>
     </div>
