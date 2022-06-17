@@ -55,10 +55,10 @@
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-.header_test {
+.header_buttons {
   transition: transform 0.3s ease;
 }
-.header_test:hover {
+.header_buttons:hover {
   transform: translateY(-3px);
 }
 
@@ -96,4 +96,30 @@
   font-weight: 300;
 
   color: var(--color-light);
+}
+
+.header_modal_container,
+.header_modal_container_off {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  opacity: 1;
+  position: absolute;
+  top: 50px;
+  right: 10.6%;
+  min-width: 400px;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.header_modal_container_off {
+  opacity: 0;
+  right: -100px;
+}
+.header_modal_input {
+  width: 100%;
+  border: none;
+  height: 30px;
+  font-size: 14px;
+  padding: 0 12px;
 }

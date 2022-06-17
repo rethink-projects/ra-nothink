@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { useAuth } from "../../../context/AuthContext";
@@ -8,12 +9,25 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   const auth = useAuth();
+  const [formOpen, setformOpen] = useState(false);
+  const headerButtonText = formOpen ? "Cancelar" : "Criar Categoria";
   const isPageActive = usePageActive();
   const currentUser = auth.user;
   const navigate = useNavigate();
+
+  const onSubmitCategory = () => {
+    setformOpen(!formOpen);
+  };
+
+  const handleClick = () => {
+    isPageActive ? setformOpen(!formOpen) : navigate("");
+    setformOpen(!formOpen);
+  };
+
   if (!currentUser) {
     return <p>Carregando...</p>;
   }
+
   return (
     <div
       className={
@@ -26,11 +40,12 @@ const Header = () => {
     >
       <Wrapper>
         <div className={styles.header_inner}>
-          <Link to="">
+          <Link to="add">
             <img
               className={styles.header_logo}
               src={Images.logo.light}
               alt=""
+              onClick={() => setformOpen(false)}
             ></img>
           </Link>
 
@@ -53,14 +68,37 @@ const Header = () => {
               ></img>
             )}
             <Buttons
-              onClick={() => navigate("add")}
-              extrabehavior={styles.header_test}
+              onClick={handleClick}
+              extrabehavior={styles.header_buttons}
               size="almostmedium"
               color="detail"
-              text="Criar snippet"
+              text={headerButtonText}
             ></Buttons>
+            {/* começa aqui o que está sendo alterado */}
+            <div
+              className={
+                formOpen
+                  ? styles.header_modal_container
+                  : styles.header_modal_container_off
+              }
+            >
+              <input
+                className={styles.header_modal_input}
+                placeholder="Digite o nome para essa categoria"
+                name="category"
+                type="text"
+              />
+              <Buttons
+                onClick={onSubmitCategory}
+                text="Salvar"
+                size="almostmedium"
+                color="detail"
+                extrabehavior={styles.header_buttons}
+              />
+            </div>
           </div>
         </div>
+
         <div
           className={
             isPageActive ? styles.header_info_active : styles.header_info_off
