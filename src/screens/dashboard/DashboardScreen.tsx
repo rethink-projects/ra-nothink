@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { usePageActive } from "../../hooks";
 import { ICurrentUser } from "../../types";
 
 export default function DashboardScreen() {
