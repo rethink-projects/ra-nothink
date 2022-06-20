@@ -81,7 +81,7 @@
     gap: 10px;
     opacity: 1;
     position: absolute;   
-    top: 60px;
+    top: 50px;
     right: 0px;
     min-width: 400px;
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
