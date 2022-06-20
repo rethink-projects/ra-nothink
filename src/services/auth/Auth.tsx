@@ -8,7 +8,7 @@ type RequiredAuthType = {
 };
 
 function RequireAuth({ children }: RequiredAuthType) {
-  let auth = useAuth();
+  const auth = useAuth();
   let location = useLocation();
 
   const localStorageUser: ICurrentUser = JSON.parse(
@@ -16,8 +16,9 @@ function RequireAuth({ children }: RequiredAuthType) {
   );
 
   useEffect(() => {
+    console.log({ localStorageUser })
     if (localStorageUser) {
-      return auth.setCurrentUser(localStorageUser);
+      auth.setCurrentUser(localStorageUser);
     }
   }, []);
 

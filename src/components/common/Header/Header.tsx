@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { useAuth } from "../../../context/AuthContext";
+import { useData } from "../../../context/DataContext";
 import { usePageActive } from "../../../hooks";
 
 // Components
@@ -16,15 +17,21 @@ function Header() {
   const auth = useAuth();
   const isPageActive = usePageActive();
   const navigate = useNavigate();
+  // const { create, isCreating } = useData();
+  
   const currentUser = auth.user;
 
   const onSubmitCategory = () => {
+    // Criar Categoria usando create do usaData.
+    // Recuperar valor do input de Categorias.
     toggleForm(!isFormOpen);
   };
 
   const handleClick = () => {
     isPageActive ? toggleForm(!isFormOpen) : navigate("add");
   }
+
+
 
   const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria"
 
