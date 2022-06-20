@@ -4,6 +4,7 @@ import { getFirestore } from "firebase/firestore"
 import { firebaseConfig } from "./config";
 
 import { loginWithFireBase } from "./authentication";
+import { createCategory } from "./categories";
 
 
 
@@ -13,6 +14,6 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase
 const db = getFirestore(app);
 
-const firebaseInstance = { app, db, loginWithFireBase }
+const firebaseInstance = { app, db, loginWithFireBase, createCategory }
 
 export default firebaseInstance;

@@ -18,6 +18,7 @@ import Wrapper from "../Wrapper/Wrapper";
 import DefaultButton from '../../ui/DefaultButton/DefaultButton';
 import { usePageActive } from "../../../hooks";
 import { useState } from "react";
+import { useData } from "../../../context/DataContext";
 
 
 const Header = () => {
@@ -25,6 +26,7 @@ const Header = () => {
     const auth = useAuth();
     const isPageActive = usePageActive();
     const navigate = useNavigate();
+    const { create, isCreating } = useData();
 
     const currentUser: ICurrentUser = auth.user;
 
@@ -33,6 +35,9 @@ const Header = () => {
     }
 
     const onSubmitCategory = () => {
+        // Criar Categoria usando create do useData
+        // Recuperar valor do input de Categorias
+
         toggleForm(!isFormOpen);
     }
 
@@ -62,7 +67,7 @@ const Header = () => {
 
                 <div className={isPageActive ? styles.header_info_active : styles.header_info_off}>
                     <h1 className={styles.header_welcome_title}>
-                        Olá, <strong>{currentUser.name}!</strong>
+                        Olá, <strong>{currentUser && currentUser.name}!</strong>
                     </h1>
                     <span className={styles.header_welcome_description}>
                         Essas são as categorias disponíveis para você

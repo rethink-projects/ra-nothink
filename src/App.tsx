@@ -5,6 +5,7 @@ import LoginScreen from './screens/login/LoginScreen';
 
 // Components
 import { Layout } from './components';
+import AddSnnipet from './screens/addSnnipet/AddSnnipet';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route path='/login' element={<LoginScreen />} />
               <Route path="/dashboard" element={<Layout />}>
                 <Route index element={<DashBoardScreen />} />
+                <Route path='add' element={<AddSnnipet />} />
               </Route>
             </Route>
           </Routes>
