@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 import Images from "../../../assets/index";
 
-import { useAuth } from "../../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
 // Components
@@ -14,21 +13,26 @@ import Wrapper from "../Wrapper/Wrapper";
 // Hooks
 import { usePageActive } from "../../../hooks";
 
+// Context
+import { useAuth } from "../../../context/AuthContext";
+import { useData } from "../../../context/DataContext";
+
 const Header = () => {
   const [isFormOpen, toggleForm] = useState(false);
-
   const isPageActive = usePageActive();
-
   const auth = useAuth();
   const currentUser = auth.user;
-
   const navigate = useNavigate();
+  const { create, isCreating } = useData();
 
   if (!currentUser) {
     return <p>Carregando...</p>;
   }
 
   const onSubmitCategory = () => {
+    //Criar categoria usando create do useData
+    //Recuperar valor do input de Categorias
+
     toggleForm(!isFormOpen);
   };
 
