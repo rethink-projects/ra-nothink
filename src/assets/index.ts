@@ -5,13 +5,15 @@ import GitHub from "./github.png";
 import Instagram from "./instagram.png";
 import Google from "./google.png";
 import logoNav from "./logoNav.png";
+import mask from "./mask.png";
 
 const Imagens = {
   logo: {
     default: logo,
     nav: logoNav,
   },
-  arrow: arrow,
+  mask,
+  arrow,
   icons: {
     Linkedin,
     GitHub,

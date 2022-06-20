@@ -1,9 +1,21 @@
-.nav_bar {
-  background: var(--color-dark);
-  width: 100vw;
+.nav_bar_inner {
   height: 61px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 10.9%;
+}
+
+.nav_bar {
+  background: var(--color-dark);
+  transition: all 0.3s ease-in-out;
+  height: 61px;
+}
+
+.nav_bar_active {
+  background: var(--color-dark);
+  height: 336px;
+  background-image: url("../../../assets/mask.png");
+  transition: all 0.3s ease-in-out;
 }
 
 .nav_bar_logo {
@@ -12,18 +24,21 @@
   width: 85px;
   height: 22px;
 }
+
 .nav_bar_right {
   display: flex;
   align-items: center;
   gap: 18px;
   width: 223px;
 }
+
 .nav_bar_avatar {
   width: 29px;
   height: 29px;
   border-radius: 50%;
   border: 2px solid var(--color-light);
 }
+
 .nav_bar_avatar:hover {
   transform: translateY(-3px);
   border: 2px solid var(--color-detail);
@@ -50,4 +65,32 @@
   border: 2px solid #ffffff;
   transform: translateY(-3px);
   transition: transform 0.3s ease;
+}
+
+.header_info {
+  display: flex;
+  padding: 0 10.9%;
+  color: var(--color-light);
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 73px;
+}
+
+.header_welcome_title {
+  color: var(--color-detail);
+}
+
+.header_welcome_title > strong {
+  color: var(--color-light);
+}
+
+.header_welcome_description {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  opacity: 0.8;
 }
