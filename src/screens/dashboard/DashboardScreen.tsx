@@ -6,7 +6,7 @@ import { ICurrentUser } from "../../types";
 const DashboardScreen = () => {
   let auth = useAuth();
   let navigate = useNavigate();
-  
+
   const currentUser: ICurrentUser = auth.user;
   const onSignout = () => {
     auth.signout(() => navigate("/"));
@@ -18,9 +18,7 @@ const DashboardScreen = () => {
 
   return (
     <div>
-      <h1>Dashboard Screen</h1>
-      <h2>{currentUser.name}</h2>
-      <h2>{currentUser.email}</h2>
+      <h1>Tela de Dashboard / Outlet </h1>
       <button onClick={onSignout}>Fazer Logout</button>
     </div>
   );

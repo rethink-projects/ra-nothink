@@ -1,36 +1,17 @@
-.button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 176px;
-    height: 27.1px;
+.defaultButton {
+    width: 180px;
+    height: 30px;
     border-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    font-weight: 500;
-    font-size: 11.4545px;
-    line-height: 120%;
+    background-color: var(--color-detail);
     color: var(--color-dark);
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    background-color: transparent;
-}
-
-.limeButton{
-    background: var(--color-detail);
-}
-
-.ligthButton{
-    background: var(--color-light);
-}
-
-.default_icon{
-    width: 18px;
-    height: 18px;
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px){
-    .button{
-        font-size: 16px;
-        height: 40px;
-    }
-}
+    transition: transform 0.3s ease;
+    border: none;
+    appearance: none;
+  }
+  
+  .defaultButton:hover {
+    transform: translateY(-3px);
+  }
