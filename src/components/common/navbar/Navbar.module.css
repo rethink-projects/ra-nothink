@@ -1,61 +1,52 @@
-.navbar_container_off {
+.navbar_container_off,
+.navbar_container_active {
   background-color: var(--color-dark);
   background-image: url(../../../assets/pattern.png);
   height: 61px;
   width: 100%;
-  transition: all 0.3s ease-in-out;
-
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .navbar_container_active {
-  background-color: var(--color-dark);
-  background-image: url(../../../assets/pattern.png);
   height: 336px;
-  width: 100%;
-  transition: all 0.3s ease-in-out;
-
 }
 
-.navbar_info_active{
+.navbar_info_active {
   margin-top: 81px;
   opacity: 1;
   transform: translateY(0);
-  transition: all 0.3s ease-in-out;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.navbar_info_off{
+.navbar_info_off {
   opacity: 0;
   transform: translateY(-150);
-  transition: all 0.3s ease-in-out;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-
-.navbar_welcome_title{
+.navbar_welcome_title {
   font-size: 35px;
   font-weight: normal;
   color: var(--color-detail);
   margin-bottom: 10px;
-
 }
 
-.navbar_welcome_title strong{
-  color: var(--color-light)
+.navbar_welcome_title strong {
+  color: var(--color-light);
 }
 
-.navbar_welcome_description{
+.navbar_welcome_description {
   font-size: 22px;
   font-weight: 300;
-  color: var(--color-light)
+  color: var(--color-light);
 }
 
 .navbar_main {
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   height: 61px;
-
 }
 
 .navbar_logoImage {
@@ -70,6 +61,7 @@
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .navbar_navbuttons img {
@@ -83,7 +75,33 @@
 }
 
 .navbar_navbuttons img:hover {
-  transform:translateY(-3px)
+  transform: translateY(-3px);
 }
 
+.navbar_form_container,
+.navbar_form_container_off {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  opacity: 1;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  min-width: 400px;
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
 
+.navbar_form_container_off {
+  opacity: 0;
+  right: -100px;
+}
+
+.navbar_form_input {
+  width: 100%;
+  border: none;
+  height: 30px;
+  font-size: 14px;
+  padding: 0 12px;
+  border-radius: 4px;
+}

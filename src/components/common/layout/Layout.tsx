@@ -5,6 +5,7 @@ import { Navbar } from "../..";
 
 //context
 import { useAuth } from "../../../context/AuthContext";
+import { DataProvider } from "../../../context/providers/DataProvider";
 
 import { RequireAuth } from "../../../services/auth/Auth";
 import Wrapper from "../wrapper/Wrapper";
@@ -15,12 +16,12 @@ const Layout = () => {
 
   return (
     <RequireAuth>
-      <>
+      <DataProvider>
         <Navbar />
         <Wrapper>
           <Outlet />
         </Wrapper>
-      </>
+      </DataProvider>
     </RequireAuth>
   );
 };

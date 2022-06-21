@@ -29,7 +29,15 @@ const signInWithProvider = async (
     };
     return currentUser;
   } catch (error: any) {
-    console.log(error);
+    /* console.log(error.message); */
+    let systemErrorMessage;
+    if (
+      error.message.includes("auth/account-exists-with-different-credential")
+    ) {
+      systemErrorMessage = "E-mail já cadastrado em outra conta.";
+    }
+
+    console.log(systemErrorMessage);
     return error;
   }
 };

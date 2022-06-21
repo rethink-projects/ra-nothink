@@ -18,7 +18,7 @@ export const RequireAuth = ({ children }: RequireAuthType) => {
 
   useEffect(() => {
     if (localStorageUser) {
-       auth.setCurrentUser(localStorageUser);
+      auth.setCurrentUser(localStorageUser);
     }
     /* // eslint-disable-next-line react-hook/exhaustive-deps */
   }, []);

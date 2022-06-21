@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../context/AuthContext";
 
-
 import { TypeProvider } from "../../types";
 
 export const LoginScreen = () => {
@@ -21,27 +20,25 @@ export const LoginScreen = () => {
       navigate("/dashboard", { replace: true });
     });
   };
-  
 
   useEffect(() => {
     const localStorageUser = JSON.parse(localStorage.getItem("@nothink:user")!);
 
-    console.log("ANTES", auth.user)
+    console.log("ANTES", auth.user);
 
     if (localStorageUser) {
       auth.setCurrentUser(localStorageUser);
     }
-    console.log("DEPOIS", auth.user)
-    if(auth.user){
+    console.log("DEPOIS", auth.user);
+    if (auth.user) {
       navigate("/dashboard", { replace: true });
     }
-  
   }, [auth, navigate]);
- 
+
   return (
     <div className={styles.container}>
       <Presentation />
-      <Form onLogin={handleLogin}/>
+      <Form onLogin={handleLogin} />
     </div>
   );
 };

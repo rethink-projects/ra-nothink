@@ -21,6 +21,11 @@
   margin-left: 89%;
 }
 
+.social img {
+  cursor: pointer;
+}
+
+
 .form {
   padding: 18.17% 0 0 0;
   min-width: 50%;
