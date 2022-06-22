@@ -20,7 +20,7 @@ export const RequireAuth = ({ children }: RequireAuthType) => {
     if (localStorageUser) {
       auth.setCurrentUser(localStorageUser);
     }
-    /* // eslint-disable-next-line react-hook/exhaustive-deps */
+    // eslint-disable-next-line 
   }, []);
 
   if (!localStorageUser) {

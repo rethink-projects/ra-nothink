@@ -1,18 +1,12 @@
 import React, { useCallback, useState } from "react";
 import firebaseInstance from "../../services/firebase";
 
-import {
-  ICurrentUser,
-  TypeCategory,
-  TypeCreateCategory,
-  TypeProvider,
-} from "../../types";
-import { AuthContext } from "../AuthContext";
+import { TypeCategory, TypeCreateCategory } from "../../types";
 import { DataContext, DataContextType } from "../DataContext";
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [categories, setCategories] = useState<TypeCategory[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
 
   let create = useCallback(
@@ -35,7 +29,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     categories,
     isCreating,
     isLoading,
-    create
+    create,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
