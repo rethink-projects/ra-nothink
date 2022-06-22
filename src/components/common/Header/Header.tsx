@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { useAuth } from "../../../context/AuthContext";
+import { useData } from "../../../context/DataContext";
 import { usePageActive } from "../../../hooks";
 
 // Components
@@ -16,11 +17,16 @@ function Header() {
   const currentUser = auth.user;
   const [isFormOpen, toggleForm] = useState(false);
 
+  // const { isCreating } = useData();
+
   const isPageActive = usePageActive();
 
   const navigate = useNavigate();
 
   const onSubmitCategory = () => {
+    // Criar Categoria usando create do useData.
+    // Recuperar valor do input de Categorias.
+
     toggleForm(!isFormOpen);
   };
 

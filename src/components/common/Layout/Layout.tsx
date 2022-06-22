@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
+import DataProvider from "../../../context/providers/DataProvider";
 import RequireAuth from "../../../services/auth/Auth";
 import Header from "../Header/Header";
 import Wrapper from "../Wrapper/Wrapper";
@@ -11,13 +12,13 @@ function Layout() {
 
   return (
     <RequireAuth>
-      <>
+      <DataProvider>
         <Header />
         <Wrapper>
           {/* Essa tag entende que irá renderizar todo o restante no app.tsx */}
           <Outlet />
         </Wrapper>
-      </>
+      </DataProvider>
     </RequireAuth>
   );
 }

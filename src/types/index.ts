@@ -1,3 +1,5 @@
+import { FieldValue } from "firebase/firestore";
+
 export interface LocationParams {
   pathname: string;
   state: any;
@@ -14,3 +16,15 @@ export interface ICurrentUser {
   email: string;
   type?: TypeProvider;
 }
+
+// Categories
+
+export type TypeCategory = {
+  owner_id: string;
+  title: string;
+  totalLikes: number;
+  totalSnnipets: number;
+  timestamp: FieldValue;
+};
+
+export type TypeCreateCategory = { owner_id: string; title: string };
