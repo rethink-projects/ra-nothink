@@ -2,3 +2,9 @@
   transform: translateY(-65px);
   height: calc(100vh - 335px);
 }
+
+.render_grid_category {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
