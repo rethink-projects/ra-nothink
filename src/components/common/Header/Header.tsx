@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 // Styles
 import styles from "./Header.module.css";
@@ -18,22 +18,35 @@ import { useAuth } from "../../../context/AuthContext";
 import { useData } from "../../../context/DataContext";
 
 const Header = () => {
-  const [isFormOpen, toggleForm] = useState(false);
   const isPageActive = usePageActive();
   const auth = useAuth();
   const currentUser = auth.user;
   const navigate = useNavigate();
+
+  const [isFormOpen, toggleForm] = useState(false);
+  const [categoryTitle, setCategoryTitle] = useState("");
+  const [error, setError] = useState({ message: "", hasError: false });
+
   const { create, isCreating } = useData();
 
   if (!currentUser) {
     return <p>Carregando...</p>;
   }
 
-  const onSubmitCategory = () => {
+  const onSubmitCategory = async () => {
     //Criar categoria usando create do useData
     //Recuperar valor do input de Categorias
-
-    toggleForm(!isFormOpen);
+    if (categoryTitle.length > 4) {
+      await create({ owner_id: currentUser.email, title: categoryTitle });
+      setError({ message: "", hasError: false });
+      toggleForm(!isFormOpen);
+    } else {
+      setError({
+        message: "Minimo 5 caracteres!",
+        hasError: true,
+      });
+    }
+    setCategoryTitle("");
   };
 
   const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
@@ -82,10 +95,22 @@ const Header = () => {
               }
             >
               <input
-                className={styles.header_modal_input}
-                placeholder="Digite o nome para essa categoria"
+                className={
+                  error.hasError
+                    ? styles.header_modal_input_error
+                    : styles.header_modal_input
+                }
+                value={categoryTitle}
+                placeholder={
+                  error.hasError
+                    ? error.message
+                    : "Digite o nome para essa categoria"
+                }
                 name="category"
                 type="text"
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  setCategoryTitle(event.target.value);
+                }}
               />
               <Button type="lime" text="Salvar" onClick={onSubmitCategory} />
             </div>
