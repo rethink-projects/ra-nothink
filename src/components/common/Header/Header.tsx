@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 // Components
 import Button from "../button/Button";
 import Wrapper from "../Wrapper/Wrapper";
+import Loading from "../Loading/Loading";
 
 // Hooks
 import { usePageActive } from "../../../hooks";
@@ -17,20 +18,22 @@ import { usePageActive } from "../../../hooks";
 import { useAuth } from "../../../context/AuthContext";
 import { useData } from "../../../context/DataContext";
 
+// Types
+import { ICurrentUser } from "../../../types";
+
 const Header = () => {
   const isPageActive = usePageActive();
   const auth = useAuth();
-  const currentUser = auth.user;
+  const currentUser: ICurrentUser = auth.user;
   const navigate = useNavigate();
+  const { create } = useData();
 
   const [isFormOpen, toggleForm] = useState(false);
   const [categoryTitle, setCategoryTitle] = useState("");
   const [error, setError] = useState({ message: "", hasError: false });
 
-  const { create, isCreating } = useData();
-
   if (!currentUser) {
-    return <p>Carregando...</p>;
+    return <Loading text="Não foi possível carregar os dados do usuário." />;
   }
 
   const onSubmitCategory = async () => {

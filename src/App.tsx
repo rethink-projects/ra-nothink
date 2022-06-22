@@ -3,11 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "./context/providers/AuthProvider";
 
 //Screens
-import DashboardScreen from "./screens/dashboard/dashboard/DashboardScreen";
+import DashboardScreen from "./screens/dashboard/DashboardScreen";
 import LoginScreen from "./screens/login/LoginScreen";
-
-//Services
-import RequireAuth from "./services/auth/Auth";
 
 //Components
 import { Layout } from "./components";
