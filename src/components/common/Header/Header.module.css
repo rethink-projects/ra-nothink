@@ -98,11 +98,16 @@
     right: -100px;
 }
 
-.header_modal_input {
+.header_modal_input .header_modal_input_error {
     width: 100%;
     border: none;
     height: 30px;
     font-size: 14px;
     padding: 0 12px;
     border-radius: 4px;
+    border: 2px solid transparent;
+}
+
+.header_modal_input_error {
+    border: 2px solid red;
 }

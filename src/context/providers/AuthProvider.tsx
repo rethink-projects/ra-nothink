@@ -11,7 +11,7 @@ import { AuthContext } from "../AuthContext";
 // </AuthProvider> */
 // }
 
-// Função AuthProvider seta as informações do usuario do tipo UserType que foi definido pelo AuthContext
+// Função AuthProvider seta as informações do usuario do tipo ICurrentUser que foi definido pelo AuthContext
 function AuthProvider({ children }: { children: React.ReactNode }) {
   let [user, setUser] = useState<ICurrentUser>(null!);
 
@@ -23,6 +23,8 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   let signin = async (type: TypeProvider, callback: VoidFunction) => {
     const newUser = await firebaseInstance.loginWithFirebase(type!);
     setUser({ ...newUser, type });
+    console.log(newUser);
+    console.log(type);
     // Armazenando localmente as informações do usuario
     localStorage.setItem("@nothink:user", JSON.stringify({ ...newUser, type }));
     callback();

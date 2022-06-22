@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { ChangeEvent } from "react";
 
 // CSS
 import styles from "./Header.module.css";
@@ -13,19 +14,38 @@ import Wrapper from "../Wrapper/Wrapper";
 // Hooks
 import { usePageActive } from "../../../hooks";
 
-import { useAuth } from "../../../context/AuthContext";
 import { ICurrentUser } from "../../../types";
 import { useState } from "react";
+import { useAuth } from "../../../context/AuthContext";
+import { useData } from "../../../context/DataContext";
 
 const Header = () => {
-  const [isFormOpen, toggleForm] = useState(false);
   const auth = useAuth();
-  let navigate = useNavigate();
   const isPageActive = usePageActive();
+  const navigate = useNavigate();
+
+  const { create } = useData();
+  const [isFormOpen, toggleForm] = useState(false);
+  const [categoryTitle, setCategoryTitle] = useState("");
+  const [error, setError] = useState({ message: "", hasError: false });
+
   const currentUser: ICurrentUser = auth.user;
 
-  const onSubmitCategory = () => {
-    toggleForm(!isFormOpen);
+  const onSubmitCategory = async () => {
+    // Criar categoria usando create do useData
+    // Recuperar valor do input de Categorias
+
+    if (categoryTitle.length > 4) {
+      toggleForm(!isFormOpen);
+      await create({ owner_id: currentUser.email, title: categoryTitle });
+      setError({ message: "", hasError: false });
+    } else {
+      setError({
+        message: "Mínimo de 5 caracteres",
+        hasError: true,
+      });
+    }
+    setCategoryTitle("");
   };
 
   const handleClick = () => {
@@ -87,10 +107,22 @@ const Header = () => {
             }
           >
             <input
-              className={styles.header_modal_input}
-              placeholder="Digite o nome para essa categoria"
+              className={
+                error.hasError
+                  ? styles.header_modal_input_error
+                  : styles.header_modal_input
+              }
+              value={categoryTitle}
+              placeholder={
+                error.hasError
+                  ? error.message
+                  : "Digite o nome para essa categoria"
+              }
               name="category"
               type="text"
+              onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                setCategoryTitle(event.target.value);
+              }}
             />
             <Button onClick={onSubmitCategory} text="Salvar" />
           </div>
