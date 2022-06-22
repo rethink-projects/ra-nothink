@@ -11,8 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
 
 // Components
-import { Loading } from "../../components";
-import Card from "../../components/common/Card/Card";
+import { Card, Loading } from "../../components";
 
 // React
 import { useCallback, useEffect } from "react";
@@ -41,8 +40,9 @@ const DashboardScreen = () => {
     <div className={styles.dashboard_container}>
       {isLoading && <Loading />}
       {isCreating && <Loading text="Criando Categorias..." />}
+
       {categories.length <= 0 && !isCreating && !isLoading && (
-        <Loading text="Nenhuma categoria encontrada." />
+        <Loading text="Nenhuma Categoria encontrada." />
       )}
 
       {!isLoading && !isCreating && categories.length > 0 && (
@@ -64,7 +64,7 @@ const DashboardScreen = () => {
             // </div>
             // Criar Component Card e listar os cards.
             // <Card key={category?.id} category={category} />
-            <Card key={category?.id} category={category} />
+            <Card key={category?.id} index={index} category={category} />
           ))}
         </div>
       )}

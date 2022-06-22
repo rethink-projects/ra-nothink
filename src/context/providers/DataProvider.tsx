@@ -30,8 +30,8 @@ function DataProvider({ children }: { children: React.ReactNode }) {
       const allCategories = await firebaseInstance.getAllCategories();
       setTimeout(() => {
         setCategories(allCategories);
+        setIsLoading(false);
       }, 600);
-      setIsLoading(false);
     } catch (error) {
       console.info(error);
       setIsLoading(false);

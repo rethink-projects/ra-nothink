@@ -4,8 +4,7 @@
 }
 
 .render_grid_category{
-    display: flex;
-    justify-content: flex-start;
-    gap: 33px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
 }
