@@ -1,25 +1,28 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Loading } from '../../components';
 import { useAuth } from '../../context/AuthContext'
-import { usePageActive } from '../../hooks';
+import { useData } from '../../context/DataContext';
 import { ICurrentUser } from '../../types';
+import styles from './DashBoard.module.css';
 
 export default function DashBoardScreen() {
     const auth = useAuth();
-    let navigate = useNavigate();
     const currentUser: ICurrentUser = auth.user;
-    const onSignout = () => {
-        auth.signout(() => navigate("/"));
-    }
+    const { isCreating, categories } = useData();
+
 
     if (!currentUser) {
         return <p>Carregando...</p>
     }
 
     return (
-        <div>
-            <h1>DashBoard Screen</h1>
-            <button onClick={onSignout}>Fazer Logout</button>
+        <div className={styles.dashboard_container}>
+            {isCreating && <Loading text="Criando categoria..." />}
+            {categories.length <= 0 && !isCreating && (<Loading text="Nenhuma categoria encontrada." />)}
+            {!isCreating && categories.length > 0 && (<div className={styles.render_grid_category}>
+                {categories.map((category, index) => (
+                    <p key={index}>{category.title}</p>
+                ))}
+            </div>)}
         </div>
     )
 }
