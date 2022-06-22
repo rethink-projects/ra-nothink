@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { firebaseConfig } from "./config";
 import { loginWithFirebase } from "./authentication";
-import { createCategory } from "./categories";
+import { createCategory, getAllCategories } from "./categories";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -10,6 +10,6 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firestore
 const db = getFirestore(app);
 
-const FirebaseInstance = {app, db, loginWithFirebase, createCategory}; 
+const FirebaseInstance = {app, db, loginWithFirebase, createCategory, getAllCategories}; 
 
 export default FirebaseInstance;

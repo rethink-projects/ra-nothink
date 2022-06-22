@@ -10,6 +10,10 @@ import trashIcon from "./trash.svg";
 import editIcon from "./edit.svg";
 import saveIcon from "./save.svg";
 import cancelIcon from "./cancel.svg";
+import codeIcon from "./code.svg";
+import heartIcon from "./heart.svg";
+import heartLightIcon from "./heart_light.svg";
+import personIcon from "./person.svg";
 
 const Images = {
     logo: {
@@ -27,6 +31,10 @@ const Images = {
         edit: editIcon,
         save: saveIcon,
         cancel: cancelIcon,
+        code: codeIcon,
+        heart: heartIcon,
+        heartLight: heartLightIcon,
+        person: personIcon,
     }
 }
 

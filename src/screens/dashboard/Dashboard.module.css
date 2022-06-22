@@ -2,3 +2,10 @@
     transform: translateY(-65px);
     height: calc(100vh - 365px);
 }
+
+.render_grid_category{
+    display: flex;
+    justify-content: flex-start;
+    gap: 33px;
+    flex-wrap: wrap;
+}
