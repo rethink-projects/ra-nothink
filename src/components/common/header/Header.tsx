@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { useAuth } from "../../../context/AuthContext";
+import { useData } from "../../../context/DataContext";
 import { usePageActive } from "../../../hooks";
 import Buttons from "../buttons/Buttons";
 import Wrapper from "../wrapper/Wrapper";
@@ -9,14 +10,31 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   const auth = useAuth();
-  const [formOpen, setformOpen] = useState(false);
-  const headerButtonText = formOpen ? "Cancelar" : "Criar Categoria";
-  const isPageActive = usePageActive();
-  const currentUser = auth.user;
   const navigate = useNavigate();
+  const isPageActive = usePageActive();
 
-  const onSubmitCategory = () => {
-    setformOpen(!formOpen);
+  const { create } = useData();
+
+  const [formOpen, setformOpen] = useState(false);
+  const [categoryTitle, setCategoryTitle] = useState("");
+  const [error, setError] = useState({ message: "", hasError: false });
+
+  const headerButtonText = formOpen ? "Cancelar" : "Criar Categoria";
+
+  const currentUser = auth.user;
+
+  const onSubmitCategory = async () => {
+    if (categoryTitle.length > 4) {
+      setError({ message: "", hasError: false });
+      await create({ owner_id: currentUser.email, title: categoryTitle });
+      setformOpen(!formOpen);
+    } else {
+      setError({
+        message: "Minimo de 5 caracteres",
+        hasError: true,
+      });
+    }
+    setCategoryTitle("");
   };
 
   const handleClick = () => {
@@ -53,17 +71,13 @@ const Header = () => {
             {auth.user && auth.user.avatarUrl && (
               <img
                 className={styles.header_profile_image}
-                src={auth.user.avatarUrl && auth.user.avatarUrl}
-                alt=""
-              ></img>
-            )}
-            {auth.user && !auth.user.avatarUrl && (
-              <img
-                className={styles.header_profile_image}
-                src={`https://ui-avatars.com/api/?name=${auth.user.name.replace(
-                  "",
-                  "+"
-                )}`}
+                src={
+                  (auth.user.avatarUrl && auth.user.avatarUrl) ??
+                  `https://ui-avatars.com/api/?name=${auth.user.name.replace(
+                    "",
+                    "+"
+                  )}`
+                }
                 alt=""
               ></img>
             )}
@@ -83,10 +97,22 @@ const Header = () => {
               }
             >
               <input
-                className={styles.header_modal_input}
-                placeholder="Digite o nome para essa categoria"
+                className={
+                  error.hasError
+                    ? styles.header_modal_input_error
+                    : styles.header_modal_input
+                }
+                placeholder={
+                  error.hasError
+                    ? error.message
+                    : "Digite o nome para essa categoria"
+                }
                 name="category"
                 type="text"
+                value={categoryTitle}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  setCategoryTitle(event.target.value);
+                }}
               />
               <Buttons
                 onClick={onSubmitCategory}

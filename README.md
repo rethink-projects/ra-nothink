@@ -6,3 +6,9 @@
 
 - Por que o meu position absolute não pegou no container do modal na minha header? Tive que colocar referente à tela
 
+# Referências 
+-
+
+# Deploy
+- https://ra-nothink.vercel.app/dashboard
+

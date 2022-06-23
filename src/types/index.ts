@@ -1,3 +1,5 @@
+import { FieldValue } from "firebase/firestore";
+
 export type TypeProvider = "google" | "github";
 
 export interface ICurrentUser {
@@ -6,3 +8,13 @@ export interface ICurrentUser {
   email: string;
   type?: string;
 }
+
+export type TypeCategory = {
+  owner_id: string;
+  title: string;
+  totalLikes: number;
+  totalSnnipets: number;
+  timeStamp: FieldValue;
+}
+
+export type TypeCreateCategory =  {owner_id: string; title: string};

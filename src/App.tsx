@@ -13,18 +13,7 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          {/* <Route path="/">
-            <Route index element={<LoginScreen />} />
-            <Route path="/login" element={<LoginScreen />} />
-            <Route
-              path="/dashboard"
-              element={
-                <RequireAuth>
-                  <DashboardScreen />
-                </RequireAuth>
-              }
-            />
-          </Route> */}
+
 
           <Route path="/">
             <Route index element={<LoginScreen />} />
