@@ -11,10 +11,10 @@ import { ICurrentUser } from "../../types";
 import { Card, Loading } from "../../components";
 
 // Styles
-import styles from "./Dashboard.module.css";
+import styles from "./Categories.module.css";
 import { useCallback, useEffect } from "react";
 
-export default function DashboardScreen() {
+export default function CategoriesScreen() {
   const auth = useAuth();
   const { fetch, isLoading, categories, isCreating } = useData();
   const currentUser: ICurrentUser = auth.user;
