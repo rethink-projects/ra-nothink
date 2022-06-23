@@ -18,6 +18,7 @@ export interface ICurrentUser {
 }
 
 export type TypeCategory = {
+  id?: string;
   owner_id: string;
   title: string;
   totalLikes: number;
