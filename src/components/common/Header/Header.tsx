@@ -4,7 +4,7 @@ import React, { ChangeEvent, useState } from "react";
 import styles from "./Header.module.css";
 import Images from "../../../assets/index";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 // Components
 import Button from "../button/Button";
@@ -26,11 +26,14 @@ const Header = () => {
   const auth = useAuth();
   const currentUser: ICurrentUser = auth.user;
   const navigate = useNavigate();
+  const location = useLocation();
   const { create } = useData();
 
   const [isFormOpen, toggleForm] = useState(false);
   const [categoryTitle, setCategoryTitle] = useState("");
   const [error, setError] = useState({ message: "", hasError: false });
+
+  const categoryId = location.pathname;
 
   if (!currentUser) {
     return <Loading text="Não foi possível carregar os dados do usuário." />;
@@ -55,7 +58,9 @@ const Header = () => {
   const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
 
   const handleClick = () => {
-    isPageActive ? toggleForm(!isFormOpen) : navigate("add");
+    isPageActive
+      ? toggleForm(!isFormOpen)
+      : navigate(`${categoryId}/add-snnipet`);
   };
 
   return (

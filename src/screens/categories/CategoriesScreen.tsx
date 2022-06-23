@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 // Styles
-import styles from "./Dashboard.module.css";
+import styles from "./Categories.module.css";
 
 // Types
 import { ICurrentUser } from "../../types";
@@ -16,7 +16,7 @@ import { Card, Loading } from "../../components";
 // React
 import { useCallback, useEffect } from "react";
 
-const DashboardScreen = () => {
+const CategoriesScreen = () => {
   let auth = useAuth();
   const { fetch, isLoading, categories, isCreating } = useData();
 
@@ -72,4 +72,4 @@ const DashboardScreen = () => {
   );
 };
 
-export default DashboardScreen;
+export default CategoriesScreen;

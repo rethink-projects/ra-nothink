@@ -17,7 +17,7 @@ export default function LoginScreen() {
   let navigate = useNavigate();
 
   const handleLogin = (type: TypeProvider) => {
-    auth.signin(type, () => navigate("/dashboard", { replace: true }));
+    auth.signin(type, () => navigate("/categories", { replace: true }));
   };
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function LoginScreen() {
     }
 
     if (auth.user) {
-      navigate("/dashboard", { replace: true });
+      navigate("/categories", { replace: true });
     }
   }, [auth, navigate]);
 

@@ -6,6 +6,7 @@ import styles from "./Card.module.css";
 //Assets
 import Images from "../../../assets";
 import { TypeCategory } from "../../../types";
+import { useNavigate } from "react-router-dom";
 
 type CardProps = {
   category: TypeCategory;
@@ -13,14 +14,20 @@ type CardProps = {
 };
 
 const Card = ({
-  category: { title, owner_id, totalLikes, totalSnnipets },
+  category: { title, owner_id, totalLikes, totalSnnipets, id },
   index,
 }: CardProps) => {
   const onwerIdName = owner_id.split("@")[0];
   const replacedName = onwerIdName.replace(/[^a-zA-Z]/g, "").replace("", "");
+  const navigate = useNavigate();
+
+  const onClickCard = () => {
+    navigate(`${id}`);
+  };
 
   return (
     <div
+      onClick={onClickCard}
       className={styles.card_container}
       style={{ animationDelay: `${index}05ms` }}
     >
