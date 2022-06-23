@@ -5,6 +5,7 @@ import { useAuth } from "../../../context/AuthContext";
 import { useData } from "../../../context/DataContext";
 import { usePageActive } from "../../../hooks";
 import Buttons from "../buttons/Buttons";
+import Loading from "../loading/Loading";
 import Wrapper from "../wrapper/Wrapper";
 import styles from "./Header.module.css";
 
@@ -42,8 +43,9 @@ const Header = () => {
     setformOpen(!formOpen);
   };
 
+
   if (!currentUser) {
-    return <p>Carregando...</p>;
+    return <Loading text="Não foi possível encontrar os dados do usuário."/>;
   }
 
   return (
