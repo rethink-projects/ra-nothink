@@ -43,14 +43,31 @@ const DashboardScreen = () => {
       {isCreating && <Loading text="Criando Categoria..." />}
       {categories.length <= 0 && !isCreating && (
         <>
-        {/* <Loading text="Nenhuma Categoria encontrada..." /> */}
-        <Cards /></>
+          {/* <Loading text="Nenhuma Categoria encontrada..." /> */}
+          <Cards
+            chave={2}
+            snnipets={-1}
+            cardTitle="Nenhuma categoria encontrada"
+            creator="Lucas de Paula"
+            likes={25}
+            onClick={() => {}}
+          />
+        </>
       )}
 
       {!isLoading && !isCreating && categories.length > 0 && !isLoading && (
         <div className={styles.render_grid_categories}>
           {categories.map((category, index) => (
-            <p key={index}>{category.title}</p>
+            <div key={index}>
+              <Cards
+                cardTitle={category.title}
+                creator={category.owner_id}
+                snnipets={category.totalSnnipets}
+                likes={category.totalLikes}
+                onClick={() => {}}
+              />
+              {/* <p key={index}>{category.title}</p> */}
+            </div>
           ))}
         </div>
       )}
