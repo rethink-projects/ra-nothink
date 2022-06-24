@@ -42,7 +42,8 @@ const DashboardScreen = () => {
       {isLoading && <Loading />}
       {isCreating && <Loading text="Criando Categoria..." />}
       {categories.length <= 0 && !isCreating && (
-        <><Loading text="Nenhuma Categoria encontrada..." />
+        <>
+        {/* <Loading text="Nenhuma Categoria encontrada..." /> */}
         <Cards /></>
       )}
 

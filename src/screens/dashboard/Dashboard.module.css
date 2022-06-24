@@ -2,3 +2,6 @@
   transform: translateY(-65px);
   height: calc(100vh - 335px);
 }
+body {
+  background-color: #e5e5e5;
+}

@@ -113,8 +113,10 @@
 }
 
 .header_modal_container_off {
+  pointer-events: none;
+
   opacity: 0;
-  right: -100px;
+  right: 0px;
 }
 .header_modal_input,
 .header_modal_input_error {

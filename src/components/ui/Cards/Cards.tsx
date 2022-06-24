@@ -6,7 +6,7 @@ const Cards = () => {
   return (
     <div className={styles.card_container}>
       <div className={styles.card_name}>
-        <span>Firebase</span>
+        <span>Nenhuma categoria encontrada</span>
       </div>
       <div className={styles.card_details_container}>
         <div className={styles.card_details_subcontainer}>
@@ -19,7 +19,7 @@ const Cards = () => {
             <span>03</span>
           </div>
           <div className={styles.card_details_subcontainer}>
-            <img className={styles.card_icons} src={Images.icons.tag} />
+            <img className={styles.card_icons} src={Images.icons.like} />
             <span>23</span>
           </div>
         </div>
