@@ -10,11 +10,12 @@ export interface ICurrentUser {
 }
 
 export type TypeCategory = {
+  id?: string;
   owner_id: string;
   title: string;
   totalLikes: number;
   totalSnnipets: number;
   timeStamp: FieldValue;
-}
+};
 
-export type TypeCreateCategory =  {owner_id: string; title: string};
+export type TypeCreateCategory = { owner_id: string; title: string };

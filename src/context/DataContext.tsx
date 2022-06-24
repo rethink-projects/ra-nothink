@@ -3,6 +3,7 @@ import { TypeCategory, TypeCreateCategory } from "../types";
 
 export interface DataContextType {
   create: (category: TypeCreateCategory) => Promise<void>;
+  fetch: () => Promise<void>;
   categories: TypeCategory[];
   isLoading: Boolean;
   isCreating: Boolean;
