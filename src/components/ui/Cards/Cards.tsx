@@ -4,7 +4,7 @@ import Images from "../../../assets";
 type CardsProps = {
   cardTitle: string; //divider for different buttons
   creator: string; //
-  snnipets: number;
+  snnipets?: number;
   likes: number; // inner content
   onClick: () => void; //todo
   chave?: number;
@@ -13,7 +13,7 @@ type CardsProps = {
 const Cards = ({
   cardTitle,
   creator,
-  snnipets,
+  snnipets=-1,
   likes,
   onClick,
 }: CardsProps) => {

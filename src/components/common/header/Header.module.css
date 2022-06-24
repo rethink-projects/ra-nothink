@@ -114,6 +114,7 @@
 
 .header_modal_container_off {
   pointer-events: none;
+  /* display: none; */
 
   opacity: 0;
   right: 0px;

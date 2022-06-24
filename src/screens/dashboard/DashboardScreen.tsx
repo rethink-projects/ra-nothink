@@ -46,7 +46,6 @@ const DashboardScreen = () => {
           {/* <Loading text="Nenhuma Categoria encontrada..." /> */}
           <Cards
             chave={2}
-            snnipets={-1}
             cardTitle="Nenhuma categoria encontrada"
             creator="Lucas de Paula"
             likes={25}
