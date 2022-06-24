@@ -9,6 +9,7 @@
   --color-button-opacity: #f4f2f2;
   --color-button-opacity-dark: #1b1b1be8;
   --color-hover-button: #d4fa3ac7;
+  --color-dark-card: #464438;
 }
 
 * {
@@ -16,4 +17,3 @@
   margin: 0;
   padding: 0;
 }
-

@@ -7,6 +7,9 @@ import line from "./line.svg";
 import github from "./github.svg";
 import navbarLogo from "./navbarLogo.svg";
 import pattern from "./pattern.png";
+import code from "./code.png";
+import heart from "./heart.png";
+
 
 const Images = {
   logo: {
@@ -22,6 +25,8 @@ const Images = {
     instagram: instagram,
     google: google,
     github: github,
+    code: code,
+    heart: heart,
   },
   line: {
     default: line,

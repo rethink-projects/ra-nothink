@@ -2,7 +2,7 @@ import styles from "./Dashboard.module.css";
 /* import { useNavigate } from "react-router-dom"; */
 
 //components
-import { Loading } from "../../components";
+import { Card, Loading } from "../../components";
 
 //context
 import { useAuth } from "../../context/AuthContext";
@@ -47,11 +47,7 @@ export const DashboardScreen = () => {
       {!isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_category}>
           {categories.map((category, index) => (
-            <div key={category.id}>
-              <p key={category.id}>{category.title}</p>
-            </div>
-
-            //*******criar componente do card***********
+            <Card key={category?.id} category={category} />
           ))}
         </div>
       )}
