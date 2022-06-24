@@ -2,3 +2,11 @@
     transform: translateY(-65px);
     height: calc(100vh - 335px);
 }
+
+.render_grid_category{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
+    flex-wrap: wrap;
+}

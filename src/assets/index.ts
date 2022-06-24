@@ -5,6 +5,11 @@ import intro from "./arrow.png";
 import googleIcon from "./google.png";
 import instagramIcon from "./instagram.png";
 import linkedinIcon from "./linkedin.png";
+import avatarCategory from "./avatarCategory.svg";
+import avatarSnnipets from "./avatarSnnipets.svg";
+import quantitySnnipets from "./quantitySnnipets.svg";
+import likeCard from "./likeCard.svg";
+
 
 
 const Images = {
@@ -12,13 +17,18 @@ const Images = {
         default: logo,
         navbar: navLogo
     },
-    intro: intro,
+    intro,
     icons: {
         github: githubIcon,
         google: googleIcon,
         instagram: instagramIcon,
-        linkedin: linkedinIcon
-    }
+        linkedin: linkedinIcon,
+        avatarCategory,
+        avatarSnnipets,
+        quantitySnnipets,
+        likeCard,
+    },
+
 }
 
 export default Images;

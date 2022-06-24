@@ -1,0 +1,23 @@
+.info_user_card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+
+    color: var(--color-light);
+}
+
+.default_icon,
+.liked_icon {
+    width: 18px;
+    height: 18px;
+}
+
+.liked_icon path{
+    fill: var(--color-detail);
+}
