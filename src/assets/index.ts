@@ -11,6 +11,9 @@ import del from "./delete.svg";
 import cancel from "./cancel.svg";
 import horizontalline from "./horizontalline.png";
 import headerbackgroung from "./headerbackgroung.svg";
+import silhueta from "./silhueta.svg";
+import tag from "./tag.svg";
+import like from "./like.svg";
 
 const Images = {
   logo: {
@@ -28,6 +31,9 @@ const Images = {
     del,
     share,
     cancel,
+    silhueta,
+    tag,
+    like,
   },
   header: {
     headerbackgroung,

@@ -6,9 +6,12 @@
 
 - Por que o meu position absolute não pegou no container do modal na minha header? Tive que colocar referente à tela
 
-# Referências 
+- Não consegui alterar a cor de fundo do outlet
+
+# Referências
+
 -
 
 # Deploy
-- https://ra-nothink.vercel.app/dashboard
 
+- https://ra-nothink.vercel.app/dashboard

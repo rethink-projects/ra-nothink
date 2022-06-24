@@ -8,6 +8,7 @@ import styles from "./Dashboard.module.css";
 
 import { Loading } from "../../components";
 import { useCallback, useEffect } from "react";
+import Cards from "../../components/ui/Cards/Cards";
 
 const DashboardScreen = () => {
   const auth = useAuth();
@@ -41,7 +42,8 @@ const DashboardScreen = () => {
       {isLoading && <Loading />}
       {isCreating && <Loading text="Criando Categoria..." />}
       {categories.length <= 0 && !isCreating && (
-        <Loading text="Nenhuma Categoria encontrada..." />
+        <><Loading text="Nenhuma Categoria encontrada..." />
+        <Cards /></>
       )}
 
       {!isLoading && !isCreating && categories.length > 0 && !isLoading && (

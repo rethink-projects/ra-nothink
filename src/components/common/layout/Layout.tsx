@@ -10,7 +10,7 @@ const Layout = () => {
     <RequireAuth>
       <DataProvider>
         <Header />
-        <Wrapper>
+        <Wrapper >
           <Outlet />
         </Wrapper>
       </DataProvider>
