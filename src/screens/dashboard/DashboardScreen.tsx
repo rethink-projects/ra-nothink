@@ -47,7 +47,7 @@ export const DashboardScreen = () => {
       {!isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_category}>
           {categories.map((category, index) => (
-            <Card key={category?.id} category={category} />
+            <Card key={category?.id} index={index} category={category} />
           ))}
         </div>
       )}
