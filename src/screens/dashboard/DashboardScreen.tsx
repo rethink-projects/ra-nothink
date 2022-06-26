@@ -21,21 +21,21 @@ const DashboardScreen = () => {
   }, [fetch]);
 
   useEffect(() => {
-    if (categories.length < 0) {
+    if (categories.length <= 0) {
       fetchCategories();
     }
   }, []);
 
-  const onSignout = () => {
-    auth.signout(() => navigate("/"));
-  };
-  if (!currentUser) {
-    return (
-      <div>
-        <p>Carregando...</p>
-      </div>
-    );
-  }
+  // const onSignout = () => {
+  //   auth.signout(() => navigate("/"));
+  // };
+  // if (!currentUser) {
+  //   return (
+  //     <div>
+  //       <p>Carregando...</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className={styles.dashboard_container}>
@@ -54,7 +54,7 @@ const DashboardScreen = () => {
         </>
       )}
 
-      {!isLoading && !isCreating && categories.length > 0 && !isLoading && (
+      {!isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_categories}>
           {categories.map((category, index) => (
             <div key={index}>

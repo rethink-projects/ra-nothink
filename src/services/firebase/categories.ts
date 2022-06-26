@@ -21,7 +21,7 @@ export const createCategory = async ({
       title,
       totalLikes: 0,
       totalSnnipets: 0,
-      timeStamp: serverTimestamp(),
+      timestamp: serverTimestamp(),
     };
 
     const docRef = await addDoc(categoryPath, body);

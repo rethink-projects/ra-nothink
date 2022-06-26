@@ -5,3 +5,10 @@
 body {
   background-color: #e5e5e5;
 }
+.render_grid_categories {
+  /* https://stackoverflow.com/questions/18744164/flex-box-align-last-row-to-grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 272px);
+  grid-gap: 0px;
+  justify-content: space-between;
+}
