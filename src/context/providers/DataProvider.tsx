@@ -8,6 +8,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
 
+
   let create = useCallback(
     async (category: TypeCreateCategory) => {
       try {
@@ -24,9 +25,29 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     [categories]
   );
   
+  let fetch = useCallback( 
+    async () => {
+      try {
+        setIsLoading(true);
+        const allCategories = await firebaseInstance.getAllCategories();
+        setTimeout(() => {
+          setCaregories(allCategories);
+          setIsLoading(false);
+        }, 600);
+
+      } catch (error) {
+        console.info(error);
+        setIsLoading(false);
+        return;
+      }
+    }
+
+
+    , [])
 
   let value: DataContextType = {
     create,
+    fetch,
     categories,
     isCreating,
     isLoading,

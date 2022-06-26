@@ -9,8 +9,12 @@ import shareIcon from "./Share.png";
 import vectorIcon from "./Vector.png";
 import cancelIcon from "./Cancel.png";
 import saveIcon from "./Done.png";
-import returnIcon from "./return.png"
-import deleteIcon from "./Delete.png"
+import returnIcon from "./return.png";
+import deleteIcon from "./Delete.png";
+import personIcon from "./Person.png";
+import favoriteIcon from "./Favorite.png";
+import favoriteBorderIcon from "./Favorite border.png";
+import snnipetsCountIcon from "./snnipets.png";
 
 const Images = {
   logo: {
@@ -33,8 +37,14 @@ const Images = {
     save: saveIcon,
     return: returnIcon,
     delete: deleteIcon,
-  }
-};
+  },
 
+  cardsAssets: {
+    person: personIcon,
+    favorite: favoriteIcon,
+    favoriteBorder: favoriteBorderIcon,
+    snnipetsCount: snnipetsCountIcon,
+  },
+};
 
 export default Images;

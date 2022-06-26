@@ -2,3 +2,9 @@
     transform: translateY(-65px);
     height: calc(100vh - 335px);
 }
+
+.render_grid_category{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
