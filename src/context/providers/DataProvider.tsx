@@ -15,7 +15,7 @@ const DataProvider = ({ children }: { children: React.ReactNode }) => {
         setIsCreating(true);
         const newCategory = await firebaseInstance.createCategory(category);
         if (newCategory?.owner_id) {
-          setCategories([...categories, newCategory]);
+          setCategories([ newCategory, ...categories]);
           setIsCreating(false);
         }
       } catch (e: any) {
@@ -28,7 +28,16 @@ const DataProvider = ({ children }: { children: React.ReactNode }) => {
   let fetch = useCallback(async () => {
     try {
       setIsLoading(true);
+
       const allCategories = await firebaseInstance.getAllCategories();
+
+      allCategories
+        .sort(
+          (prevCategory: TypeCategory, nextCategory: TypeCategory) =>
+            Number(prevCategory.timestamp) - Number(nextCategory.timestamp)
+        )
+        .reverse();
+
       setTimeout(() => {
         setCategories(allCategories);
         setIsLoading(false);

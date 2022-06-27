@@ -47,7 +47,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    !isPageActive && setFormOpen(isPageActive);
+    setFormOpen(false);
     // console.log(isPageActive);
   }, [isPageActive]);
 
