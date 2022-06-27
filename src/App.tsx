@@ -2,9 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //components
 import { LoginScreen } from "./screens/login/LoginScreen";
-import { DashboardScreen } from "./screens/dashboard/DashboardScreen";
+import { CategoriesScreen } from "./screens/categories/CategoriesScreen";
 import { Layout } from "./components";
-
 
 function AddSnnipetScreen() {
   return (
@@ -30,6 +29,14 @@ function SnnipetScreen() {
   );
 }
 
+function CategoryScreen() {
+  return (
+    <div>
+      <h1>CategoryScreen Screen</h1>
+    </div>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -37,10 +44,11 @@ function App() {
         <Route path="/">
           <Route index element={<LoginScreen />} />
           <Route path="/login" element={<LoginScreen />} />
-          <Route path="/dashboard" element={<Layout />}>
-            <Route index element={<DashboardScreen />} />
-            <Route path="add" element={<AddSnnipetScreen />} />
-            <Route path=":id" element={<SnnipetScreen />} />
+          <Route path="/categories" element={<Layout />}>
+            <Route index element={<CategoriesScreen />} />
+            <Route path=":id" element={<CategoryScreen />} />
+            <Route path=":id/add-snnipet" element={<AddSnnipetScreen />} />
+            <Route path=":id/snnipets/:idSnnipet" element={<SnnipetScreen />} />
             <Route path="liked" element={<MostLiked />} />
             <Route path="create" element={<CreateSnippetScreen />} />
           </Route>

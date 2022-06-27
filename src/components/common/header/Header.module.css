@@ -5,6 +5,7 @@
   height: 61px;
   width: 100%;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
 }
 
 .navbar_container_active {
@@ -94,7 +95,7 @@
 
 .navbar_form_container_off {
   opacity: 0;
-  right: -100px;
+  right: -800px;
 }
 
 .navbar_form_input,

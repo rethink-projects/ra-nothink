@@ -17,7 +17,7 @@ export const LoginScreen = () => {
 
   const handleLogin = (type: TypeProvider) => {
     auth.signIn(type, () => {
-      navigate("/dashboard", { replace: true });
+      navigate("/categories", { replace: true });
     });
   };
 
@@ -31,7 +31,7 @@ export const LoginScreen = () => {
     }
     console.log("DEPOIS", auth.user);
     if (auth.user) {
-      navigate("/dashboard", { replace: true });
+      navigate("/categories", { replace: true });
     }
   }, [auth, navigate]);
 

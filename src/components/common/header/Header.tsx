@@ -1,5 +1,5 @@
 import Images from "../../../assets";
-import styles from "./Navbar.module.css";
+import styles from "./Header.module.css";
 
 //context
 import { useAuth } from "../../../context/AuthContext";
@@ -12,21 +12,24 @@ import { Loading } from "../..";
 //hooks
 import { usePageActive } from "../../../hooks";
 
-import { useNavigate } from "react-router-dom";
-import { ChangeEvent, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { ICurrentUser } from "../../../types";
 import Wrapper from "../wrapper/Wrapper";
 
-const Navbar = () => {
+const Header = () => {
   const auth = useAuth();
   const { create } = useData();
   const isPageActive = usePageActive();
+  const location = useLocation();
   const navigate = useNavigate();
   const [isFormOpen, toggleForm] = useState(false);
   const [categoryTitle, setCategoryTitle] = useState("");
   const [error, setError] = useState({ message: "", hasError: false });
+
   const currentUser: ICurrentUser = auth.user;
+  const categoryId = location.pathname;
 
   const onSubmitCategory = async () => {
     //criar categoria usando create do useData
@@ -45,10 +48,18 @@ const Navbar = () => {
   };
 
   const handleClick = () => {
-    isPageActive ? toggleForm(!isFormOpen) : navigate("add");
+    isPageActive
+      ? toggleForm(!isFormOpen)
+      : navigate(`${categoryId}/add-snnipet`);
   };
 
   const navbarButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
+
+ 
+
+  useEffect(() => {
+    toggleForm(false);
+  }, [location.pathname]);
 
   if (!currentUser) {
     return <Loading text="Não foi possível carregar os dados do usuário." />;
@@ -127,4 +138,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 //components
-import { Navbar } from "../..";
+import { Header } from "../..";
 
 //context
 import { useAuth } from "../../../context/AuthContext";
@@ -17,7 +17,7 @@ const Layout = () => {
   return (
     <RequireAuth>
       <DataProvider>
-        <Navbar />
+        <Header />
         <Wrapper>
           <Outlet />
         </Wrapper>

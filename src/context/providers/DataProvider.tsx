@@ -15,7 +15,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
         setIsCreating(true);
         const newCategory = await firebaseInstance.createCategory(category);
         if (newCategory?.owner_id) {
-          setCategories([...categories, newCategory]);
+          setCategories([newCategory, ...categories]);
           setIsCreating(false);
         }
       } catch (error) {
@@ -29,6 +29,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       setIsLoading(true);
       const allCategories = await firebaseInstance.getAllCategories();
+
       setTimeout(() => {
         setCategories(allCategories);
         setIsLoading(false);
@@ -45,7 +46,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     isCreating,
     isLoading,
     create,
-    fetch
+    fetch,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

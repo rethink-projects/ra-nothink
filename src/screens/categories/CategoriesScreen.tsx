@@ -1,4 +1,4 @@
-import styles from "./Dashboard.module.css";
+import styles from "./Categories.module.css";
 /* import { useNavigate } from "react-router-dom"; */
 
 //components
@@ -12,7 +12,7 @@ import { useData } from "../../context/DataContext";
 import { ICurrentUser } from "../../types";
 import { useCallback, useEffect } from "react";
 
-export const DashboardScreen = () => {
+export const CategoriesScreen = () => {
   const auth = useAuth();
   const { isCreating, categories, fetch, isLoading } = useData();
   const currentUser: ICurrentUser = auth.user;
