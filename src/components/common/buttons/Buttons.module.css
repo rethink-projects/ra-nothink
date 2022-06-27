@@ -32,9 +32,18 @@
   height: 27px;
 }
 .btn_almostmedium {
-  width: 180px;
-  height: 33px;
+  width: 176px;
+  height: 29px;
 }
+.btn_almostmedium {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  /* identical to box height, or 17px */
+
+  letter-spacing: -0.02em;
+}
+
 .btn_medium {
   width: 200px;
   height: 34px;

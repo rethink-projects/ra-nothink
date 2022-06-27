@@ -14,7 +14,7 @@ export type TypeCategory = {
   owner_id: string;
   title: string;
   totalLikes: number;
-  totalSnnipets: number;
+  totalSnnipets?: number;
   timestamp: FieldValue;
 };
 

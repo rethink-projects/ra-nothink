@@ -13,7 +13,7 @@ const LoginScreen = () => {
   // let screenCssPixelRatio = window.outerWidth / window.innerWidth;
 
   const handleLogin = (type: TypeProvider) => {
-    auth.signin(type, () => navigate("/dashboard", { replace: true }));
+    auth.signin(type, () => navigate("/categories", { replace: true }));
   };
 
   useEffect(() => {
@@ -21,9 +21,8 @@ const LoginScreen = () => {
     console.log("Antes", auth.user);
     localStorageUser && auth.setCurrentUser(localStorageUser);
     console.log("Depois", auth.user);
-    auth.user && navigate("/dashboard", { replace: true });
+    auth.user && navigate("/categories", { replace: true });
   }, [auth, navigate]);
-
 
   return (
     <div className={styles.login}>

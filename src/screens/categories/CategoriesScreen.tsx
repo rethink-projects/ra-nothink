@@ -4,16 +4,16 @@ import { useData } from "../../context/DataContext";
 
 import { ICurrentUser } from "../../types";
 
-import styles from "./Dashboard.module.css";
+import styles from "./Categories.module.css";
 
 import { Loading } from "../../components";
 import { useCallback, useEffect } from "react";
-import Cards from "../../components/ui/Cards/Cards";
+import { Cards } from "../../components";
 
-const DashboardScreen = () => {
+const CategoriesScreen = () => {
   const auth = useAuth();
   const { isCreating, categories, fetch, isLoading } = useData();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const currentUser: ICurrentUser = auth.user;
 
   const fetchCategories = useCallback(async () => {
@@ -38,35 +38,17 @@ const DashboardScreen = () => {
   // }
 
   return (
-    <div className={styles.dashboard_container}>
+    <div className={styles.categories_container}>
       {isLoading && <Loading />}
       {isCreating && <Loading text="Criando Categoria..." />}
-      {categories.length <= 0 && !isCreating && (
-        <>
-          {/* <Loading text="Nenhuma Categoria encontrada..." /> */}
-          <Cards
-            chave={2}
-            cardTitle="Nenhuma categoria encontrada"
-            creator="Lucas de Paula"
-            likes={25}
-            onClick={() => {}}
-          />
-        </>
-      )}
+      {categories.length <= 0 && !isCreating && !isLoading && (
+        <Loading text="Nenhuma Categoria"/>
+      )}  
 
       {!isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_categories}>
           {categories.map((category, index) => (
-            <div key={index}>
-              <Cards
-                cardTitle={category.title}
-                creator={category.owner_id}
-                snnipets={category.totalSnnipets}
-                likes={category.totalLikes}
-                onClick={() => {}}
-              />
-              {/* <p key={index}>{category.title}</p> */}
-            </div>
+            <Cards key={category.id} index={index} category={category} />
           ))}
         </div>
       )}
@@ -74,4 +56,4 @@ const DashboardScreen = () => {
   );
 };
 
-export default DashboardScreen;
+export default CategoriesScreen;

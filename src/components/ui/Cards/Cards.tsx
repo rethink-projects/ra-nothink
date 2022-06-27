@@ -1,42 +1,45 @@
 import styles from "./Cards.module.css";
 import Images from "../../../assets";
+import { useNavigate } from "react-router-dom";
+import { TypeCategory } from "../../../types";
 
 type CardsProps = {
-  cardTitle: string; //divider for different buttons
-  creator: string; //
-  snnipets?: number;
-  likes: number; // inner content
-  onClick: () => void; //todo
-  chave?: number;
+  index?: number;
+  category: TypeCategory;
 };
 
 const Cards = ({
-  cardTitle,
-  creator,
-  snnipets=-1,
-  likes,
-  onClick,
+  index,
+  category: { title, owner_id, totalLikes, totalSnnipets = -1, id },
 }: CardsProps) => {
+  const navigate = useNavigate();
+  const openCategory = () => {
+    navigate(`${id}`);
+  };
   return (
-    <div className={styles.card_container} onClick={onClick}>
+    <div
+      style={{ animationDelay: `${index}05ms` }}
+      className={styles.card_container}
+      onClick={openCategory}
+    >
       <div className={styles.card_name}>
-        <span>{cardTitle}</span>
+        <span>{title}</span>
       </div>
       <div className={styles.card_details_container}>
         <div className={styles.card_details_subcontainer}>
           <img className={styles.card_icons} src={Images.icons.silhueta} />
-          <span>{creator.split("@")[0]}</span>
+          <span>{owner_id.split("@")[0].replace(/[^a-zA-Z]/g, "")}</span>
         </div>
         <div className={styles.card_stats}>
-          {snnipets>=0 && (
+          {totalSnnipets >= 0 && (
             <div className={styles.card_details_subcontainer}>
               <img className={styles.card_icons} src={Images.icons.tag} />
-              <span>{snnipets}</span>
+              <span>{totalSnnipets}</span>
             </div>
           )}
           <div className={styles.card_details_subcontainer}>
             <img className={styles.card_icons} src={Images.icons.like} />
-            <span>{likes}</span>
+            <span>{totalLikes}</span>
           </div>
         </div>
       </div>

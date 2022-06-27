@@ -1,4 +1,4 @@
-.dashboard_container {
+.categories_container {
   transform: translateY(-65px);
   height: calc(100vh - 335px);
 }
@@ -8,7 +8,9 @@ body {
 .render_grid_categories {
   /* https://stackoverflow.com/questions/18744164/flex-box-align-last-row-to-grid */
   display: grid;
-  grid-template-columns: repeat(auto-fill, 272px);
-  grid-gap: 0px;
+  grid-template-columns: repeat(4, 1fr);
+  /* quantidade de colunas e tamanho da coluna. Fr é fração do espaço disponível para as colunas
+  (autofill, 272px) é a forma como eu havia colocado inicialmente*/
+  grid-gap: 20px;
   justify-content: space-between;
 }

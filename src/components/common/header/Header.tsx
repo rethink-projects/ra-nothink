@@ -1,34 +1,42 @@
-import { ChangeEvent, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { ChangeEvent, useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Images from "../../../assets";
 import { useAuth } from "../../../context/AuthContext";
 import { useData } from "../../../context/DataContext";
 import { usePageActive } from "../../../hooks";
-import Buttons from "../buttons/Buttons";
+
+import { Buttons } from "../../";
 import Loading from "../loading/Loading";
 import Wrapper from "../wrapper/Wrapper";
 import styles from "./Header.module.css";
 
 const Header = () => {
   const auth = useAuth();
+  const location = useLocation();
+
   const navigate = useNavigate();
   const isPageActive = usePageActive();
 
   const { create } = useData();
 
-  const [formOpen, setformOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
   const [categoryTitle, setCategoryTitle] = useState("");
   const [error, setError] = useState({ message: "", hasError: false });
 
-  const headerButtonText = formOpen ? "Cancelar" : "Criar Categoria";
+  const headerButtonText = formOpen
+    ? "Cancelar"
+    : isPageActive
+    ? "Criar Categoria"
+    : "Criar Snnipet";
 
   const currentUser = auth.user;
+  const categoryId = location.pathname;
 
   const onSubmitCategory = async () => {
     if (categoryTitle.length > 4) {
       setError({ message: "", hasError: false });
       await create({ owner_id: currentUser.email, title: categoryTitle });
-      setformOpen(!formOpen);
+      setFormOpen(!formOpen);
     } else {
       setError({
         message: "Minimo de 5 caracteres",
@@ -38,14 +46,20 @@ const Header = () => {
     setCategoryTitle("");
   };
 
+  useEffect(() => {
+    !isPageActive && setFormOpen(isPageActive);
+    // console.log(isPageActive);
+  }, [isPageActive]);
+
   const handleClick = () => {
-    isPageActive ? setformOpen(!formOpen) : navigate("");
-    setformOpen(!formOpen);
+    isPageActive
+      ? setFormOpen(!formOpen)
+      : navigate(`${categoryId}/add-snnipet`);
+    // setFormOpen(!formOpen);
   };
 
-
   if (!currentUser) {
-    return <Loading text="Não foi possível encontrar os dados do usuário."/>;
+    return <Loading text="" />;
   }
 
   return (
@@ -60,12 +74,12 @@ const Header = () => {
     >
       <Wrapper>
         <div className={styles.header_inner}>
-          <Link to="add">
+          <Link to="">
             <img
               className={styles.header_logo}
               src={Images.logo.light}
               alt=""
-              onClick={() => setformOpen(false)}
+              onClick={() => setFormOpen(false)}
             ></img>
           </Link>
 
