@@ -1,3 +1,4 @@
+import { info } from "console";
 import React, { useCallback, useState } from "react";
 import firebaseInstance from "../../services/firebase";
 import { TypeCategory, TypeCreateCategory } from "../../types";
@@ -12,8 +13,9 @@ import { DataContext, DataContextType } from "../DataContext";
 </DatProvider> */
 function DataProvider({ children }: { children: React.ReactNode }) {
   const [categories, setCategories] = useState<TypeCategory[]>([]);
-  const [isLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
   let create = useCallback(
     async (category: TypeCreateCategory) => {
@@ -31,8 +33,24 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     [categories]
   );
 
+  let fetch = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const allCategories = await firebaseInstance.getAllCategories();
+      setTimeout(() => {
+        setCategories(allCategories);
+        setIsLoading(false);
+      }, 600);
+    } catch (error) {
+      console.info(error);
+      setIsLoading(false);
+      return;
+    }
+  }, []);
+
   let value: DataContextType = {
     create,
+    fetch,
     categories,
     isCreating,
     isLoading,
