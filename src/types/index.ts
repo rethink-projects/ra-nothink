@@ -20,7 +20,7 @@ export interface ICurrentUser {
 // Categories
 
 export type TypeCategory = {
-  //   id: string; -- nesse caso o firebase já cria um id automatico.
+  id?: string;
   owner_id: string;
   title: string;
   totalLikes: number;

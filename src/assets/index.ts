@@ -5,6 +5,8 @@ import googleIcon from "./google.png";
 import instagramIcon from "./instagram.png";
 import linkedinIcon from "./linkedin.png";
 import nothinkLogo from "./logo-nothink-light.png";
+import likeIcon from "./like.svg";
+import codeIcon from "./code.svg";
 
 const Images = {
   logo: {
@@ -16,6 +18,8 @@ const Images = {
     google: googleIcon,
     instagram: instagramIcon,
     linkedin: linkedinIcon,
+    like: likeIcon,
+    code: codeIcon,
   },
   nothink: nothinkLogo,
 };

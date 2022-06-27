@@ -12,15 +12,27 @@ import { ICurrentUser } from "../../types";
 
 // Components
 import { Loading } from "../../components";
+import { useCallback, useEffect } from "react";
+import Card from "../../components/ui/Card/Card";
 
 export default function DashboardScreen() {
   const auth = useAuth();
   // let navigate = useNavigate();
-  const { isCreating, categories } = useData();
+  const { fetch, isLoading, categories, isCreating } = useData();
   const currentUser: ICurrentUser = auth.user;
   // const onSignout = () => {
   //   auth.signout(() => navigate("/"));
   // };
+
+  const fetchCategories = useCallback(async () => {
+    await fetch();
+  }, [fetch]);
+
+  useEffect(() => {
+    if (categories.length <= 0) {
+      fetchCategories();
+    }
+  }, []);
 
   if (!currentUser) {
     return <p>Carregando...</p>;
@@ -29,17 +41,21 @@ export default function DashboardScreen() {
   if (isCreating) {
     return <Loading text="Criando Categoria.." />;
   }
+  console.log(categories);
 
   return (
     <div className={styles.dashboard_container}>
+      {isLoading && <Loading />}
       {isCreating && <Loading text="Criando Categoria..." />}
-      {categories.length <= 0 && !isCreating && (
+      {categories.length <= 0 && !isCreating && !isLoading && (
         <Loading text="Nenhuma Categoria encontrada" />
       )}
-      {!isCreating && categories.length > 0 && (
+      {!isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_category}>
           {categories.map((category, index) => (
-            <p key={index}>{category.title}</p>
+            <div>
+              <Card key={category?.id} category={category} index={index} />
+            </div>
           ))}
         </div>
       )}
