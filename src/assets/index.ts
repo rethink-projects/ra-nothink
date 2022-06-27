@@ -9,23 +9,35 @@ import shareIcon from "./Share.png";
 import cancelIcon from "./Cancel.png";
 import editorIcon from "./Editor.png";
 import doneIcon from "./Done.png";
+import iconProfile from "./Person.svg";
+import code from "./code.svg";
+import like from "./heart.svg";
+import greenLike from "./greenHeart.svg";
 
 const Images = {
   logo: {
     default: logo,
-    white: nothinkLight
+    white: nothinkLight,
   },
-  intro: intro, 
+  intro: intro,
   icons: {
     github: githubIcon,
     google: googleIcon,
     instagram: instagramIcon,
     linkedin: linkedinIcon,
+  },
+  iconsButton: {
     share: shareIcon,
     cancel: cancelIcon,
     editor: editorIcon,
     done: doneIcon,
-  }
+  },
+  cards: {
+    person: iconProfile,
+    code: code,
+    like: like,
+    greenLike: greenLike,
+  },
 };
 
 export default Images;
