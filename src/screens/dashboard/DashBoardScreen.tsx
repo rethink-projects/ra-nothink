@@ -39,7 +39,7 @@ export default function DashBoardScreen() {
 
             {!isLoading && !isCreating && categories.length > 0 && (<div className={styles.render_grid_category}>
                 {categories.map((category, index) => (
-                    <Card key={category.id} title={category.title} user={category.owner_id} like={category.totalLikes} snnipets={category.totalSnnipets}></Card>
+                    <Card key={category.id} index={index} title={category.title} user={category.owner_id} like={category.totalLikes} snnipets={category.totalSnnipets}></Card>
                 ))}
 
             </div>)

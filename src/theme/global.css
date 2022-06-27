@@ -2,6 +2,7 @@
 @import url("./reset.css");
 
 :root {
+  --color-dark-rethink: #464438;
   --color-dark: #1b1b1b;
   --color-light: #ffffff;
   --color-detail: #d3fa3a;
