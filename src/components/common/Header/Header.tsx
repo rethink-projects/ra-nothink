@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { useAuth } from "../../../context/AuthContext";
@@ -7,36 +7,46 @@ import { usePageActive } from "../../../hooks";
 
 // Components
 import Button from "../../ui/Button/Button";
+import Loading from "../Loading/Loading";
 import Wrapper from "../Wrapper/Wrapper";
 
 // Styles
 import styles from "./Header.module.css";
 
 function Header() {
-  const [isFormOpen, toggleForm] = useState(false);
   const auth = useAuth();
   const isPageActive = usePageActive();
   const navigate = useNavigate();
-  // const { create, isCreating } = useData();
-  
+  const { create } = useData();
+
+  const [isFormOpen, toggleForm] = useState(false);
+  const [categoryTitle, setCategoryTitle] = useState("");
+  const [error, setError] = useState({ message: "", hasError: false });
+
   const currentUser = auth.user;
 
-  const onSubmitCategory = () => {
-    // Criar Categoria usando create do usaData.
-    // Recuperar valor do input de Categorias.
-    toggleForm(!isFormOpen);
+  const onSubmitCategory = async () => {
+    if (categoryTitle.length > 4) {
+      toggleForm(!isFormOpen);
+      await create({ owner_id: currentUser.email, title: categoryTitle });
+      setError({ message: "", hasError: false });
+    } else {
+      setError({
+        message: "Mínimo 5 caracteres!",
+        hasError: true,
+      });
+      setCategoryTitle("");
+    }
   };
 
   const handleClick = () => {
     isPageActive ? toggleForm(!isFormOpen) : navigate("add");
-  }
+  };
 
-
-
-  const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria"
+  const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
 
   if (!currentUser) {
-    return <p>Carregando...</p>;
+    return <Loading text="Não foi possível carregar os dados do usuário." />;
   }
   return (
     <div
@@ -62,7 +72,10 @@ function Header() {
               src={currentUser.avatarUrl}
               alt="Current User Avatar"
             />
-            <Button onClick={handleClick} text={isPageActive ? headerButtonText : "Criar Snnipets"} />
+            <Button
+              onClick={handleClick}
+              text={isPageActive ? headerButtonText : "Criar Snnipets"}
+            />
 
             <div
               className={
@@ -72,10 +85,22 @@ function Header() {
               }
             >
               <input
-                className={styles.header_modal_input}
-                placeholder="Digite o nome para essa categoria"
+                className={
+                  error.hasError
+                    ? styles.header_modal_input_error
+                    : styles.header_modal_input
+                }
+                value={categoryTitle}
+                placeholder={
+                  error.hasError
+                    ? error.message
+                    : "Digite o nome para essa categoria"
+                }
                 name="category"
                 type="text"
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  setCategoryTitle(event.target.value);
+                }}
               />
               <Button onClick={onSubmitCategory} text="Salvar" />
             </div>

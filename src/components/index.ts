@@ -4,3 +4,4 @@ export { default as Divider } from "./ui/Divider/Divider";
 
 // Common
 export { default as Layout } from "./common/Layout/Layout";
+export { default as Loading } from "./common/Loading/Loading";
