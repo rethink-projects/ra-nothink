@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink, useLocation, useNavigate } from "react-router-dom"
 
 
 // Images
@@ -17,7 +17,7 @@ import { useAuth } from '../../../context/AuthContext';
 import Wrapper from "../Wrapper/Wrapper";
 import DefaultButton from '../../ui/DefaultButton/DefaultButton';
 import { usePageActive } from "../../../hooks";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useData } from "../../../context/DataContext";
 import Loading from "../Loading/Loading";
 
@@ -27,15 +27,17 @@ const Header = () => {
     const [categoryTitle, setCategoryTitle] = useState("");
     const [error, setError] = useState({ message: "", hasError: false });
 
+    const location = useLocation();
     const auth = useAuth();
     const isPageActive = usePageActive();
     const navigate = useNavigate();
     const { create } = useData();
 
     const currentUser: ICurrentUser = auth.user;
+    const categoryId = location.pathname;
 
     const handleClick = () => {
-        isPageActive ? toggleForm(!isFormOpen) : navigate("add");
+        isPageActive ? toggleForm(!isFormOpen) : navigate(`${categoryId}/add-snnipet`);
     }
 
     const onSubmitCategory = async () => {
@@ -52,6 +54,11 @@ const Header = () => {
 
     const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
 
+    useEffect(() => {
+        toggleForm(false);
+    }, [location.pathname])
+
+
     if (!currentUser) {
         return <Loading text="Não foi possivel carregar os dados do usuário." />
     }
@@ -62,7 +69,7 @@ const Header = () => {
             <Wrapper>
                 <div className={styles.content}>
 
-                    <NavLink to="/dashboard">
+                    <NavLink to="/categories">
                         <img src={Images.logo.navbar} alt="" />
                     </NavLink>
 

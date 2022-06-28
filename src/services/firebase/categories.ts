@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, DocumentData, FieldValue, getDoc, getDocs, serverTimestamp, Timestamp } from "firebase/firestore";
+import { addDoc, collection, doc, DocumentData, FieldValue, getDoc, getDocs, orderBy, query, serverTimestamp, Timestamp } from "firebase/firestore";
 import firebaseInstance from ".";
 import { TypeCategory, TypeCreateCategory } from "../../types";
 
@@ -31,8 +31,9 @@ export const createCategory = async ({
 export const getAllCategories = async (): Promise<TypeCategory[]> => {
     const db = firebaseInstance.db;
     const categoryPath = collection(db, "categories");
+    const q = query(categoryPath, orderBy("timestamp", "desc"))
 
-    const documents = await getDocs(categoryPath);
+    const documents = await getDocs(q);
     const allCategories: TypeCategory[] = documents.docs.map((document: DocumentData) => {
         return { ...document.data(), id: document.id };
     })

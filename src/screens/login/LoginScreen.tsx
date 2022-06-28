@@ -19,7 +19,7 @@ const LoginScreen = () => {
 
 
     const handleLogin = (type: TypeProvider) => {
-        auth.signin(type, () => navigate("/dashboard", { replace: true }));
+        auth.signin(type, () => navigate("/categories", { replace: true }));
     };
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const LoginScreen = () => {
 
         }
         if (auth.user) {
-            navigate("/dashboard", { replace: true })
+            navigate("/categories", { replace: true })
         }
     }, [auth, navigate])
 

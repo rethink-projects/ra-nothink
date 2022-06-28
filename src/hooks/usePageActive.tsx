@@ -11,7 +11,7 @@ export function usePageActive() {
 
         console.log(location.pathname);
 
-        if (pathname === "dashboard") {
+        if (pathname === "categories") {
             setPageActive(true);
         } else {
             setPageActive(false);

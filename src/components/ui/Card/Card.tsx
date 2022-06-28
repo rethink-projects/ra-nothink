@@ -1,20 +1,27 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./Card.module.css";
 import InfoCard from "./InfoCard";
 
 type categoryProps = {
-    index: number
+    index: number;
+    id: string;
     title: string;
     user: string;
     like: number | string;
     snnipets?: number | string;
 }
 
-const Card = ({ index, title, user, like, snnipets }: categoryProps) => {
+const Card = ({ index, title, user, like, id, snnipets }: categoryProps) => {
     const ownerIdName = user.split("@")[0];
     const replacedName = ownerIdName.replace(/[^a-zA-Z]/g, "");
+    const navigate = useNavigate();
+
+    const onClickCard = () => {
+        navigate(`${id}`)
+    }
 
     return (
-        <div className={styles.card} style={{ animationDelay: `${index}05ms` }}>
+        <div onClick={onClickCard} className={styles.card} style={{ animationDelay: `${index}05ms` }}>
             <div className={styles.content_card}>
                 <h3 className={styles.title_card}>{title}</h3>
 
