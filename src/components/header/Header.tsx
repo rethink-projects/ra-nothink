@@ -1,5 +1,5 @@
-import { ChangeEvent, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { ChangeEvent, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Images from "../../assets";
 import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
@@ -15,6 +15,7 @@ import styles from "./Header.module.css";
 
 function Header() {
   const auth = useAuth();
+  const location = useLocation();
   const isPageActive = usePageActive();
   const navigate = useNavigate();
   const { create } = useData();
@@ -24,6 +25,7 @@ function Header() {
   const [error, setError] = useState({message: "", hasError: false})
 
   const currentUser = auth.user;
+  const categoryId = location.pathname;
 
   const onSubmitCategory = async () => {
     if(categoryTitle.length > 4){
@@ -37,11 +39,15 @@ function Header() {
   };
 
   const handleClick = () => {
-    isPageActive ? toogleForm(!isFormOpen) : navigate("add");
+    isPageActive ? toogleForm(!isFormOpen) : navigate(`${categoryId}/add-snnipet`);
   }
 
   const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
 
+  useEffect(() => {
+    toogleForm(false);
+  }, [location.pathname]);
+  
 
   if (!currentUser) {
     return <Loading text="Não foi possível carregar os dados do usuario."/>;

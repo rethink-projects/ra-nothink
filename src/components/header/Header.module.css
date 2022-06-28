@@ -4,6 +4,7 @@
     height: 336px;
     width: 100%;
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: hidden;
 }
 
 .header_container_off{
@@ -90,7 +91,7 @@
 
 .header_modal_container_off{
     opacity: 0;
-    right: -100px;
+    right: -700px;
 }
 
 .header_modal_input, .header_modal_input_error{

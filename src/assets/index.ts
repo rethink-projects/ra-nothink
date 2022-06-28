@@ -12,9 +12,9 @@ import saveIcon from "./Done.png";
 import returnIcon from "./return.png";
 import deleteIcon from "./Delete.png";
 import personIcon from "./Person.png";
-import favoriteIcon from "./Favorite.png";
-import favoriteBorderIcon from "./Favorite border.png";
-import snnipetsCountIcon from "./snnipets.png";
+import likeIcon from "./Favorite.png";
+import likeBorderIcon from "./Favorite border.svg";
+import snnipetsCountIcon from "./code.svg";
 
 const Images = {
   logo: {
@@ -41,8 +41,8 @@ const Images = {
 
   cardsAssets: {
     person: personIcon,
-    favorite: favoriteIcon,
-    favoriteBorder: favoriteBorderIcon,
+    like: likeIcon,
+    likeBorder: likeBorderIcon,
     snnipetsCount: snnipetsCountIcon,
   },
 };

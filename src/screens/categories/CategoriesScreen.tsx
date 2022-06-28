@@ -15,11 +15,11 @@ import { Card, Loading } from '../../components';
 import { usePageActive } from '../../hooks';
 
 // Styles
-import styles from './Dashboard.module.css'
+import styles from './Categories.module.css'
 import { useCallback, useEffect } from 'react';
 
 
-export default function DashboardScreen() {
+export default function CategoriesScreen() {
   const {  fetch, isLoading, categories, isCreating } = useData();
   const auth = useAuth();
   // let navigate = useNavigate();
@@ -56,8 +56,6 @@ export default function DashboardScreen() {
       { !isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_category}>
           {categories.map((category, index) => (
-            // criar component card e listar cards 
-            // <h1>{category.title}</h1>
             <Card  key={category.id} index={index} category={category} type={"category"}/>
             ))}
         </div>

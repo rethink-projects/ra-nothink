@@ -1,7 +1,12 @@
 import { useState } from "react";
-import Images from "../../assets";
-import { useData } from "../../context/DataContext";
-import { TypeCategory } from "../../types";
+import { useNavigate } from "react-router-dom";
+import Images from "../../../assets";
+import { useData } from "../../../context/DataContext";
+
+// types
+import { TypeCategory } from "../../../types";
+
+// Styles
 import styles from "./Card.module.css";
 
 interface cardProps {
@@ -11,28 +16,36 @@ interface cardProps {
 }
 
 function Card({ index, type, category }: cardProps) {
-  const owner = category.owner_id.split("@");
-  console.log(owner);
+  const ownerIdName = category.owner_id.split("@")[0];
+
+  const navigate = useNavigate();
+
+  const replacedName = ownerIdName.replace(/[^a-zA-Z]/g, "").replace("", "");
 
   const [liked, setLiked] = useState(false);
 
+  const onClickCard = () => { 
+    navigate(`${category.id}`);
+  }
+
   return (
-    <div className={styles.card_container}>
-      <div className={styles.card_title}>
-        <h1>{category.title}</h1>
+    <div className={styles.card_container} style={{animationDelay: `${index}05ms`}}  >
+      <div className={styles.card_inner}>
+      <div className={styles.card_title} onClick ={onClickCard} >
+        <h5>{category.title}</h5>
       </div>
       {type === "category" ? (
         <div className={styles.card_footer}>
           <div className={styles.card_footer_inner}>
             <img src={Images.cardsAssets.person} alt="personIcon" />
-            <p>{owner[0]}</p>
+            <p>{replacedName}</p>
           </div>
           <div className={styles.card_footer_inner}>
-            <img src={Images.cardsAssets.snnipetsCount} alt="" />
+            <img src={Images.cardsAssets.snnipetsCount} alt="snnipetsCount" />
             <p>{category.totalSnnipets}</p>
             <img
-              src={liked ? Images.cardsAssets.favorite : Images.cardsAssets.favoriteBorder}
-              alt="a"
+              src={liked ? Images.cardsAssets.like : Images.cardsAssets.likeBorder}
+              alt="like"
               onClick={() => setLiked(!liked)}
             />
             <p>{category.totalLikes}</p>
@@ -42,18 +55,19 @@ function Card({ index, type, category }: cardProps) {
         <div className={styles.card_footer}>
           <div className={styles.card_footer_inner}>
             <img src={Images.cardsAssets.person} alt="personIcon" />
-            <p>{owner[0]}</p>
+            <span>{replacedName}</span>
           </div>
           <div className={styles.card_footer_inner}>
             <img
-              src={liked ? Images.cardsAssets.favorite : Images.cardsAssets.favoriteBorder}
-              alt="a"
+              src={liked ? Images.cardsAssets.like : Images.cardsAssets.likeBorder}
+              alt="like"
               onClick={() => setLiked(!liked)}
             />
-            <p>{category.totalLikes}</p>
+            <span>{category.totalLikes}</span>
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }
