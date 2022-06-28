@@ -8,3 +8,28 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
 }
+
+/* Responsivo */ 
+@media screen and (max-width: 500px){
+    .render_grid_category{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 1000px){
+    .render_grid_category{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1400px){
+    .render_grid_category{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1401px){
+    .render_grid_category{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

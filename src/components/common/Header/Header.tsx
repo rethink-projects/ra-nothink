@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 // Styles
 import styles from "./Header.module.css";
@@ -34,6 +34,10 @@ const Header = () => {
   const [error, setError] = useState({ message: "", hasError: false });
 
   const categoryId = location.pathname;
+
+  useEffect(() => {
+    toggleForm(false);
+  }, [location.pathname]);
 
   if (!currentUser) {
     return <Loading text="Não foi possível carregar os dados do usuário." />;
