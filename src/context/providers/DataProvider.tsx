@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from "react";
 import firebaseInstance from "../../services/firebase";
-import { TypeCategory, TypeCreateCategory } from "../../types";
+import { TypeCategory, TypeCreateCategory, TypeSnnipet } from "../../types";
 import { DataContext, DataContextType } from "../DataContext";
 
 function DataProvider({ children }: { children: React.ReactNode }) {
   const [categories, setCategories] = useState<TypeCategory[]>([]);
+  const [snnipets, setSnnipets] = useState<TypeSnnipet[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
 
@@ -39,12 +40,28 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  let fetchSnnnipets = useCallback(async (category_id: string) => {
+    try {
+      setIsLoading(true);
+      const allSnnipetsByCategoryId =
+        await firebaseInstance.getSnnipetsByCategoryId(category_id);
+      setSnnipets(allSnnipetsByCategoryId);
+      setIsLoading(false);
+    } catch (error) {
+      console.info(error);
+      setIsLoading(false);
+      return;
+    }
+  }, []);
+
   let value: DataContextType = {
     create,
     fetch,
     categories,
     isCreating,
     isLoading,
+    snnipets,
+    fetchSnnnipets,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

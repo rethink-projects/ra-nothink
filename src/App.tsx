@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Screens
 import LoginScreen from "./screens/login/LoginScreen";
 import CategoriesScreen from "./screens/categories/CategoriesScreen";
+import CategoryScreen from "./screens/categories/CategoryScreen";
 
 // Components
 import { Layout } from "./components";
@@ -30,14 +31,6 @@ function SnnipetScreen() {
   return (
     <div>
       <h1>SnnipetScreen Snnipet Screen</h1>
-    </div>
-  );
-}
-
-function CategoryScreen() {
-  return (
-    <div>
-      <h1>CategoryScreen Screen</h1>
     </div>
   );
 }
