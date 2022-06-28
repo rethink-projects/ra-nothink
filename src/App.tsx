@@ -52,14 +52,14 @@ function App() {
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/categories" element={<Layout />}>
               <Route index element={<CategoriesScreen />} />
-              <Route path=":id" element={<CategoryScreen />} />
               <Route path=":id/add-snnipet" element={<AddSnnipetScreen />} />
+              <Route path=":id" element={<CategoryScreen />} />
               <Route
                 path=":id/snnipets/:idSnnipet"
                 element={<SnnipetScreen />}
               />
+              <Route path="snnipets/liked" element={<MostLiked />} />
             </Route>
-            <Route path="snnipets/liked" element={<MostLiked />} />
           </Route>
         </Routes>
       </AuthProvider>

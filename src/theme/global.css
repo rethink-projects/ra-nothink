@@ -7,13 +7,15 @@
   --color-light: #ffffff;
   --color-detail: #d3fa3a;
   --color-base: #f8f8f8;
-  --color-border: rgba(0, 0, 0, 0.4);
+  --color-border: rgba(0, 0, 0, 0.1);
   --color-button-opacity: #ededed60;
   --color-button-opacity-dark: #101010;
 }
 
 * {
   font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
 }

@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { useAuth } from "../../../context/AuthContext";
@@ -47,6 +47,10 @@ function Header() {
   };
 
   const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
+
+  useEffect(() => {
+    toggleForm(false);
+  }, [location.pathname]);
 
   if (!currentUser) {
     return <Loading text="Não foi possivel carregar os dados do usuario." />;
