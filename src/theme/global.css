@@ -8,7 +8,8 @@
     --color-border: rgba(0, 0, 0, 0.4);
     --color-button-opacity: #ededed60;
     --color-button-opacity-dark: #101010;
-    --color-footer: #464438;
+    --color-dark-rethink: #464438;
+    --color-base: #f8f8f8;
 }
 
 * {

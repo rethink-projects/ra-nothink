@@ -40,9 +40,9 @@ export default function DashboardScreen() {
         <Loading text="Nenhuma Categoria encontrada." />
       )}
       {!isLoading && !isCreating && categories.length > 0 && (
-        <div className={styles.render_grid_categories}>
+        <div className={styles.render_grid_category}>
           {categories.map((category, index) => (
-            <Card key={category?.id} index={index} category={category} type={"category"} />
+            <Card key={category?.id} index={index} category={category} />
           ))}
         </div>
       )}
