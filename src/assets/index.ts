@@ -7,6 +7,7 @@ import instagramIcon from "./instagram.png";
 import linkedinIcon from "./linkedin.png";
 import likeIcon from "./like.svg";
 import codeIcon from "./code.svg";
+import backIcon from "./back.svg";
 
 const Images = {
   logo: {
@@ -21,6 +22,7 @@ const Images = {
     linkedin: linkedinIcon,
     like: likeIcon,
     code: codeIcon,
+    back: backIcon,
   },
 };
 
