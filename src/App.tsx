@@ -5,6 +5,7 @@ import AuthProvider from "./context/providers/AuthProvider";
 //Screens
 import CategoriesScreen from "./screens/categories/CategoriesScreen";
 import LoginScreen from "./screens/login/LoginScreen";
+import CategoryScreen from "./screens/categories/CategoryScreen";
 
 //Components
 import { Layout } from "./components";
@@ -19,10 +20,6 @@ function SnnipetScreen() {
 
 function MostLiked() {
   return <div>Most Liked</div>;
-}
-
-function CategoryScreen() {
-  return <div>Category Screen</div>;
 }
 
 function App() {

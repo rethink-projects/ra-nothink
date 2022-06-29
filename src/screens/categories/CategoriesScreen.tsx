@@ -48,22 +48,6 @@ const CategoriesScreen = () => {
       {!isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_category}>
           {categories.map((category, index) => (
-            // <div
-            //   style={{
-            //     backgroundColor: "white",
-            //     width: "200px",
-            //     border: "1px solid #c3c3c3",
-            //     height: "100px",
-            //     color: "black",
-            //   }}
-            // >
-            //   <h1>{category.title}</h1>
-            //   <span>{category.owner_id}</span>
-            //   <span>{category.totalLikes}</span>
-            //   <span>{category.totalSnnipets}</span>
-            // </div>
-            // Criar Component Card e listar os cards.
-            // <Card key={category?.id} category={category} />
             <Card key={category?.id} index={index} category={category} />
           ))}
         </div>
