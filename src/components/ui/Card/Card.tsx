@@ -1,4 +1,5 @@
 // Types
+import { useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { TypeCategory } from "../../../types";
 
@@ -12,13 +13,19 @@ interface ICardProps {
 
 function Card({
   index,
-  category: { title, owner_id, totalLikes, totalSnnipets },
+  category: { title, owner_id, totalLikes, totalSnnipets, id },
 }: ICardProps) {
+  const navigate = useNavigate();
   const ownerIdName = owner_id.split("@")[0];
   const replacedName = ownerIdName.replace(/[^a-zA-Z]/g, "").replace("", "");
 
+  const onClickCard = () => {
+    navigate(`${id}`);
+  }
+
   return (
     <div
+    onClick={onClickCard}
       className={styles.card_container}
       style={{ animationDelay: `${index}05ms` }}
     >
@@ -35,7 +42,7 @@ function Card({
               <span>{totalSnnipets}</span>
             </div>
             <div className={styles.card_content_item}>
-              <img src={Images.cards.like} alt="Like Icon" />
+              <img src={Images.cards.greenLike} alt="Like Icon" />
               <span>{totalLikes}</span>
             </div>
           </div>

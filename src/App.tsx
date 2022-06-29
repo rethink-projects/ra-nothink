@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "./context/providers/AuthProvider";
 
 // Screens
-import DashboardScreen from "./screens/dashboard/DashboardScreen";
+import CategoriesScreen from "./screens/categories/CategoriesScreen";
 import LoginScreen from "./screens/login/LoginScreen";
 
 // Services
@@ -23,6 +23,10 @@ function MostLiked() {
   return <div>Most Liked</div>;
 }
 
+function CategoryScreen() {
+  return <div>CategoryScreen</div>;
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -31,11 +35,15 @@ function App() {
           <Route path="/">
             <Route index element={<LoginScreen />} />
             <Route path="/login" element={<LoginScreen />} />
-            <Route path="/dashboard" element={<Layout />}>
-              <Route index element={<DashboardScreen />} />
-              <Route path="add" element={<AddSnippetScreen />} />
-              <Route path=":id" element={<SnnipedScreen />} />
-              <Route path="liked" element={<MostLiked />} />
+            <Route path="/categories" element={<Layout />}>
+              <Route index element={<CategoriesScreen />} />
+              <Route path=":id" element={<CategoryScreen />} />
+              <Route path=":id/add-snnipet" element={<AddSnippetScreen />} />
+              <Route
+                path=":id/snnipets/:idSnnipet"
+                element={<SnnipedScreen />}
+              />
+              <Route path="snnipets/liked" element={<MostLiked />} />
             </Route>
           </Route>
         </Routes>
