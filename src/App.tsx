@@ -1,9 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //components
+import { Layout } from "./components";
+
+//screens
 import { LoginScreen } from "./screens/login/LoginScreen";
 import { CategoriesScreen } from "./screens/categories/CategoriesScreen";
-import { Layout } from "./components";
+import { CategoryScreen } from "./screens/categories/CategoryScreen";
 
 function AddSnnipetScreen() {
   return (
@@ -25,14 +28,6 @@ function SnnipetScreen() {
   return (
     <div>
       <h1>SnnipetScreen Snnipet Screen</h1>
-    </div>
-  );
-}
-
-function CategoryScreen() {
-  return (
-    <div>
-      <h1>CategoryScreen Screen</h1>
     </div>
   );
 }
