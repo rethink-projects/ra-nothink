@@ -6,8 +6,8 @@ import googleIcon from "./google.png";
 import instagramIcon from "./instagram.png";
 import linkedinIcon from "./linkedin.png";
 import iconprofile from "./Person_outline.svg";
-import code from "./code.svg";
-import favorite from "./heart.svg";
+import codeIcon from "./code.svg";
+import likeIcon from "./like.svg";
 
 const Images = {
   logo: {
@@ -21,8 +21,8 @@ const Images = {
     instagram: instagramIcon,
     linkedin: linkedinIcon,
     iconprofile: iconprofile,
-    code: code,
-    favorite: favorite,
+    like: likeIcon,
+    code: codeIcon,
   },
 };
 

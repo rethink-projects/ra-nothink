@@ -4,10 +4,8 @@
 }
 
 .render_grid_category {
-  display: flex;
-  flex-wrap: wrap;
-  /* align-items: center; */
-  justify-self: center;
-  margin: auto;
-  gap: 20px 16px;
+  display: grid;
+  /* grid-template-columns: repeat(qtCards, medidaCard); */
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 }

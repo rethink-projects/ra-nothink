@@ -4,13 +4,14 @@
 
 :root {
   --color-dark: #1b1b1b;
+  --color-dark-rethink: #464438;
   --color-light: #ffffff;
   --color-detail: #d3fa3a;
+  --color-base: #f8f8f8;
   --color-border: rgba(0, 0, 0, 0.4);
   --color-button-opacity: #ededed60;
   --color-button-opacity-dark: #101010;
-  --color-card-footer: #464438;
-  --color-base: #f8f8f8;
+  /* --color-card-footer: #464438; */
 }
 
 * {

@@ -35,8 +35,8 @@ function Header() {
         message: "Mínimo 5 caracteres!",
         hasError: true,
       });
-      setCategoryTitle("");
     }
+    setCategoryTitle("");
   };
 
   const handleClick = () => {

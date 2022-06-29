@@ -9,9 +9,8 @@ import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
 
 // Components
-import { Loading } from "../../components";
+import { Card, Loading } from "../../components";
 import { useCallback, useEffect } from "react";
-import Card from "../../components/common/Card/Card";
 
 export default function DashboardScreen() {
   const auth = useAuth();
@@ -47,7 +46,7 @@ export default function DashboardScreen() {
       {!isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_category}>
           {categories.map((category, index) => (
-            <Card category={category} key={index} />
+            <Card key={category?.id} index={index} category={category} />
           ))}
         </div>
       )}
