@@ -9,6 +9,7 @@ import navbarLogo from "./navbarLogo.svg";
 import pattern from "./pattern.png";
 import code from "./code.png";
 import heart from "./heart.png";
+import back from "./back.svg";
 
 
 const Images = {
@@ -27,6 +28,7 @@ const Images = {
     github: github,
     code: code,
     heart: heart,
+    back: back,
   },
   line: {
     default: line,

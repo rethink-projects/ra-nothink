@@ -2,23 +2,28 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { TypeCategory } from "../../../types";
+import { TypeSnnipet } from "../../../types";
 import styles from "./Card.module.css";
 
 interface CardProps {
   index: number;
-  category: TypeCategory;
+  data: TypeCategory;
+  type?: "category" | "snnipet";
 }
 
 const Card: React.FC<CardProps> = ({
   index,
-  category: { title, owner_id, totalLikes, totalSnnipets, id },
+  type = "category",
+  data: { title, owner_id, totalLikes, totalSnnipets, id },
 }) => {
   const navigate = useNavigate();
   const ownerIdName = owner_id.split("@")[0];
   const replacedName = ownerIdName.replace(/[^a-zA-Z]/g, "").replace("", "");
 
+  const isTypeSnnipet = type === "snnipet";
+
   const onClickCard = () => {
-    navigate(`${id}`);
+    return isTypeSnnipet ? null : navigate(`${id}`, { state: title });
   };
 
   return (
@@ -35,10 +40,12 @@ const Card: React.FC<CardProps> = ({
             <span>{replacedName}</span>
           </div>
           <div className={styles.card_footer_inner_item}>
-            <div className={styles.card_footer_item}>
-              <img src={Images.icons.code} alt="Code Icon" />
-              <span>{totalSnnipets}</span>
-            </div>
+            {!isTypeSnnipet && (
+              <div className={styles.card_footer_item}>
+                <img src={Images.icons.code} alt="Code Icon" />
+                <span>{totalSnnipets}</span>
+              </div>
+            )}
             <div className={styles.card_footer_item}>
               <img src={Images.icons.heart} alt="Heart Icon" />
               <span>{totalLikes}</span>
