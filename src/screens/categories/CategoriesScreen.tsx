@@ -1,5 +1,5 @@
 // CSS
-import styles from "./Dashboard.module.css";
+import styles from "./Categories.module.css";
 
 // Types
 import { ICurrentUser } from "../../types";
@@ -12,7 +12,7 @@ import { useData } from "../../context/DataContext";
 import { Card, Loading } from "../../components";
 import { useCallback, useEffect } from "react";
 
-export default function DashboardScreen() {
+export default function CategoriesScreen() {
   const auth = useAuth();
   const { isCreating, categories, fetch, isLoading } = useData();
   const currentUser: ICurrentUser = auth.user;

@@ -18,8 +18,8 @@ const LoginScreen = () => {
     auth.signin(
       type,
       // essa callback é chamada quando o usuário faz login
-      // essa callback leva o usuário para o dashboard após o login
-      () => navigate("/dashboard", { replace: true })
+      // essa callback leva o usuário para o categories após o login
+      () => navigate("/categories", { replace: true })
     );
   };
 
@@ -32,7 +32,7 @@ const LoginScreen = () => {
     }
     console.log("Depois ", auth.user);
     if (auth.user) {
-      navigate("/dashboard", { replace: true });
+      navigate("/categories", { replace: true });
     }
 
     // const parseCurrentUser: ICurrentUser = JSON.parse(localStorageUser!);

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Screens
-import DashboardScreen from "./screens/dashboard/DashboardScreen";
+import CategoriesScreen from "./screens/categories/CategoriesScreen";
 import LoginScreen from "./screens/login/LoginScreen";
 import AuthProvider from "./context/providers/AuthProvider";
 
@@ -32,6 +32,14 @@ function SnnipetScreen() {
   );
 }
 
+function CategoryScreen() {
+  return (
+    <div>
+      <h1>CategoryScreen</h1>
+    </div>
+  );
+}
+
 function App() {
   return (
     <div>
@@ -42,12 +50,20 @@ function App() {
             <Route path="/">
               <Route index element={<LoginScreen />} />
               <Route path="/login" element={<LoginScreen />} />
-              <Route path="/dashboard" element={<Layout />}>
-                <Route index element={<DashboardScreen />} />
-                <Route path="add" element={<AddSnnipetScreen />} />
-                <Route path=":id" element={<SnnipetScreen />} />
-                <Route path="liked" element={<MostLiked />} />
+              <Route path="/categories" element={<Layout />}>
+                {/* Lista de categorias */}
+                <Route index element={<CategoriesScreen />} />
+                {/* Um categoria escolhida */}
+                <Route path=":id" element={<CategoryScreen />} />
+                {/* Adicionar snnipet a categoria escolhida */}
+                <Route path=":id/add-snnipet" element={<AddSnnipetScreen />} />
+                {/* Um snnipet da categoria */}
+                <Route
+                  path=":id/snnipets/:idSnnipet"
+                  element={<SnnipetScreen />}
+                />
               </Route>
+              <Route path="liked" element={<MostLiked />} />
             </Route>
           </Routes>
         </AuthProvider>

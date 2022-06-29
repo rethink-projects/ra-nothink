@@ -23,7 +23,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
         setIsCreating(true);
         const newCategory = await firebaseInstance.createCategory(category);
         if (newCategory?.owner_id) {
-          setCategories([...categories, newCategory]);
+          setCategories([newCategory, ...categories]);
           setIsCreating(false);
         }
       } catch (error) {

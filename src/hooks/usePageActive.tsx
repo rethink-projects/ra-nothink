@@ -8,7 +8,7 @@ export function usePageActive() {
   useEffect(() => {
     const pathname = location.pathname.replace(/[^a-zA-z0-9]/g, "");
 
-    if (pathname === "dashboard") {
+    if (pathname === "categories") {
       setPageActive(true);
     } else {
       setPageActive(false);

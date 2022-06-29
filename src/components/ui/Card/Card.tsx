@@ -1,4 +1,5 @@
 // Types
+import { useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { TypeCategory } from "../../../types";
 
@@ -12,15 +13,22 @@ interface ICardProps {
 
 function Card({
   index,
-  category: { title, owner_id, totalLikes, totalSnnipets },
+  category: { title, owner_id, totalLikes, totalSnnipets, id },
 }: ICardProps) {
+  const navigate = useNavigate();
+
   // split= cortar a string em duas partes e jogar ambas em um array
   const ownerIdName = owner_id.split("@")[0];
   //   Substitui todos os caracteres especiais por "" : /[^a-zA-Z]/g, ""
   const replacedName = ownerIdName.replace(/[^a-zA-Z]/g, "").replace("", "");
 
+  const onClickCard = () => {
+    navigate(`${id}`);
+  };
+
   return (
     <div
+      onClick={onClickCard}
       className={styles.card_container}
       style={{ animationDelay: `${index}05ms` }}
     >
