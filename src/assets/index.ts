@@ -14,6 +14,7 @@ import codeIcon from "./code.svg";
 import heartIcon from "./heart.svg";
 import heartLightIcon from "./heart_light.svg";
 import personIcon from "./person.svg";
+import backIcon from "./back.svg";
 
 const Images = {
     logo: {
@@ -35,6 +36,7 @@ const Images = {
         heart: heartIcon,
         heartLight: heartLightIcon,
         person: personIcon,
+        back: backIcon,
     }
 }
 

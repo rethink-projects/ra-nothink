@@ -9,20 +9,23 @@ import { TypeCategory } from "../../../types";
 import { useNavigate } from "react-router-dom";
 
 type CardProps = {
-  category: TypeCategory;
+  data: TypeCategory;
   index: number;
+  type?: "category" | "snnipet";
 };
 
 const Card = ({
-  category: { title, owner_id, totalLikes, totalSnnipets, id },
+  data: { title, owner_id, totalLikes, totalSnnipets, id },
+  type = "category",
   index,
 }: CardProps) => {
   const onwerIdName = owner_id.split("@")[0];
   const replacedName = onwerIdName.replace(/[^a-zA-Z]/g, "").replace("", "");
   const navigate = useNavigate();
+  const isTypeSnnipet = type === "snnipet";
 
   const onClickCard = () => {
-    navigate(`${id}`);
+    return isTypeSnnipet ? null : navigate(`${id}`, { state: title });
   };
 
   return (
@@ -45,10 +48,12 @@ const Card = ({
           </div>
 
           <div className={styles.card_content_inner_item}>
-            <div className={styles.card_content_item}>
-              <img src={Images.icons.code} alt="Icon Code" />
-              <span>{totalSnnipets}</span>
-            </div>
+            {!isTypeSnnipet && (
+              <div className={styles.card_content_item}>
+                <img src={Images.icons.code} alt="Icon Code" />
+                <span>{totalSnnipets}</span>
+              </div>
+            )}
             <div className={styles.card_content_item}>
               <img src={Images.icons.heartLight} alt="Icon Heart Light" />
               <span>{totalLikes}</span>
