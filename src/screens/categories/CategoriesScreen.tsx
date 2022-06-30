@@ -1,5 +1,6 @@
 
 import { useCallback, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Loading } from '../../components';
 import Card from '../../components/ui/Card/Card';
 import { useAuth } from '../../context/AuthContext'
@@ -11,6 +12,7 @@ export default function CategoriesScreen() {
     const auth = useAuth();
     const currentUser: ICurrentUser = auth.user;
     const { isCreating, categories, fetch, isLoading } = useData();
+    const location = useLocation();
 
     const fetchCategories = useCallback(
         async () => {
@@ -25,6 +27,7 @@ export default function CategoriesScreen() {
         }
     }, []);
 
+    console.log({ location });
 
 
     if (!currentUser) {
@@ -39,7 +42,7 @@ export default function CategoriesScreen() {
 
             {!isLoading && !isCreating && categories.length > 0 && (<div className={styles.render_grid_category}>
                 {categories.map((category, index) => (
-                    <Card key={category?.id} index={index} title={category.title} user={category.owner_id} like={category.totalLikes} id={category.id!} snnipets={category.totalSnnipets}></Card>
+                    <Card key={category?.id} index={index} data={{ category }} type="category"></Card>
                 ))}
 
             </div>)
