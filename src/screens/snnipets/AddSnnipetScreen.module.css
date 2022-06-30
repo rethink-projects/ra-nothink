@@ -1,0 +1,33 @@
+
+.add_snnipet_inner {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.add_snnipet_input {
+  width: 80%;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.add_snnipet_input:placeholder {
+  font-size: 18px;
+}
+
+
+
+.form_editor {
+    height: 450px;
+}
+
+.form_actions {
+    display: flex;
+    gap: 16px;
+}
+
+.form_editor_mde {
+    height: 450px;
+}

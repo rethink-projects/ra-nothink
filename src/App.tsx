@@ -7,14 +7,7 @@ import { Layout } from "./components";
 import { LoginScreen } from "./screens/login/LoginScreen";
 import { CategoriesScreen } from "./screens/categories/CategoriesScreen";
 import { CategoryScreen } from "./screens/categories/CategoryScreen";
-
-function AddSnnipetScreen() {
-  return (
-    <div>
-      <h1>AddSnnipetScreen Screen</h1>
-    </div>
-  );
-}
+import { AddSnnipetScreen } from "./screens/snnipets/AddSnnipetScreen";
 
 function MostLiked() {
   return (
