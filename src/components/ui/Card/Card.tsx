@@ -5,17 +5,29 @@ import styles from "./Card.module.css";
 
 //Assets
 import Images from "../../../assets";
-import { TypeCategory } from "../../../types";
 import { useNavigate } from "react-router-dom";
 
 type CardProps = {
-  data: TypeCategory;
+  data: ComunsData;
+  datasCategory?: DatasCategory;
   index: number;
   type?: "category" | "snnipet";
 };
 
+type ComunsData = {
+  title: string;
+  owner_id: string;
+  id?: string;
+};
+
+type DatasCategory = {
+  totalLikes: number;
+  totalSnnipets: number;
+};
+
 const Card = ({
-  data: { title, owner_id, totalLikes, totalSnnipets, id },
+  data: { title, owner_id, id },
+  datasCategory,
   type = "category",
   index,
 }: CardProps) => {
@@ -49,14 +61,16 @@ const Card = ({
 
           <div className={styles.card_content_inner_item}>
             {!isTypeSnnipet && (
-              <div className={styles.card_content_item}>
-                <img src={Images.icons.code} alt="Icon Code" />
-                <span>{totalSnnipets}</span>
-              </div>
+              <>
+                <div className={styles.card_content_item}>
+                  <img src={Images.icons.code} alt="Icon Code" />
+                  <span>{datasCategory!.totalSnnipets}</span>
+                </div>
+              </>
             )}
             <div className={styles.card_content_item}>
               <img src={Images.icons.heartLight} alt="Icon Heart Light" />
-              <span>{totalLikes}</span>
+              <span>{isTypeSnnipet ? `0` : datasCategory!.totalLikes} </span>
             </div>
           </div>
         </div>

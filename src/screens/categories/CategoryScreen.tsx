@@ -12,6 +12,7 @@ import { useData } from "../../context/DataContext";
 
 // Assets
 import Images from "../../assets";
+import Breadcrumb from "../../components/ui/Breadcrumb/Breadcrumb";
 
 const CategoryScreen = () => {
   const { fetchSnnipets, snnipets, isLoading } = useData();
@@ -37,15 +38,7 @@ const CategoryScreen = () => {
         />
         <span>{`${location.state}`}</span>
       </div>
-      <div className={styles.category_breadcrumb}>
-        <span>Categorias</span>
-        <img
-          onClick={() => navigate(-1)}
-          src={Images.icons.back}
-          alt="BreadCrumb"
-        />
-        <p>{`${location.state}`}</p>
-      </div>
+      <Breadcrumb />
 
       {isLoading && <Loading />}
       {snnipets.length <= 0 && !isLoading && (
@@ -58,7 +51,7 @@ const CategoryScreen = () => {
               key={snnipet.id}
               index={index}
               type="snnipet"
-              data={{ ...snnipet, totalLikes: 0, totalSnnipets: 0 }}
+              data={snnipet}
             />
           ))}
         </div>

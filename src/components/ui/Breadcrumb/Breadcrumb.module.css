@@ -1,0 +1,23 @@
+.category_breadcrumb{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    margin-bottom: 50px;
+}
+
+.category_breadcrumb img{
+    transform: rotate(180deg);
+    width: 20px;
+}
+
+.category_breadcrumb p, .category_breadcrumb span{
+    font-size: 16px;
+    color: var(--color-dark);
+    font-weight: normal;
+}
+
+.category_breadcrumb span{
+    color: var(--color-light-text);
+}
