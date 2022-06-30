@@ -19,6 +19,7 @@ function RequireAuth({ children }: RequireAuthType) {
     if (localStorageUser) {
       return auth.setCurrentUser(localStorageUser);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!localStorageUser) {

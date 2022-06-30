@@ -3,16 +3,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "./context/providers/AuthProvider";
 
 //Screens
-import CategoriesScreen from "./screens/categories/CategoriesScreen";
 import LoginScreen from "./screens/login/LoginScreen";
-import CategoryScreen from "./screens/categories/CategoryScreen";
 
 //Components
 import { Layout } from "./components";
 
-function AddSnnipetScreen() {
-  return <div>Add Snnipet Screen</div>;
-}
+// Categories
+import CategoriesScreen from "./screens/categories/CategoriesScreen";
+import CategoryScreen from "./screens/categories/CategoryScreen";
+
+// Snnipets
+import AddSnnipetScreen from "./screens/snnipets/AddSnnipetScreen";
 
 function SnnipetScreen() {
   return <div>Snnipet Screen</div>;
