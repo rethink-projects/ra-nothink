@@ -1,0 +1,41 @@
+.add_snnipet_container{
+
+}
+
+.add_snnipet_inner{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.add_snnipet_input{
+    width: 80%;
+    padding: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+}
+
+.add_snnipet_input:placeholder{
+   font: 18px;
+
+}
+
+.add_snnipet_input:focus-visible{
+    outline-color: var(--color-dark);
+ }
+
+.form_editor{
+    height: 450px;
+}
+
+.form_editor_mds{
+    height: 450px;
+    background-color: var(--color-base);
+    color: var(--color-dark);
+}
+
+.form_actions{
+    display: flex;
+    gap: 16px;
+}

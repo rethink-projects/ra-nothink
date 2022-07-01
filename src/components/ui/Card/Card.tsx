@@ -13,21 +13,12 @@ type dataProps = {
         snnipet?: TypeSnnipet;
         category?: TypeCategory;
     }
-
 }
 
 
 
 
 const Card = ({ index, data, type }: dataProps) => {
-
-    // let data: any;
-
-    // if (category) {
-    //     data = category
-    // } else {
-    //     data = snnipet;
-    // }
 
     useEffect(() => {
         if (type === "snnipet") {

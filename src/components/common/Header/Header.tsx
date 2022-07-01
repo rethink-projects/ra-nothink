@@ -75,14 +75,14 @@ const Header = () => {
 
                     <div className={styles.options}>
                         {<img src={currentUser.avatarUrl} alt="foto usuário" />}
-                        <DefaultButton onClick={handleClick} text={isPageActive ? headerButtonText : "Criar Snnipets"} />
+                        <DefaultButton hasIcon={false} onClick={handleClick} text={isPageActive ? headerButtonText : "Criar Snnipets"} />
 
 
                         <div className={isFormOpen ? styles.header_modal_container : styles.header_modal_container_off}>
                             <input className={error.hasError ? styles.header_modal_input_error : styles.header_modal_input} placeholder={error.hasError ? error.message : "Digite o nome para essa categoria"} name="category" value={categoryTitle} type="text" onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                 setCategoryTitle(event.target.value)
                             }} />
-                            <DefaultButton text="Salvar" onClick={onSubmitCategory} />
+                            <DefaultButton hasIcon={false} text="Salvar" onClick={onSubmitCategory} />
                         </div>
                     </div>
                 </div>

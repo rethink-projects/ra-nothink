@@ -1,4 +1,5 @@
-.defaultButton {
+.defaultButton,
+.defaultButton_outiline {
     width: 180px;
     height: 30px;
     border-radius: 3px;
@@ -10,8 +11,23 @@
     border: none;
     appearance: none;
     transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
-.defaultButton:hover{
+.defaultButton:hover,
+.defaultButton_outiline:hover{
     transform: translateY(-3px);
+}
+
+.defaultButton_outiline{
+    background-color: transparent !important;
+    border: 1px solid var(--color-border);
+}
+
+.icon{
+    width: 15px;
+    height: 15px;
 }

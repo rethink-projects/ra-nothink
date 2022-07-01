@@ -3,18 +3,10 @@ import AuthProvider from './context/providers/AuthProvider';
 import CategoriesScreen from './screens/categories/CategoriesScreen';
 import LoginScreen from './screens/login/LoginScreen';
 import CategoryScreen from './screens/categories/CategoryScreen';
+import AddSnnipetScreen from './screens/addSnnipetScreen/AddSnnipetScreen';
 
 // Components
 import { Layout } from './components';
-
-
-function AddSnnipetScreen() {
-  return (
-    <div>
-      <h1>AddSnnipetScreen</h1>
-    </div>
-  )
-}
 
 function SnnipetScreen() {
   return (

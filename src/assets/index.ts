@@ -9,7 +9,9 @@ import avatarCategory from "./avatarCategory.svg";
 import avatarSnnipets from "./avatarSnnipets.svg";
 import quantitySnnipets from "./quantitySnnipets.svg";
 import likeCard from "./likeCard.svg";
-import backIcon from "./back.svg"
+import backIcon from "./back.svg";
+import save from "./save.svg";
+import cancel from "./cancel.svg";
 
 
 
@@ -29,6 +31,8 @@ const Images = {
         quantitySnnipets,
         likeCard,
         back: backIcon,
+        save,
+        cancel,
     },
 
 }
