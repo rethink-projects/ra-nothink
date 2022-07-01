@@ -10,7 +10,8 @@ import pattern from "./pattern.png";
 import code from "./code.png";
 import heart from "./heart.png";
 import back from "./back.svg";
-
+import save from "./save.svg";
+import cancel from "./cancel.svg";
 
 const Images = {
   logo: {
@@ -29,6 +30,8 @@ const Images = {
     code: code,
     heart: heart,
     back: back,
+    save: save,
+    cancel: cancel,
   },
   line: {
     default: line,

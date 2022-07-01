@@ -1,13 +1,12 @@
-.generalButton {
+.generalButton,
+.defaultButton_outline {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 8.18px;
+  gap: 6px;
   width: 176px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 120%;
   letter-spacing: -0.02em;
   color: var(--color-dark);
   background: var(--color-detail);
@@ -17,8 +16,14 @@
   font-family: "Roboto";
   font-style: normal;
   transition: transform 0.3s ease;
+  height: 29px;
 }
 
-.generalButton:hover {
-  transform:translateY(-3px)
+.generalButton:hover, .defaultButton_outline:hover {
+  transform: translateY(-3px);
+}
+
+.defaultButton_outline {
+  background: transparent !important;
+  border: 1px solid var(--color-border);
 }

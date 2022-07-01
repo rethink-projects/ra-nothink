@@ -51,7 +51,7 @@ export const CategoryScreen = () => {
               key={snnipet.id}
               index={index}
               type="snnipet"
-              data={{ ...snnipet, totalLikes:0}}
+              data={{snnipet}}
             />
           ))}
         </div>

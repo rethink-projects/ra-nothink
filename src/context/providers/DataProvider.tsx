@@ -50,7 +50,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
       setTimeout(() => {
         setSnnipets(allSnnipetsByCategoryId);
         setIsLoading(false);
-      }, 600);
+      });
     } catch (error) {
       console.info(error);
       setIsLoading(false);
