@@ -6,12 +6,15 @@ export interface DataContextType {
   create: (category: TypeCreateCategory) => Promise<void>;
   fetch: () => Promise<void>;
   categories: TypeCategory[];
+
+  // Comuns
   isLoading: Boolean;
   isCreating: Boolean;
 
   // Snnipets
   snnipets: TypeSnnipet[];
   fetchSnnipets: (category_id: string) => Promise<void>;
+  createSnnipet: (snnipet: Partial<TypeSnnipet>) => Promise<void>;
 }
 
 const DataContext = createContext<DataContextType>(null!);

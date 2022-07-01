@@ -15,7 +15,7 @@ import Images from "../../assets";
 import Breadcrumb from "../../components/ui/Breadcrumb/Breadcrumb";
 
 const CategoryScreen = () => {
-  const { fetchSnnipets, snnipets, isLoading } = useData();
+  const { fetchSnnipets, snnipets, isLoading, isCreating } = useData();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -40,11 +40,12 @@ const CategoryScreen = () => {
       </div>
       <Breadcrumb />
 
-      {isLoading && <Loading />}
-      {snnipets.length <= 0 && !isLoading && (
+      {isLoading && !isCreating && <Loading />}
+      {isCreating && <Loading text="Criando Snnipet..." />}
+      {snnipets.length <= 0 && !isCreating && !isLoading && (
         <Loading text="Nenhum Snnipet encontrado." />
       )}
-      {!isLoading && snnipets.length > 0 && (
+      {!isLoading && !isCreating && snnipets.length > 0 && (
         <div className={styles.render_grid_category}>
           {snnipets.map((snnipet, index) => (
             <Card

@@ -35,6 +35,8 @@ const Header = () => {
 
   const categoryId = location.pathname;
 
+  const isCreateSnnipetScreen = location.pathname.includes("/add-snnipet");
+
   useEffect(() => {
     toggleForm(false);
   }, [location.pathname]);
@@ -93,11 +95,13 @@ const Header = () => {
                 alt="Current User"
               />
             )}
-            <Button
-              type="lime"
-              text={isPageActive ? headerButtonText : "Criar Snnipets"}
-              onClick={handleClick}
-            />
+            {!isCreateSnnipetScreen && (
+              <Button
+                type="lime"
+                text={isPageActive ? headerButtonText : "Criar Snnipets"}
+                onClick={handleClick}
+              />
+            )}
 
             <div
               className={

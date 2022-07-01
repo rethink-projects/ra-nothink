@@ -13,18 +13,33 @@ import { TypeSnnipet } from "../../types";
 
 // Context
 import { useAuth } from "../../context/AuthContext";
+import { useData } from "../../context/DataContext";
 
 document.documentElement.setAttribute("data-color-mode", "light");
 
 const AddSnnipetScreen = () => {
   const [markdown, setMarkdown] = useState("");
   const [title, setTitle] = useState("");
+  const [error, setError] = useState({
+    hasError: false,
+    message: "",
+  });
 
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
+  const { createSnnipet, isCreating } = useData();
 
-  const onClickSave = () => {
+  const onClickSave = async () => {
+    if (title.length < 10) {
+      setError({
+        hasError: true,
+        message: "Título precisa ser amior que 10 caracteres.",
+      });
+      setTitle("");
+      return;
+    }
+
     const category_id = location.pathname
       .replace("/categories/", "")
       .replace("/add-snnipet", "")
@@ -36,6 +51,10 @@ const AddSnnipetScreen = () => {
       category_id,
       owner_id: user.email,
     };
+
+    await createSnnipet(body);
+
+    navigate(-1);
   };
 
   const onClickCancel = () => {
@@ -47,9 +66,15 @@ const AddSnnipetScreen = () => {
       <div className={styles.add_snnipet_inner}>
         <input
           type="text"
+          className={
+            error.hasError
+              ? styles.add_snnipet_input_error
+              : styles.add_snnipet_input
+          }
           value={title}
-          className={styles.add_snnipet_input}
-          placeholder="Insira o título para essa nota"
+          placeholder={
+            error.hasError ? error.message : "Insira o título para essa nota"
+          }
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             setTitle(event.target.value);
           }}
@@ -69,7 +94,12 @@ const AddSnnipetScreen = () => {
           />
         </div>
         <div className={styles.form_actions}>
-          <Button onClick={onClickSave} text="Salvar" type="lime" icon="save" />
+          <Button
+            onClick={onClickSave}
+            text={isCreating ? "Criando Snnipet" : "Salvar"}
+            type="lime"
+            icon="save"
+          />
           <Button
             onClick={onClickCancel}
             text="Cancelar"

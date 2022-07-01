@@ -8,6 +8,7 @@
   --color-light-text: #858585;
   --color-detail: #d3fa3a;
   --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-alert: rgba(206, 88, 88, 0.982);
   --color-button-opacity: #ededed60;
   --color-button-opacity-dark: #101010;
 }
