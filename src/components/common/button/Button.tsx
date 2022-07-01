@@ -29,7 +29,7 @@ const Button = ({ type, text, icon, onClick }: ButtonProps) => {
           alt={icon + " icon"}
         />
       )}
-      {text}
+      <span>{text}</span>
     </button>
   );
 };

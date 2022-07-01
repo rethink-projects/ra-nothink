@@ -1,11 +1,18 @@
 import React, { ChangeEvent, useState } from "react";
 import MDEitor from "@uiw/react-md-editor";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
+// Styles
 import styles from "./AddSnnipetScreen.module.css";
 
 // Components
 import { Button } from "../../components";
+
+// Types
+import { TypeSnnipet } from "../../types";
+
+// Context
+import { useAuth } from "../../context/AuthContext";
 
 document.documentElement.setAttribute("data-color-mode", "light");
 
@@ -14,10 +21,21 @@ const AddSnnipetScreen = () => {
   const [title, setTitle] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const { user } = useAuth();
 
   const onClickSave = () => {
-    console.log({ title });
-    console.log({ markdown });
+    const category_id = location.pathname
+      .replace("/categories/", "")
+      .replace("/add-snnipet", "")
+      .replace("/", "");
+
+    const body: Partial<TypeSnnipet> = {
+      title,
+      content: markdown,
+      category_id,
+      owner_id: user.email,
+    };
   };
 
   const onClickCancel = () => {
