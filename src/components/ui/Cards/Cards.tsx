@@ -5,18 +5,31 @@ import { TypeCategory, TypeSnnipet } from "../../../types";
 
 type CardsProps = {
   index?: number;
+  type?: string;
   category: TypeCategory | TypeSnnipet;
 };
 
-const Cards = ({
-  index,
-  category: { title, owner_id, totalLikes = 0, likes, totalSnnipets = -1, id },
-}: CardsProps) => {
+const Cards = ({ index, type = "category", category }: CardsProps) => {
   const navigate = useNavigate();
+
+  let totalLikes;
+  let totalSnnipets;
+  const title = category.title;
+  const owner_id = category.owner_id;
+  const id = category.id;
+  if (type == "category") {
+    totalLikes = (category as TypeCategory).totalLikes ?? 0;
+    totalSnnipets = (category as TypeCategory).totalSnnipets ?? 0;
+  } else {
+    totalLikes = (category as TypeSnnipet).likes.length ?? 0;
+    totalSnnipets = -1;
+  }
+
   const openCategory = () => {
-    navigate(`${id}`);
+    return type === "category" ? navigate(`${id}`, { state: title }) : null;
   };
-  if (likes != null) totalLikes = likes.length;
+
+  // if (likes != null) totalLikes = likes.length;
 
   return (
     <div

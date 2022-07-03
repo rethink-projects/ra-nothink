@@ -5,6 +5,34 @@
 body {
   background-color: #e5e5e5;
 }
+.snnipets_title_container {
+  display: flex;
+  margin-top: 54px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.snnipets_title_container span {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--color-dark);
+  position: relative;
+  right: 10px;
+}
+.snnipets_title_container img {
+  cursor: pointer;
+  position: relative;
+  right: 30px;
+}
+.snnipets_breadcrumb {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+.snnipets_breadcrumb .caminho {
+  color: var(--color-light-text);
+  cursor: pointer;
+}
+
 .render_grid_categories {
   /* https://stackoverflow.com/questions/18744164/flex-box-align-last-row-to-grid */
   display: grid;

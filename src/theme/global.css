@@ -5,6 +5,7 @@
   --color-dark: #1b1b1b;
   --color-todark: rgba(91, 91, 91, 0.5);
   --color-light: #ffffff;
+  --color-light-text: #b5b5b5;
   --color-detail: #d3fa3a;
   --color-danger: #ff0000;
   --color-grey: #464438;
@@ -14,6 +15,4 @@
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  
-  
 }

@@ -14,6 +14,8 @@ import headerbackgroung from "./headerbackgroung.svg";
 import silhueta from "./silhueta.svg";
 import tag from "./tag.svg";
 import like from "./like.svg";
+import back from "./back.svg";
+import higher from "./higher.svg";
 
 const Images = {
   logo: {
@@ -33,6 +35,8 @@ const Images = {
     cancel,
     silhueta,
     tag,
+    back,
+    higher,
     like,
   },
   header: {

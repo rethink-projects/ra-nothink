@@ -48,7 +48,7 @@ const CategoriesScreen = () => {
       {!isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_categories}>
           {categories.map((category, index) => (
-            <Cards key={category.id} index={index} category={category} />
+            <Cards key={category.id}  index={index} category={category} />
           ))}
         </div>
       )}
