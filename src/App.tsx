@@ -3,6 +3,8 @@ import AuthProvider from "./context/providers/AuthProvider";
 
 //Screens
 import CategoriesScreen from "./screens/categories/CategoriesScreen";
+
+import CategoryScreen from "./screens/categories/CategoryScreen";
 import LoginScreen from "./screens/login/LoginScreen";
 
 //components
@@ -56,10 +58,4 @@ const AddSnnipetScreen = () => {
     </div>
   );
 };
-const CategoryScreen = () => {
-  return (
-    <div>
-      <h1>CategoryScreen</h1>
-    </div>
-  );
-};
+

@@ -1,21 +1,23 @@
 import styles from "./Cards.module.css";
 import Images from "../../../assets";
 import { useNavigate } from "react-router-dom";
-import { TypeCategory } from "../../../types";
+import { TypeCategory, TypeSnnipet } from "../../../types";
 
 type CardsProps = {
   index?: number;
-  category: TypeCategory;
+  category: TypeCategory | TypeSnnipet;
 };
 
 const Cards = ({
   index,
-  category: { title, owner_id, totalLikes, totalSnnipets = -1, id },
+  category: { title, owner_id, totalLikes = 0, likes, totalSnnipets = -1, id },
 }: CardsProps) => {
   const navigate = useNavigate();
   const openCategory = () => {
     navigate(`${id}`);
   };
+  if (likes != null) totalLikes = likes.length;
+
   return (
     <div
       style={{ animationDelay: `${index}05ms` }}

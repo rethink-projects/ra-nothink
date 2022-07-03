@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { TypeCategory, TypeCreateCategory } from "../types";
+import { TypeCategory, TypeCreateCategory, TypeSnnipet } from "../types";
 
 export interface DataContextType {
   create: (category: TypeCreateCategory) => Promise<void>;
@@ -7,6 +7,9 @@ export interface DataContextType {
   categories: TypeCategory[];
   isLoading: Boolean;
   isCreating: Boolean;
+
+  snnipets: TypeSnnipet[];
+  fetchSnnipets: (categoryId: string) => Promise<void>;
 }
 
 const DataContext = createContext<DataContextType>(null!);
