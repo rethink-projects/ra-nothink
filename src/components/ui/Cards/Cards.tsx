@@ -21,7 +21,10 @@ const Cards = ({ index, type = "category", data }: CardsProps) => {
     totalLikes = (data as TypeCategory).totalLikes ?? 0;
     totalSnnipets = (data as TypeCategory).totalSnnipets ?? 0;
   } else {
-    totalLikes = (data as TypeSnnipet).likes.length ?? 0;
+    totalLikes =
+      (data as TypeSnnipet).likes != null
+        ? (data as TypeSnnipet).likes.length
+        : 0;
     totalSnnipets = -1;
   }
 

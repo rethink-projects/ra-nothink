@@ -9,6 +9,7 @@
   --color-detail: #d3fa3a;
   --color-danger: #ff0000;
   --color-grey: #464438;
+  --color-border: rgba(0, 0, 0, 0.5);
 }
 
 * {

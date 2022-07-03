@@ -10,6 +10,7 @@
     "@types/node": "^16.11.36",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
+    "@uiw/react-md-editor": "^3.14.4",
     "firebase": "^9.8.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",

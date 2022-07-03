@@ -3,9 +3,9 @@ import AuthProvider from "./context/providers/AuthProvider";
 
 //Screens
 import CategoriesScreen from "./screens/categories/CategoriesScreen";
-
 import CategoryScreen from "./screens/categories/CategoryScreen";
 import LoginScreen from "./screens/login/LoginScreen";
+import AddSnnipetScreen from "./screens/snnipets/AddSnnipetScreen";
 
 //components
 import { Layout } from "./components";
@@ -48,13 +48,6 @@ const SnnipetScreen = () => {
   return (
     <div>
       <h1>SnnipetScreen</h1>
-    </div>
-  );
-};
-const AddSnnipetScreen = () => {
-  return (
-    <div>
-      <h1>AddSnnipetScreen</h1>
     </div>
   );
 };
