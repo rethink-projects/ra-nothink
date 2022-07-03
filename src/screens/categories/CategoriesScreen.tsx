@@ -42,13 +42,13 @@ const CategoriesScreen = () => {
       {isLoading && <Loading />}
       {isCreating && <Loading text="Criando Categoria..." />}
       {categories.length <= 0 && !isCreating && !isLoading && (
-        <Loading text="Nenhuma Categoria"/>
-      )}  
+        <Loading text="Nenhuma Categoria" />
+      )}
 
       {!isLoading && !isCreating && categories.length > 0 && (
         <div className={styles.render_grid_categories}>
           {categories.map((category, index) => (
-            <Cards key={category.id}  index={index} category={category} />
+            <Cards key={category.id} index={index} data={category} />
           ))}
         </div>
       )}

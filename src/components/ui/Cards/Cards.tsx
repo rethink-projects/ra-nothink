@@ -6,22 +6,22 @@ import { TypeCategory, TypeSnnipet } from "../../../types";
 type CardsProps = {
   index?: number;
   type?: string;
-  category: TypeCategory | TypeSnnipet;
+  data: TypeCategory | TypeSnnipet;
 };
 
-const Cards = ({ index, type = "category", category }: CardsProps) => {
+const Cards = ({ index, type = "category", data }: CardsProps) => {
   const navigate = useNavigate();
 
   let totalLikes;
   let totalSnnipets;
-  const title = category.title;
-  const owner_id = category.owner_id;
-  const id = category.id;
-  if (type == "category") {
-    totalLikes = (category as TypeCategory).totalLikes ?? 0;
-    totalSnnipets = (category as TypeCategory).totalSnnipets ?? 0;
+  const title = data.title;
+  const owner_id = data.owner_id;
+  const id = data.id;
+  if (type == "data") {
+    totalLikes = (data as TypeCategory).totalLikes ?? 0;
+    totalSnnipets = (data as TypeCategory).totalSnnipets ?? 0;
   } else {
-    totalLikes = (category as TypeSnnipet).likes.length ?? 0;
+    totalLikes = (data as TypeSnnipet).likes.length ?? 0;
     totalSnnipets = -1;
   }
 

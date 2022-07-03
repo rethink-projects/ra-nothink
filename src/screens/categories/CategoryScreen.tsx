@@ -64,7 +64,7 @@ const CategoryScreen = () => {
               type="snnipet"
               key={snnipet.id}
               index={index}
-              category={snnipet}
+              data={snnipet}
             />
           ))}
         </div>
