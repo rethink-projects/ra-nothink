@@ -16,7 +16,6 @@ function RequireAuth({ children }: RequiredAuthType) {
   );
 
   useEffect(() => {
-    console.log({ localStorageUser })
     if (localStorageUser) {
       auth.setCurrentUser(localStorageUser);
     }
