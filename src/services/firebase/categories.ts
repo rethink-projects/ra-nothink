@@ -26,7 +26,7 @@ export const createCategory = async ({
       owner_id,
       totalLikes: 0,
       totalSnnipets: 0,
-      timesTamp: serverTimestamp(),
+      timestamp: serverTimestamp(),
     };
 
     const docRef = await addDoc(categoryPath, body);
@@ -41,7 +41,7 @@ export const createCategory = async ({
 export const getAllCategories = async (): Promise<TypeCategory[]> => {
   const db = firebaseInstance.db;
   const categoryPath = collection(db, "categories");
-  const q = query(categoryPath, orderBy("timesTamp", "desc"));
+  const q = query(categoryPath, orderBy("timestamp", "desc"));
 
   const documents = await getDocs(q);
 

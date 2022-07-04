@@ -26,7 +26,17 @@ export type TypeCategory = {
     title: string;
     totalLikes: number;
     totalSnnipets: number;
-    timesTamp: FieldValue;
+    timestamp: FieldValue;
 };
 
 export type TypeCreateCategory = {owner_id: string, title: string};
+
+export type TypeSnnipet = {
+    id?: string;
+    title: string;
+    content: string;
+    owner_id: string;
+    category_id: string;
+    likes: string[];
+    timestamp: FieldValue;
+}

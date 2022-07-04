@@ -15,6 +15,7 @@ import personIcon from "./Person.png";
 import likeIcon from "./Favorite.png";
 import likeBorderIcon from "./Favorite border.svg";
 import snnipetsCountIcon from "./code.svg";
+import backIcon from "./back.svg";
 
 const Images = {
   logo: {
@@ -28,6 +29,7 @@ const Images = {
     google: googleIcon,
     instagram: instagramIcon,
     linkedin: linkedinIcon,
+    back: backIcon,
   },
 
   iconsButton: {
