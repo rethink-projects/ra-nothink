@@ -5,19 +5,21 @@ import { TypeCategory, TypeSnnipet } from "../../../types";
 
 type CardsProps = {
   index?: number;
-  type?: string;
+  type?: "category" | "snnipet";
   data: TypeCategory | TypeSnnipet;
 };
 
 const Cards = ({ index, type = "category", data }: CardsProps) => {
   const navigate = useNavigate();
+  
+  const isTypeCategory = type == "category";
 
-  let totalLikes;
-  let totalSnnipets;
+  let totalLikes, totalSnnipets;
   const title = data.title;
-  const owner_id = data.owner_id;
+  const owner_id = data.owner_id.split("@")[0].replace(/[^a-zA-Z]/g, "");
   const id = data.id;
-  if (type == "data") {
+
+  if (isTypeCategory) {
     totalLikes = (data as TypeCategory).totalLikes ?? 0;
     totalSnnipets = (data as TypeCategory).totalSnnipets ?? 0;
   } else {
@@ -29,7 +31,7 @@ const Cards = ({ index, type = "category", data }: CardsProps) => {
   }
 
   const openCategory = () => {
-    return type === "category" ? navigate(`${id}`, { state: title }) : null;
+    return isTypeCategory ? navigate(`${id}`, { state: title }) : null;
   };
 
   // if (likes != null) totalLikes = likes.length;
@@ -46,7 +48,7 @@ const Cards = ({ index, type = "category", data }: CardsProps) => {
       <div className={styles.card_details_container}>
         <div className={styles.card_details_subcontainer}>
           <img className={styles.card_icons} src={Images.icons.silhueta} />
-          <span>{owner_id.split("@")[0].replace(/[^a-zA-Z]/g, "")}</span>
+          <span>{owner_id}</span>
         </div>
         <div className={styles.card_stats}>
           {totalSnnipets >= 0 && (

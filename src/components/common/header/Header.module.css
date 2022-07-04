@@ -3,6 +3,7 @@
   background-color: var(--color-dark);
   background-image: url("../../../assets/headerbackgroung.svg");
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  height: 100%;
 }
 .header_container_active {
   height: 336px;
@@ -17,7 +18,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 59px;
+  height: 64px;
   width: 100%;
 }
 
