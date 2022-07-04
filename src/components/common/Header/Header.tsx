@@ -1,37 +1,61 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { ChangeEvent, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Images from "../../../assets";
 import { useAuth } from "../../../context/AuthContext";
+import { useData } from "../../../context/DataContext";
 import { usePageActive } from "../../../hooks";
 
 // Components
 import Button from "../Button/Button";
+import Loading from "../Loading/Loading";
 import Wrapper from "../Wrapper/Wrapper";
 
 // Styles
 import styles from "./Header.module.css";
 
 function Header() {
-  const [isFormOpen, toggleForm] = useState(false);
   const auth = useAuth();
+  const location = useLocation();
   const isPageActive = usePageActive();
   const navigate = useNavigate();
+  const { create } = useData();
+
+  const [isFormOpen, toggleForm] = useState(false);
+  const [categoryTitle, setCategoryTitle] = useState("");
+  const [error, setError] = useState({ message: "", hasError: false });
 
   const currentUser = auth.user;
-
-  const onSubmitCategory = () => {
-    toggleForm(!isFormOpen);
+  const categoryId = location.pathname;
+  const onSubmitCategory = async () => {
+    if (categoryTitle.length > 4) {
+      toggleForm(!isFormOpen);
+      await create({ owner_id: currentUser.email, title: categoryTitle });
+      setError({ message: "", hasError: false });
+    } else {
+      setError({
+        message: "Minimo 5 caracteres!",
+        hasError: true,
+      });
+    }
+    setCategoryTitle("");
   };
 
   const handleClick = () => {
-    isPageActive ? toggleForm(!isFormOpen) : navigate("add");
+    isPageActive
+      ? toggleForm(!isFormOpen)
+      : navigate(`${categoryId}/add-snnipet`);
   };
 
   const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
-  if (!currentUser) {
-    return <p>Carregando...</p>;
-  }
+  const isCreateSnnipetScren = location.pathname.includes("/add-snnipet");
 
+  useEffect(() => {
+    toggleForm(false);
+  }, [location.pathname]);
+
+  if (!currentUser) {
+    return <Loading text="Não foi possivel carregar os dados do usuario." />;
+  }
   return (
     <div
       className={
@@ -56,10 +80,12 @@ function Header() {
               src={currentUser.avatarUrl}
               alt="Current User Avatar"
             />
-            <Button
-              onClick={handleClick}
-              text={isPageActive ? headerButtonText : "Criar Snnipets"}
-            />
+            {!isCreateSnnipetScren && (
+              <Button
+                onClick={handleClick}
+                text={isPageActive ? headerButtonText : "Criar Snnipets"}
+              />
+            )}
 
             <div
               className={
@@ -69,10 +95,22 @@ function Header() {
               }
             >
               <input
-                className={styles.header_modal_input}
-                placeholder="Digite o nome para essa categoria"
+                className={
+                  error.hasError
+                    ? styles.header_modal_input_error
+                    : styles.header_modal_input
+                }
+                value={categoryTitle}
+                placeholder={
+                  error.hasError
+                    ? error.message
+                    : "Digite o nome para essa categoria"
+                }
                 name="category"
                 type="text"
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  setCategoryTitle(event.target.value);
+                }}
               />
               <Button onClick={onSubmitCategory} text="Salvar" />
             </div>

@@ -5,6 +5,11 @@ import githubIcon from "./github.png";
 import googleIcon from "./google.png";
 import instagramIcon from "./instagram.png";
 import linkedinIcon from "./linkedin.png";
+import likeIcon from "./like.svg";
+import codeIcon from "./code.svg";
+import backIcon from "./back.svg";
+import saveIcon from "./save.svg";
+import cancelIcon from "./cancel.svg";
 
 const Images = {
   logo: {
@@ -17,6 +22,11 @@ const Images = {
     google: googleIcon,
     instagram: instagramIcon,
     linkedin: linkedinIcon,
+    like: likeIcon,
+    code: codeIcon,
+    back: backIcon,
+    save: saveIcon,
+    cancel: cancelIcon,
   },
 };
 

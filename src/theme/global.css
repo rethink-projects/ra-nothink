@@ -3,15 +3,21 @@
 
 :root {
   --color-dark: #1b1b1b;
+  --color-dark-rethink: #464438;
   --color-light: #ffffff;
+  --color-light-text: #b5b5b5;
   --color-detail: #d3fa3a;
-  --color-border: rgba(0, 0, 0, 0.4);
+  --color-base: #f8f8f8;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-alert: rgba(206, 88, 88, 0.982);
   --color-button-opacity: #ededed60;
   --color-button-opacity-dark: #101010;
 }
 
 * {
   font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
 }
