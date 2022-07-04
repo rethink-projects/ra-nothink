@@ -47,6 +47,7 @@ function Header() {
   };
 
   const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
+  const isCreateSnnipetScren = location.pathname.includes("/add-snnipet");
 
   useEffect(() => {
     toggleForm(false);
@@ -79,10 +80,12 @@ function Header() {
               src={currentUser.avatarUrl}
               alt="Current User Avatar"
             />
-            <Button
-              onClick={handleClick}
-              text={isPageActive ? headerButtonText : "Criar Snnipets"}
-            />
+            {!isCreateSnnipetScren && (
+              <Button
+                onClick={handleClick}
+                text={isPageActive ? headerButtonText : "Criar Snnipets"}
+              />
+            )}
 
             <div
               className={

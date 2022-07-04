@@ -3,22 +3,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Screens
 import LoginScreen from "./screens/login/LoginScreen";
+
+// Categories
 import CategoriesScreen from "./screens/categories/CategoriesScreen";
 import CategoryScreen from "./screens/categories/CategoryScreen";
+
+// Snnipets
+import AddSnnipetScreen from "./screens/snnipets/AddSnnipetScreen";
 
 // Components
 import { Layout } from "./components";
 
 // Provider
 import AuthProvider from "./context/providers/AuthProvider";
-
-function AddSnnipetScreen() {
-  return (
-    <div>
-      <h1>Add Snnipet Screen</h1>
-    </div>
-  );
-}
 
 function MostLiked() {
   return (

@@ -8,6 +8,8 @@ import linkedinIcon from "./linkedin.png";
 import likeIcon from "./like.svg";
 import codeIcon from "./code.svg";
 import backIcon from "./back.svg";
+import saveIcon from "./save.svg";
+import cancelIcon from "./cancel.svg";
 
 const Images = {
   logo: {
@@ -23,6 +25,8 @@ const Images = {
     like: likeIcon,
     code: codeIcon,
     back: backIcon,
+    save: saveIcon,
+    cancel: cancelIcon,
   },
 };
 
