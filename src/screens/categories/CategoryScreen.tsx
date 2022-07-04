@@ -37,7 +37,7 @@ function CategoryScreen() {
         <p>{`${location.state}`}</p>
       </div>
       {isLoading && <Loading />}
-      {isCreating && <Loading text="Criando Snnipet..." />}
+      {!isLoading && isCreating && <Loading text="Criando Snnipet..." />}
       {snnipets.length <= 0 && !isCreating && !isLoading && (
         <Loading text="Nenhum Snnipet encontrado." />
       )}

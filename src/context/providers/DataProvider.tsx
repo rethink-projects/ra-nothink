@@ -63,8 +63,10 @@ function DataProvider({ children }: { children: React.ReactNode }) {
       setIsLoading(true);
       const allSnnipetsByCategoryId =
         await firebaseInstance.getSnnipetsByCategoryId(category_id);
-      setSnnipets(allSnnipetsByCategoryId);
-      setIsLoading(false);
+      setTimeout(() => {
+        setSnnipets(allSnnipetsByCategoryId);
+        setIsLoading(false);
+      }, 800);
     } catch (error) {
       console.info(error);
       setIsLoading(false);
