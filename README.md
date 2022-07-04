@@ -55,7 +55,7 @@ Vamos criar um sistema que deve permitir que o usuário crie snippets de código
 ✅ Implementar Header no Dashboard.
 ✅ Implementar Lista de Categorias usando Firestore na tela de Dashboard.
 ✅ Desafio do Card na Lista de Categorias.
-✅ Implementar Lista de Snippets usando Firestore na tela de Dashboard.
+⬜️ Implementar Lista de Snippets usando Firestore na tela de Dashboard.
 ⬜️ Implementar Lista de Snippets Curtidos usando Firestore na tela de Dashboard.
 
 <br>
