@@ -25,7 +25,7 @@ const CategoriesScreen = () => {
       fetchCategories();
     }
   }, []);
-
+  
   // const onSignout = () => {
   //   auth.signout(() => navigate("/"));
   // };

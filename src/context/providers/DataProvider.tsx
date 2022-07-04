@@ -5,7 +5,7 @@ import { DataContext, DataContextType } from "../DataContext";
 
 const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [categories, setCategories] = useState<TypeCategory[]>([]);
-  const [snnipets, setSnipets] = useState<TypeSnnipet[]>([]);
+  const [snnipets, setSnnipets] = useState<TypeSnnipet[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
 
@@ -23,6 +23,22 @@ const DataProvider = ({ children }: { children: React.ReactNode }) => {
       }
     },
     [categories]
+  );
+
+  const createSnnipet = useCallback(
+    async (snnipet: Partial<TypeSnnipet>) => {
+      try {
+        setIsCreating(true);
+        const newSnnipet = await firebaseInstance.createSnnipet(snnipet);
+        if (newSnnipet?.owner_id) {
+          setSnnipets([newSnnipet, ...snnipets]);
+          setIsCreating(false);
+        }
+      } catch (e: any) {
+        setIsCreating(false);
+      }
+    },
+    [snnipets]
   );
 
   const fetch = useCallback(async () => {
@@ -48,6 +64,7 @@ const DataProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
   }, []);
+
   const fetchSnnipets = useCallback(async (categoryId: string) => {
     try {
       setIsLoading(true);
@@ -63,7 +80,7 @@ const DataProvider = ({ children }: { children: React.ReactNode }) => {
       //   .reverse();
 
       setTimeout(() => {
-        setSnipets(allSnnipetsByCategoryId);
+        setSnnipets(allSnnipetsByCategoryId);
         setIsLoading(false);
       }, 600);
     } catch (error) {
@@ -72,6 +89,7 @@ const DataProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
   }, []);
+
   const value: DataContextType = {
     create,
     fetch,
@@ -80,7 +98,9 @@ const DataProvider = ({ children }: { children: React.ReactNode }) => {
     isLoading,
     snnipets,
     fetchSnnipets,
+    createSnnipet,
   };
+
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };
 
