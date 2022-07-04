@@ -1,21 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Screens
-import AuthProvider from "./context/providers/AuthProvider";
-import CategoriesScreen from "./screens/categories/CategoriesScreen";
 import LoginScreen from "./screens/login/LoginScreen";
+
+// Categories
+import CategoriesScreen from "./screens/categories/CategoriesScreen";
 import CategoryScreen from "./screens/categories/CategoryScreen";
+
+// SnnipetsCount
+import AddSnnipetScreen from "./screens/snnipets/AddSnnipetScreen";
 
 // Components
 import { Layout } from "./components";
 
-function AddSnnipetScreen() {
-  return (
-    <div>
-      <h1>Add Snnipet Screen</h1>
-    </div>
-  );
-}
+// Providers
+import AuthProvider from "./context/providers/AuthProvider";
 
 function MostLiked() {
   return (

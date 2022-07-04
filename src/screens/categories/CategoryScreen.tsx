@@ -15,7 +15,6 @@ function CategoryScreen() {
     const handleData = useCallback(
       async () => {
         const categoryId = location.pathname.replace("/categories/", "");
-        console.log(categoryId);
         await fetchSnnipets(categoryId);
       },
       [fetchSnnipets, location.pathname],

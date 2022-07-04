@@ -15,7 +15,7 @@ function Button({icon, size, text, color, onClick}: buttonProps) {
 
   return (
     <button onClick={onClick} className={[styles.defaultButton, styles["button_size_"+size],  styles["button_color_"+color]].join(" ")}>
-      {icon && <img src={Images.iconsButton[icon]} alt={text}/>}
+      {icon && <img src={Images.iconsButton[icon]} alt={text} className={styles.icon}/>}
       {text}
     </button>
   )
