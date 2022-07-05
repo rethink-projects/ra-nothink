@@ -7,6 +7,7 @@
     background: var(--color-dark);
     background-image: url("../../../assets/pattern\ 1.png");
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: hidden;
 }
 
 .header_container_off {
@@ -95,7 +96,7 @@
 
 .header_modal_container_off {
     opacity: 0;
-    right: -100px;
+    right: -400px;
 }
 
 .header_modal_input .header_modal_input_error {

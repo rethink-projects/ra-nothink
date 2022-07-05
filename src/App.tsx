@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "./context/providers/AuthProvider";
 
 // Screens
-import DashboardScreen from "./screens/dashboard/DashboardScreen";
+import CategoriesScreen from "./screens/categories/CategoriesScreen";
 import LoginScreen from "./screens/login/LoginScreen";
 
 // Components
@@ -16,12 +16,16 @@ function App() {
           <Route path="/">
             <Route index element={<LoginScreen />} />
             <Route path="/login" element={<LoginScreen />} />
-            <Route path="/dashboard" element={<Layout />}>
-              <Route index element={<DashboardScreen />} />
-              <Route path="add" element={<AddSnippetScreen />} />
-              <Route path=":id" element={<SnippetScreen />} />
-              <Route path="liked" element={<MostLiked />} />
+            <Route path="/categories" element={<Layout />}>
+              <Route index element={<CategoriesScreen />} />
+              <Route path=":id" element={<CategoryScreen />} />
+              <Route path=":id/add-snippet" element={<AddSnippetScreen />} />
+              <Route
+                path=":id/snippets/:idSnippet"
+                element={<SnippetScreen />}
+              />
             </Route>
+            <Route path="snippets/liked" element={<MostLiked />} />
           </Route>
         </Routes>
       </AuthProvider>
@@ -34,7 +38,7 @@ export default App;
 function AddSnippetScreen() {
   return (
     <div>
-      <h1>SnippetScreen</h1>
+      <h1>Add SnippetScreen</h1>
     </div>
   );
 }
@@ -43,6 +47,14 @@ function SnippetScreen() {
   return (
     <div>
       <h1>SnippetScreen</h1>
+    </div>
+  );
+}
+
+function CategoryScreen() {
+  return (
+    <div>
+      <h1>CategoryScreen</h1>
     </div>
   );
 }

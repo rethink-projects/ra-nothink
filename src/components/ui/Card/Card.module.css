@@ -3,15 +3,28 @@
     height: 135px;
     background-color: var(--color-light);
     border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: slowY 600ms cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
 }
 
 .card_category {
     transition: all 0.3 ease-in-out;
 }
 
+.card_category:hover {
+    transform: translateY(10px);
+}
+
+.card_category:hover>.card_content {
+    background-color: var(--color-dark);
+}
+
 .card_title {
     flex: 1;
-    width: 70px;
+    min-width: 70px;
     min-height: 70px;
     padding: 16.3px;
     font-family: 'Inter';
@@ -30,6 +43,7 @@
     background-color: var(--color-rethink);
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
     border-radius: 0px 0px 6px 6px;
+    flex-grow: 1;
 }
 
 .card_informations {
@@ -66,4 +80,16 @@
 .card_informations_item span {
     font-size: 12px;
     color: var(--color-light);
+}
+
+@keyframes slowY {
+    0% {
+        opacity: 0.9;
+        transform: translateY(150px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }

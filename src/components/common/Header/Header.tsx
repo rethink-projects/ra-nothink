@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import { ChangeEvent } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ChangeEvent, useEffect } from "react";
 
 // CSS
 import styles from "./Header.module.css";
@@ -21,6 +21,7 @@ import { useData } from "../../../context/DataContext";
 
 const Header = () => {
   const auth = useAuth();
+  const location = useLocation();
   const isPageActive = usePageActive();
   const navigate = useNavigate();
 
@@ -30,6 +31,7 @@ const Header = () => {
   const [error, setError] = useState({ message: "", hasError: false });
 
   const currentUser: ICurrentUser = auth.user;
+  const idCategory = location.pathname;
 
   const onSubmitCategory = async () => {
     // Criar categoria usando create do useData
@@ -49,10 +51,17 @@ const Header = () => {
   };
 
   const handleClick = () => {
-    isPageActive ? toggleForm(!isFormOpen) : navigate("add");
+    isPageActive
+      ? toggleForm(!isFormOpen)
+      : navigate(`${idCategory}/add-snippet`);
   };
 
   const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
+
+  useEffect(() => {
+    toggleForm(false);
+  }, [location.pathname]);
+
   if (!currentUser) {
     return <p>Carregando..</p>;
   }
@@ -71,7 +80,7 @@ const Header = () => {
     >
       <Wrapper>
         <div className={styles.header_inner}>
-          <Link to={"/dashboard"}>
+          <Link to={"/categories"}>
             <img
               className={styles.header_logo}
               src={Images.nothink}

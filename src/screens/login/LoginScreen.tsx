@@ -17,7 +17,7 @@ export default function LoginScreen() {
   // let from = location.state?.from?.path || "/";
 
   const handleLogin = (type: TypeProvider) => {
-    auth.signin(type, () => navigate("/dashboard", { replace: true }));
+    auth.signin(type, () => navigate("/categories", { replace: true }));
   };
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function LoginScreen() {
       auth.setCurrentUser(localStorageUser);
     }
     if (auth.user) {
-      navigate("/dashboard", { replace: true });
+      navigate("/categories", { replace: true });
     }
   }, [auth, navigate]);
 

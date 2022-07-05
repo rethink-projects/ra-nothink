@@ -1,7 +1,7 @@
 // import { useNavigate } from "react-router-dom";
 
 // CSS
-import styles from "./Dashboard.module.css";
+import styles from "./Categories.module.css";
 
 // Context
 import { useAuth } from "../../context/AuthContext";
@@ -15,7 +15,7 @@ import { Loading } from "../../components";
 import { useCallback, useEffect } from "react";
 import Card from "../../components/ui/Card/Card";
 
-export default function DashboardScreen() {
+export default function CategoriesScreen() {
   const auth = useAuth();
   // let navigate = useNavigate();
   const { fetch, isLoading, categories, isCreating } = useData();
