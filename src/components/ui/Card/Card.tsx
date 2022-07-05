@@ -8,12 +8,14 @@ import styles from "./Card.module.css";
 
 interface ICardProps {
   index: number;
-  category: TypeCategory;
+  data: TypeCategory;
+  type?: "category" | "snnipet";
 }
 
 function Card({
   index,
-  category: { title, owner_id, totalLikes, totalSnnipets, id },
+  type = "category",
+  data: { title, owner_id, totalLikes, totalSnnipets, id },
 }: ICardProps) {
   const navigate = useNavigate();
 
@@ -21,9 +23,10 @@ function Card({
   const ownerIdName = owner_id.split("@")[0];
   //   Substitui todos os caracteres especiais por "" : /[^a-zA-Z]/g, ""
   const replacedName = ownerIdName.replace(/[^a-zA-Z]/g, "").replace("", "");
+  const isTypeSnnipet = type === "snnipet";
 
   const onClickCard = () => {
-    navigate(`${id}`);
+    return isTypeSnnipet ? null : navigate(`${id}`, { state: title });
   };
 
   return (
@@ -40,10 +43,12 @@ function Card({
             <span>{replacedName}</span>
           </div>
           <div className={styles.card_content_inner_item}>
-            <div className={styles.card_content_item}>
-              <img src={Images.icons.code} alt="Code Icon" />
-              <span>{totalSnnipets}</span>
-            </div>
+            {!isTypeSnnipet && (
+              <div className={styles.card_content_item}>
+                <img src={Images.icons.code} alt="Code Icon" />
+                <span>{totalSnnipets}</span>
+              </div>
+            )}
             <div className={styles.card_content_item}>
               <img src={Images.icons.like} alt="Like Icon" />
               <span>{totalLikes}</span>

@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Screens
 import CategoriesScreen from "./screens/categories/CategoriesScreen";
+import CategoryScreen from "./screens/categories/CategoryScreen";
 import LoginScreen from "./screens/login/LoginScreen";
 import AuthProvider from "./context/providers/AuthProvider";
 
@@ -28,14 +29,6 @@ function SnnipetScreen() {
   return (
     <div>
       <h1>SnnipetScreen</h1>
-    </div>
-  );
-}
-
-function CategoryScreen() {
-  return (
-    <div>
-      <h1>CategoryScreen</h1>
     </div>
   );
 }
