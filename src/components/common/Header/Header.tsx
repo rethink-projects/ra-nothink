@@ -80,7 +80,7 @@ const Header = () => {
                             (<DefaultButton hasIcon={false} onClick={handleClick} text={isPageActive ? headerButtonText : "Criar Snnipets"} />)}
 
 
-                        {isFormOpen && <div className={isFormOpen ? styles.header_modal_container : styles.header_modal_container_off}>
+                        {<div className={isFormOpen ? styles.header_modal_container : styles.header_modal_container_off}>
                             <input className={error.hasError ? styles.header_modal_input_error : styles.header_modal_input} placeholder={error.hasError ? error.message : "Digite o nome para essa categoria"} name="category" value={categoryTitle} type="text" onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                 setCategoryTitle(event.target.value)
                             }} />
