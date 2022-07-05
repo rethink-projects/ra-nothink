@@ -1,4 +1,4 @@
-import { collection, DocumentData, getDocs, orderBy, query } from "firebase/firestore";
+import { addDoc, collection, DocumentData, getDoc, getDocs, orderBy, query, serverTimestamp } from "firebase/firestore";
 import firebaseInstance from ".";
 import { TypeSnnipet } from "../../types";
 
@@ -17,4 +17,30 @@ export const getSnnipetsByCategoryId = async (category_id: string): Promise<Type
     })
 
     return allFiltredSnnipets;
+}
+
+export const createSnnipet = async ({
+    owner_id, title, content, category_id }: Partial<TypeSnnipet>): Promise<TypeSnnipet | undefined> => {
+
+    try {
+        const db = firebaseInstance.db;
+        const snnipetPath = collection(db, "snnipets");
+        const body: Partial<TypeSnnipet> = {
+            owner_id,
+            title,
+            content,
+            category_id,
+            likes: [],
+            timestamp: serverTimestamp(),
+
+        };
+
+        const dofRef = await addDoc(snnipetPath, body);
+        const newDoc: DocumentData = await getDoc(dofRef);
+
+        const response: TypeSnnipet = { ...newDoc.data(), id: newDoc.id }
+        return response;
+    } catch (error) {
+        console.warn(error);
+    }
 }

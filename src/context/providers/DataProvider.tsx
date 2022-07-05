@@ -27,6 +27,24 @@ function DataProvider({ children }: { children: React.ReactNode }) {
         [categories],
     );
 
+    let createSnnipet = useCallback(
+        async (snnipet: Partial<TypeSnnipet>) => {
+            try {
+                setIsCreating(true);
+                console.log({ snnipet });
+
+                const newSnnipet = await firebaseInstance.createSnnipet(snnipet);
+                if (newSnnipet?.owner_id) {
+                    setSnnipets([newSnnipet, ...snnipets]);
+                    setIsCreating(false);
+                }
+            } catch (error) {
+                setIsCreating(false);
+            }
+        },
+        [snnipets],
+    );
+
     let fetch = useCallback(
         async () => {
             try {
@@ -66,7 +84,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     )
 
 
-    let value: DataContextType = { categories, create, fetch, isCreating, isLoading, snnipets, fetchSnnipets }
+    let value: DataContextType = { categories, create, fetch, isCreating, isLoading, snnipets, fetchSnnipets, createSnnipet }
 
     return <DataContext.Provider value={value}>
         {children}

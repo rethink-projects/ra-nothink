@@ -9,19 +9,31 @@
     gap: 24px;
 }
 
-.add_snnipet_input{
+.add_snnipet_input,
+.add_snnipet_input_error{
     width: 80%;
     padding: 14px;
     border: 1px solid var(--color-border);
     border-radius: 6px;
 }
 
+.add_snnipet_input_error{
+    border: 1px solid var(--color-border-alert);
+}
+
+.add_snnipet_input_error:placeholder{
+    font: 18px;
+    color: var(--color-border-alert);
+ }
+
 .add_snnipet_input:placeholder{
    font: 18px;
 
 }
 
-.add_snnipet_input:focus-visible{
+.add_snnipet_input:focus-visible,
+.add_snnipet_input_error:focus-visible{
+    font: 18px;
     outline-color: var(--color-dark);
  }
 

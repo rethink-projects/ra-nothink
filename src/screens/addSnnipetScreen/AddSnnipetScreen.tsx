@@ -1,8 +1,10 @@
 import MDEditor from "@uiw/react-md-editor";
+import { setDefaultResultOrder } from "dns";
 import { ChangeEvent, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import DefaultButton from "../../components/ui/DefaultButton/DefaultButton";
 import { useAuth } from "../../context/AuthContext";
+import { useData } from "../../context/DataContext";
 import { TypeSnnipet } from "../../types";
 import styles from "./AddSnnipetScreen.module.css";
 
@@ -12,8 +14,10 @@ function AddSnnipetScreen() {
 
     const [markdown, setMarkdown] = useState("");
     const [title, setTitle] = useState("");
+    const [error, setError] = useState({ hasError: false, message: "" })
     const { user } = useAuth();
     const location = useLocation();
+    const { createSnnipet, isCreating } = useData();
 
     const navigate = useNavigate();
 
@@ -21,7 +25,13 @@ function AddSnnipetScreen() {
         navigate(-1);
     }
 
-    const onClickSave = () => {
+    const onClickSave = async () => {
+        if (title.length < 5) {
+            setError({ hasError: true, message: "Titulo precisa ter pelo menos 5 caracteres." });
+            setTitle("");
+            return;
+        }
+
         const categoryId = location.pathname.replace("/categories/", "").replace("/add-snnipet", "").replace("/", "");
 
         const body: Partial<TypeSnnipet> = {
@@ -30,12 +40,14 @@ function AddSnnipetScreen() {
             category_id: categoryId,
             owner_id: user.email,
         }
+        await createSnnipet(body);
+        navigate(-1);
     }
 
     return (
         <div className={styles.add_snnipet_container}>
             <div className={styles.add_snnipet_inner}>
-                <input type="text" className={styles.add_snnipet_input} placeholder="Insira o título para essa nota" onChange={(event: ChangeEvent<HTMLInputElement>) => { setTitle(event.target.value) }} />
+                <input value={title} type="text" className={error.hasError ? styles.add_snnipet_input_error : styles.add_snnipet_input} placeholder={error.hasError ? error.message : "Insira o título para essa nota"} onChange={(event: ChangeEvent<HTMLInputElement>) => { setTitle(event.target.value) }} />
                 <div className={styles.form_editor}>
                     <MDEditor
                         value={markdown}
@@ -46,7 +58,7 @@ function AddSnnipetScreen() {
                     />
                 </div>
                 <div className={styles.form_actions}>
-                    <DefaultButton hasIcon type="save" text="Salvar" onClick={() => { onClickSave() }} />
+                    <DefaultButton hasIcon type="save" text={isCreating ? "Criando Snnipet" : "Salvar"} onClick={() => { onClickSave() }} />
                     <DefaultButton hasIcon type="cancel" text="Cancelar" onClick={() => { onClickCancel() }} />
 
                 </div>

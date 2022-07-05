@@ -7,6 +7,7 @@ import AddSnnipetScreen from './screens/addSnnipetScreen/AddSnnipetScreen';
 
 // Components
 import { Layout } from './components';
+import Wrapper from './components/common/Wrapper/Wrapper';
 
 function SnnipetScreen() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <Routes>
+
             <Route path='/'>
               <Route index element={<LoginScreen />} />
               <Route path='/login' element={<LoginScreen />} />

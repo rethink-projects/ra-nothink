@@ -5,7 +5,7 @@ import { firebaseConfig } from "./config";
 
 import { loginWithFireBase } from "./authentication";
 import { createCategory, getAllCategories } from "./categories";
-import { getSnnipetsByCategoryId } from "./snnipets";
+import { getSnnipetsByCategoryId, createSnnipet } from "./snnipets";
 
 
 // Initialize Firebase
@@ -14,6 +14,6 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase
 const db = getFirestore(app);
 
-const firebaseInstance = { app, db, loginWithFireBase, createCategory, getAllCategories, getSnnipetsByCategoryId }
+const firebaseInstance = { app, db, loginWithFireBase, createCategory, getAllCategories, getSnnipetsByCategoryId, createSnnipet }
 
 export default firebaseInstance;

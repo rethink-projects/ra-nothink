@@ -9,7 +9,7 @@ import Images from '../../assets';
 import styles from './CategoriesScreen.module.css';
 
 const CategoryScreen = () => {
-    const { fetchSnnipets, snnipets, isLoading } = useData();
+    const { fetchSnnipets, snnipets, isLoading, isCreating } = useData();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -41,9 +41,10 @@ const CategoryScreen = () => {
                 <p>{`${location.state}`}</p>
             </div>
             {isLoading && <Loading />}
-            {snnipets.length <= 0 && !isLoading && (<Loading text="Nenhuma categoria encontrada." />)}
+            {isCreating && <Loading text="Criando snnipet..." />}
+            {snnipets.length <= 0 && !isLoading && !isCreating && (<Loading text="Nenhum snnipet encontrada." />)}
 
-            {!isLoading && snnipets.length > 0 && (<div className={styles.render_grid_category}>
+            {!isLoading && snnipets.length > 0 && !isCreating && (<div className={styles.render_grid_category}>
                 {snnipets.map((snnipet, index) => (
                     <Card key={snnipet?.id} index={index} data={{ snnipet }} type="snnipet"></Card>
                 ))}

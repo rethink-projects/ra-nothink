@@ -53,6 +53,7 @@ const Header = () => {
     }
 
     const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
+    const isCreateSnnipetScreen = location.pathname.includes("/add-snnipet");
 
     useEffect(() => {
         toggleForm(false);
@@ -75,15 +76,16 @@ const Header = () => {
 
                     <div className={styles.options}>
                         {<img src={currentUser.avatarUrl} alt="foto usuário" />}
-                        <DefaultButton hasIcon={false} onClick={handleClick} text={isPageActive ? headerButtonText : "Criar Snnipets"} />
+                        {!isCreateSnnipetScreen &&
+                            (<DefaultButton hasIcon={false} onClick={handleClick} text={isPageActive ? headerButtonText : "Criar Snnipets"} />)}
 
 
-                        <div className={isFormOpen ? styles.header_modal_container : styles.header_modal_container_off}>
+                        {isFormOpen && <div className={isFormOpen ? styles.header_modal_container : styles.header_modal_container_off}>
                             <input className={error.hasError ? styles.header_modal_input_error : styles.header_modal_input} placeholder={error.hasError ? error.message : "Digite o nome para essa categoria"} name="category" value={categoryTitle} type="text" onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                 setCategoryTitle(event.target.value)
                             }} />
                             <DefaultButton hasIcon={false} text="Salvar" onClick={onSubmitCategory} />
-                        </div>
+                        </div>}
                     </div>
                 </div>
 
