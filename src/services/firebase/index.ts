@@ -3,7 +3,7 @@ import { firebaseConfig } from "./config";
 import { getFirestore } from "firebase/firestore";
 import { loginWithFirebase } from "./authentication";
 import { createCategory, getAllCategories } from "./categories";
-import { getSnnipetsByCategoryId } from "./snnipets";
+import { createSnnipet, getSnnipetsByCategoryId } from "./snnipets";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -17,7 +17,8 @@ const firebaseInstance = {
   loginWithFirebase,
   createCategory,
   getAllCategories,
-  getSnnipetsByCategoryId
+  getSnnipetsByCategoryId,
+  createSnnipet
 };
 
 export default firebaseInstance;

@@ -13,6 +13,9 @@ export interface DataContextType {
   //snnipets
   snnipets: TypeSnnipet[];
   fetchSnnipets: (category_id: string) => Promise<void>;
+  createSnnipet: (snnipet: Partial<TypeSnnipet>) => Promise<void>;
+
+
 }
 
 export const DataContext = createContext<DataContextType>(null!);

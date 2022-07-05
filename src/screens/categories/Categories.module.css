@@ -9,7 +9,7 @@
 }
 
 .category_actions {
-  transform: translateX(-34px);
+  transform: translateX(-54px);
   display: flex;
   justify-content: flex-start;
   align-items: center;

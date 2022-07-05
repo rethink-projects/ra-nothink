@@ -12,7 +12,7 @@ import { useData } from "../../context/DataContext";
 import Images from "../../assets";
 
 export const CategoryScreen = () => {
-  const { fetchSnnipets, snnipets, isLoading } = useData();
+  const { fetchSnnipets, snnipets, isLoading, isCreating } = useData();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -41,10 +41,11 @@ export const CategoryScreen = () => {
         <p>{`${location.state}`}</p>
       </div>
       {isLoading && <Loading />}
-      {snnipets.length <= 0 && !isLoading && (
-        <Loading text="Nenhuma categoria encontrada." />
+      {isCreating && <Loading text="Criando Snnipet..." />}
+      {snnipets.length <= 0 && !isLoading && !isCreating && (
+        <Loading text="Nenhum snniped encontrado." />
       )}
-      {!isLoading && snnipets.length > 0 && (
+      {!isLoading && !isCreating && snnipets.length > 0 && (
         <div className={styles.render_grid_category}>
           {snnipets.map((snnipet, index) => (
             <Card

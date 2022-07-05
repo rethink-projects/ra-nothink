@@ -54,7 +54,7 @@ const Header = () => {
   };
 
   const navbarButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
-
+const isCreateSnnipetScreen = location.pathname.includes("/add-snnipet")
  
 
   useEffect(() => {
@@ -83,11 +83,11 @@ const Header = () => {
           />
           <div className={styles.navbar_navbuttons}>
             <img src={currentUser.avatarUrl} alt="User" />
-            <GeneralButton
+           {!isCreateSnnipetScreen && <GeneralButton
               onClick={handleClick}
               text={isPageActive ? navbarButtonText : "Criar Snnipets"}
               height="29px"
-            />
+            />}
             <div
               className={
                 isFormOpen
