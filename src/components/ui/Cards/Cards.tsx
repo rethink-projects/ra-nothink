@@ -8,11 +8,20 @@ type CardsProps = {
   type?: "category" | "snnipet";
   data: TypeCategory | TypeSnnipet;
 };
+// class TypeCategory implements TypeCategory{
+//   constructor TypeCategory(id?,
+//     owner_id,
+//     title,
+//     totalLikes,
+//     totalSnnipets)
+// }
 
 const Cards = ({ index, type = "category", data }: CardsProps) => {
   const navigate = useNavigate();
-  
+
   const isTypeCategory = type == "category";
+  
+  // console.log((data) instanceof TypeCategory)
 
   let totalLikes, totalSnnipets;
   const title = data.title;
@@ -20,13 +29,12 @@ const Cards = ({ index, type = "category", data }: CardsProps) => {
   const id = data.id;
 
   if (isTypeCategory) {
-    totalLikes = (data as TypeCategory).totalLikes ?? 0;
-    totalSnnipets = (data as TypeCategory).totalSnnipets ?? 0;
+    const temp = data as TypeCategory;
+    totalLikes = temp.totalLikes ?? 0;
+    totalSnnipets = temp.totalSnnipets ?? 0;
   } else {
-    totalLikes =
-      (data as TypeSnnipet).likes != null
-        ? (data as TypeSnnipet).likes.length
-        : 0;
+    const temp = data as TypeSnnipet;
+    totalLikes = temp.likes != null ? temp.likes.length : 0;
     totalSnnipets = -1;
   }
 
