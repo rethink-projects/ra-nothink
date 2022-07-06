@@ -45,12 +45,20 @@ function CtaegoryScreen() {
       {!isLoading && snnipets.length > 0 && (
         <div className={styles.render_grid_category}>
           {snnipets.map((snnipet, index) => (
+            // <Card
+            //   key={snnipet.id}
+            //   index={index}
+            //   // type="snnipet"
+            //   data={{ ...snnipet, totalLikes: 0, totalSnnipets: 0 }}
+            //   // data={snnipet}
+            // />
             <Card
               key={snnipet.id}
+              // category={CtaegoryScreen}
               index={index}
               type="snnipet"
-              data={{ ...snnipet, totalLikes: 0, totalSnnipets: 0 }}
-              // data={snnipet}
+              // data={{ ...snnipet, totalLikes: 0, totalSnnipets: 0 }}
+              data={snnipet}
             />
           ))}
         </div>

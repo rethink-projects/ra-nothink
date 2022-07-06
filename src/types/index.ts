@@ -39,3 +39,17 @@ export type TypeSnnipet = {
   likes: string[];
   timestamp: FieldValue;
 };
+
+// export type TypeCardItem = TypeCategory | TypeSnnipet;
+
+export type TypeCardItem = {
+  id?: string;
+  owner_id: string;
+  title: string;
+  totalLikes?: number;
+  totalSnnipets?: number;
+  content?: string;
+  category_id?: string;
+  likes?: string[];
+  timestamp: FieldValue;
+};

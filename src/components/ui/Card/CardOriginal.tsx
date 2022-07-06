@@ -1,26 +1,22 @@
 // Types
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Images from "../../../assets";
-import { TypeCardItem, TypeCategory, TypeSnnipet } from "../../../types";
-
+import { TypeCategory } from "../../../types";
 // Styles
 import styles from "./Card.module.css";
 
-// type cardProps = {
-//   dataCard: TypeCategory | TypeSnnipet;
-// };
-
 interface ICardProps {
   index: number;
-  data: TypeCardItem;
+  category: TypeCategory;
+  data: TypeCategory;
   type?: "category" | "snnipet";
 }
 
-function Card({
+function CardOrigin({
   index,
-  type,
-  data: { title, owner_id, id, totalLikes, totalSnnipets, likes },
+  //   category: { title, owner_id, totalLikes, totalSnnipets, id },
+  type = "category",
+  data: { title, owner_id, totalLikes, totalSnnipets, id },
 }: ICardProps) {
   const navigate = useNavigate();
 
@@ -29,10 +25,9 @@ function Card({
   //   Substitui todos os caracteres especiais por "" : /[^a-zA-Z]/g, ""
   const replacedName = ownerIdName.replace(/[^a-zA-Z]/g, "").replace("", "");
   const isTypeSnnipet = type === "snnipet";
-  console.log("TypeSnnipet é: " + isTypeSnnipet);
-  console.log("Totaal de likes é: " + totalLikes);
 
   const onClickCard = () => {
+    navigate(`${id}`);
     return isTypeSnnipet ? null : navigate(`${id}`, { state: title });
   };
 
@@ -50,22 +45,19 @@ function Card({
             <span>{replacedName}</span>
           </div>
           <div className={styles.card_content_inner_item}>
+            <div className={styles.card_content_item}>
+              <img src={Images.icons.code} alt="Code Icon" />
+              <span>{totalSnnipets}</span>
+            </div>
             {!isTypeSnnipet && (
               <div className={styles.card_content_item}>
                 <img src={Images.icons.code} alt="Code Icon" />
-
                 <span>{totalSnnipets}</span>
-                {/* <span>totalSnnipets</span> */}
               </div>
             )}
             <div className={styles.card_content_item}>
               <img src={Images.icons.like} alt="Like Icon" />
-              {!isTypeSnnipet ? (
-                <span>{totalLikes}</span>
-              ) : (
-                <span>{likes?.length}</span>
-              )}
-              {/* <span>{typeof data}</span> */}
+              <span>{totalLikes}</span>
             </div>
           </div>
         </div>
@@ -73,5 +65,4 @@ function Card({
     </div>
   );
 }
-
-export default Card;
+export default CardOrigin;
