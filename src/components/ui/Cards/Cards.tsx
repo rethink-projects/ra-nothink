@@ -5,23 +5,12 @@ import { TypeCategory, TypeSnnipet } from "../../../types";
 
 type CardsProps = {
   index?: number;
-  type?: "category" | "snnipet";
   data: TypeCategory | TypeSnnipet;
 };
-// class TypeCategory implements TypeCategory{
-//   constructor TypeCategory(id?,
-//     owner_id,
-//     title,
-//     totalLikes,
-//     totalSnnipets)
-// }
 
-const Cards = ({ index, type = "category", data }: CardsProps) => {
+const Cards = ({ index, data }: CardsProps) => {
   const navigate = useNavigate();
-
-  const isTypeCategory = type == "category";
-  
-  // console.log((data) instanceof TypeCategory)
+  const isTypeCategory = "totalLikes" in data;
 
   let totalLikes, totalSnnipets;
   const title = data.title;
@@ -41,8 +30,6 @@ const Cards = ({ index, type = "category", data }: CardsProps) => {
   const openCategory = () => {
     return isTypeCategory ? navigate(`${id}`, { state: title }) : null;
   };
-
-  // if (likes != null) totalLikes = likes.length;
 
   return (
     <div

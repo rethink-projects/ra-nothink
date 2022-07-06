@@ -61,7 +61,6 @@ const CategoryScreen = () => {
         <div className={styles.render_grid_categories}>
           {snnipets.map((snnipet, index) => (
             <Cards
-              type="snnipet"
               key={snnipet.id}
               index={index}
               data={snnipet}
