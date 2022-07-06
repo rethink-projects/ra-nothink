@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from "react";
 import firebaseInstance from "../../services/firebase";
-import { TypeCategory, TypeCreateCategory } from "../../types";
+import { TypeCategory, TypeCreateCategory, TypeSnippet } from "../../types";
 import { DataContext, DataContextType } from "../DataContext";
 
 function DataProvider({ children }: { children: React.ReactNode }) {
   const [categories, setCategories] = useState<TypeCategory[]>([]);
+  const [snippets, setSnippets] = useState<TypeSnippet[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
 
@@ -39,12 +40,28 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  let fetchSnippets = useCallback(async (category_id: string) => {
+    try {
+      setIsLoading(true);
+      const allSnippetsByCategoryId =
+        await firebaseInstance.getSnippetsByCategoryId(category_id);
+      setSnippets(allSnippetsByCategoryId);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+      return;
+    }
+  }, []);
+
   let value: DataContextType = {
     create,
     fetch,
     categories,
     isCreating,
     isLoading,
+    snippets,
+    fetchSnippets,
   };
 
   // Provider que por sua vez recebe o user e vai transmitir as informações pra outros componentes
