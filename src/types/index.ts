@@ -23,9 +23,13 @@ export type TypeCategory = {
   id?: string;
   owner_id: string;
   title: string;
-  totalLikes: number;
-  totalSnippets: number;
+  totalLikes?: number;
+  totalSnippets?: number;
   timestamp: FieldValue;
+
+  likes?: string[];
+  content?: string;
+  category_id?: string;
 };
 
 export type TypeCreateCategory = { owner_id: string; title: string };

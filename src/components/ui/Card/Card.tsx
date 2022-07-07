@@ -7,20 +7,23 @@ import Images from "../../../assets";
 import { useNavigate } from "react-router-dom";
 
 type cardProp = {
-  category: TypeCategory;
+  data: TypeCategory;
   index: number;
+  type?: "category" | "snippet";
 };
 
 const Card = ({
-  category: { title, id, owner_id, totalSnippets, totalLikes },
+  data: { title, id, owner_id, totalSnippets, totalLikes, likes },
   index,
+  type = "category",
 }: cardProp) => {
   const navigate = useNavigate();
   const username = owner_id.split("@", 1)[0];
   const usernameReplaced = username.replace(/[^a-zA-Z]/g, "").replace("", "");
+  const isTypeSnippet = type === "snippet";
 
   const onClickCard = () => {
-    navigate(`${id}`);
+    return isTypeSnippet ? null : navigate(`${id}`, { state: title });
   };
 
   return (
@@ -36,13 +39,16 @@ const Card = ({
             <img src={Images.icons.github} alt="Github Icon" />
             <span>{usernameReplaced}</span>
             <div className={styles.card_informations}>
-              <div className={styles.card_informations_item}>
-                <img src={Images.icons.code} alt="code Icon" />
-                <span>{totalSnippets}</span>
-              </div>
+              {!isTypeSnippet && (
+                <div className={styles.card_informations_item}>
+                  <img src={Images.icons.code} alt="code Icon" />
+                  <span>{totalSnippets}</span>
+                </div>
+              )}
               <div className={styles.card_informations_item}>
                 <img src={Images.icons.like} alt="heart Icon" />
-                <span>{totalLikes}</span>
+                {/* <span>{`${totalLikes}`}</span> */}
+                <span>{isTypeSnippet ? likes!.length : totalLikes}</span>
               </div>
             </div>
           </div>

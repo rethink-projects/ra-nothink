@@ -7,6 +7,7 @@ import linkedinIcon from "./linkedin.png";
 import nothinkLogo from "./logo-nothink-light.png";
 import likeIcon from "./like.svg";
 import codeIcon from "./code.svg";
+import backIcon from "./back.svg";
 
 const Images = {
   logo: {
@@ -20,6 +21,7 @@ const Images = {
     linkedin: linkedinIcon,
     like: likeIcon,
     code: codeIcon,
+    back: backIcon,
   },
   nothink: nothinkLogo,
 };

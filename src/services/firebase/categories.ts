@@ -22,6 +22,7 @@ export const createCategory = async ({
       owner_id,
       title,
       totalLikes: 0,
+      likes: [],
       totalSnippets: 0,
       timestamp: serverTimestamp(),
     };

@@ -54,7 +54,7 @@ export default function CategoriesScreen() {
         <div className={styles.render_grid_category}>
           {categories.map((category, index) => (
             <div>
-              <Card key={category?.id} category={category} index={index} />
+              <Card key={category?.id} data={category} index={index} />
             </div>
           ))}
         </div>
