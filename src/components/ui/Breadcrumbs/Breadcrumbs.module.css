@@ -1,0 +1,29 @@
+.category_breadcrumb {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  margin-bottom: 50px;
+}
+
+.category_breadcrumb span {
+  font-size: 16px;
+  color: var(--color-light-text);
+  font-size: normal;
+  cursor: pointer;
+}
+
+.category_breadcrumb p {
+  font-size: 16px;
+  color: var(--color-dark);
+  font-size: 500;
+}
+.category_breadcrumb img {
+  transform: rotate(180deg);
+  width: 8px;
+  color: var(--color-light-text);
+  filter: opacity(0.5) drop-shadow(0 0 0 white);
+  margin-top: -2px;
+  margin-left: 2px;
+}

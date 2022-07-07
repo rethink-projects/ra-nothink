@@ -3,12 +3,24 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { firebaseConfig } from "./config";
 import { loginWithFirebase } from "./authentication";
+import { createCategory, getAllCategories } from "./categories";
+import { getSnippetsByCategoryId, createSnippet } from "./snippets";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// Initialize Firestore
-const db = getFirestore(app);
 
-const firebaseInstance = { app, db, loginWithFirebase };
+const db = getFirestore(app);
+const firebaseInstance = {
+  app,
+  db,
+  loginWithFirebase,
+  createCategory,
+  getAllCategories,
+  getSnippetsByCategoryId,
+  createSnippet,
+};
+
+// console.log({ app });
+// console.log({ firebaseConfig });
 
 export default firebaseInstance;

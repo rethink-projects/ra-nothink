@@ -1,9 +1,6 @@
 import React from "react";
-
-// Assets
 import Images from "../../../../assets";
 
-// Styles
 import styles from "./Form.module.css";
 
 // Components

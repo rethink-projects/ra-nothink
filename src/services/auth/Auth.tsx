@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useEffect } from "react";
 import { ICurrentUser } from "../../types";
 
 type RequireAuthType = {
@@ -9,6 +9,7 @@ type RequireAuthType = {
 
 function RequireAuth({ children }: RequireAuthType) {
   let location = useLocation();
+
   const auth = useAuth();
 
   const localStorageUser: ICurrentUser = JSON.parse(
@@ -16,7 +17,7 @@ function RequireAuth({ children }: RequireAuthType) {
   );
 
   useEffect(() => {
-    console.log({ localStorageUser });
+    //console.log({ localStorageUser });
     if (localStorageUser) {
       auth.setCurrentUser(localStorageUser);
     }

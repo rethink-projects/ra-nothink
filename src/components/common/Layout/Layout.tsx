@@ -1,13 +1,19 @@
 import { Outlet } from "react-router-dom";
 import RequireAuth from "../../../services/auth/Auth";
+import DataProvider from "../../../context/providers/DataProvider";
+
+import Header from "../Header/Header";
+import Wrapper from "../Wrapper/Wrapper";
 
 function Layout() {
   return (
     <RequireAuth>
-      <>
-        <h1>Header do NOTHINK</h1>
-        <Outlet />
-      </>
+      <DataProvider>
+        <Header />
+        <Wrapper>
+          <Outlet />
+        </Wrapper>
+      </DataProvider>
     </RequireAuth>
   );
 }
