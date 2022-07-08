@@ -13,6 +13,7 @@ import iconProfile from "./Person.svg";
 import code from "./code.svg";
 import like from "./heart.svg";
 import greenLike from "./greenHeart.svg";
+import backIcon from "./back.svg";
 
 const Images = {
   logo: {
@@ -31,6 +32,7 @@ const Images = {
     cancel: cancelIcon,
     editor: editorIcon,
     done: doneIcon,
+    back: backIcon,
   },
   cards: {
     person: iconProfile,

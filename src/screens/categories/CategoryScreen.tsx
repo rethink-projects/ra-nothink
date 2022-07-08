@@ -1,11 +1,16 @@
 import React, { useCallback, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Images from "../../assets";
 import { Card, Loading } from "../../components";
 import { useData } from "../../context/DataContext";
+
+// Styles
+import styles from "./Categories.module.css";
 
 function CategoryScreen() {
   const { fetchSnnipets, snnipets, isLoading } = useData();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleData = useCallback(async () => {
     const categoryId = location.pathname.replace("/categories/", "");
@@ -17,18 +22,33 @@ function CategoryScreen() {
   }, [handleData]);
 
   return (
-    <div>
+    <div className={styles.category_container}>
+      <div className={styles.category_actions}>
+        <img
+          onClick={() => navigate(-1)}
+          src={Images.iconsButton.back}
+          alt="Voltar"
+        />
+        <span>{`${location.state}`}</span>
+      </div>
+      <div className={styles.category_breadcrumb}>
+        <span>Categorias</span>
+        <img src={Images.iconsButton.back} alt="BreadCrumb" />
+        <p>{`${location.state}`}</p>
+      </div>
       {isLoading && <Loading />}
       {snnipets.length <= 0 && !isLoading && (
         <Loading text="Nenhuma Categoria encontrada." />
       )}
       {!isLoading && snnipets.length > 0 && (
-        <div>
+        <div className={styles.render_grid_category}>
           {snnipets.map((snnipet, index) => (
-            <div key={snnipet.id}>
-              <p>{snnipet.title}</p>
-              <p>{snnipet.category_id}</p>
-            </div>
+            <Card
+              key={snnipet.id}
+              index={index}
+              type="snnipet"
+              data={{ ...snnipet, totalLikes: 0, totalSnnipets: 0 }}
+            />
           ))}
         </div>
       )}
