@@ -10,6 +10,7 @@ export interface DataContextType {
 
   snippets: TypeSnippet[];
   fetchSnippets: (category_id: string) => Promise<void>;
+  createSnippet: (snippet: Partial<TypeSnippet>) => Promise<void>;
 }
 
 const DataContext = createContext<DataContextType>(null!);

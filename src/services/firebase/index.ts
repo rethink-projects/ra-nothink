@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { firebaseConfig } from "./config";
 import { loginWithFirebase } from "./authentication";
 import { createCategory, getAllCategories } from "./categories";
-import { getSnippetsByCategoryId } from "./snippets";
+import { getSnippetsByCategoryId, createSnippet } from "./snippets";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -18,6 +18,7 @@ const firebaseInstance = {
   createCategory,
   getAllCategories,
   getSnippetsByCategoryId,
+  createSnippet,
 };
 
 export default firebaseInstance;

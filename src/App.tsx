@@ -2,9 +2,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "./context/providers/AuthProvider";
 
 // Screens
+
+// Login
+import LoginScreen from "./screens/login/LoginScreen";
+
+// Categories
 import CategoriesScreen from "./screens/categories/CategoriesScreen";
 import CategoryScreen from "./screens/categories/CategoryScreen";
-import LoginScreen from "./screens/login/LoginScreen";
+
+// Snippets
+import AddSnippetScreen from "./screens/snippets/AddSnippetScreen";
 
 // Components
 import { Layout } from "./components";
@@ -35,14 +42,6 @@ function App() {
 }
 
 export default App;
-
-function AddSnippetScreen() {
-  return (
-    <div>
-      <h1>Add SnippetScreen</h1>
-    </div>
-  );
-}
 
 function SnippetScreen() {
   return (

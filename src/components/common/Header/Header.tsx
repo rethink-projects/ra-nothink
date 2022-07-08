@@ -58,6 +58,8 @@ const Header = () => {
 
   const headerButtonText = isFormOpen ? "Cancelar" : "Criar Categoria";
 
+  const isCreateSnippetScreen = location.pathname.includes("/add-snippet");
+
   useEffect(() => {
     toggleForm(false);
   }, [location.pathname]);
@@ -103,10 +105,12 @@ const Header = () => {
               src={currentUser.avatarUrl}
               alt="Imagem do avatar retirada da conta do usuário do Google ou Github"
             />
-            <Button
-              onClick={handleClick}
-              text={isPageActive ? headerButtonText : "Criar Snippets"}
-            />
+            {!isCreateSnippetScreen && (
+              <Button
+                onClick={handleClick}
+                text={isPageActive ? headerButtonText : "Criar Snippets"}
+              />
+            )}
           </div>
           <div
             className={

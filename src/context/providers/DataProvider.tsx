@@ -25,6 +25,25 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     [categories]
   );
 
+  let createSnippet = useCallback(
+    async (snippet: Partial<TypeSnippet>) => {
+      try {
+        setIsCreating(true);
+        // console.log({ snippet });
+        const newSnippet = await firebaseInstance.createSnippet(snippet);
+        setTimeout(() => {
+          if (newSnippet?.owner_id) {
+            setSnippets([newSnippet, ...snippets]);
+            setIsCreating(false);
+          }
+        }, 800);
+      } catch (error) {
+        setIsCreating(false);
+      }
+    },
+    [snippets]
+  );
+
   let fetch = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -62,6 +81,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     isLoading,
     snippets,
     fetchSnippets,
+    createSnippet,
   };
 
   // Provider que por sua vez recebe o user e vai transmitir as informações pra outros componentes

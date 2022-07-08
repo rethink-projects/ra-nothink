@@ -3,6 +3,7 @@
     background-color: var(--color-light);
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.04);
     cursor: pointer;
     transition: all 0.3s ease;
     opacity: 0;
@@ -14,11 +15,7 @@
 }
 
 .card_category:hover {
-    transform: translateY(10px);
-}
-
-.card_category:hover>.card_content {
-    background-color: var(--color-dark);
+    transform: translateY(10px) !important;
 }
 
 .card_title {
@@ -43,11 +40,11 @@
 
 .card_informations {
     display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0 10px;
+    align-items: center;
+    justify-content: right;
     gap: 5px;
-    color: var(--color-light);
+    width: 100%;
 }
 
 .card_informations img {

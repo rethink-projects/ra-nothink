@@ -10,6 +10,7 @@
     --color-light-text: #b5b5b5;
     --color-detail-opacity: #d4fa3acc;
     --color-border: rgba(0, 0, 0, 0.1);
+    --color-border-alert: rgb(209, 80, 80, 1);
     --color-button-opacity: #ededed60;
     --color-button-opacity-dark: #101010;
 }

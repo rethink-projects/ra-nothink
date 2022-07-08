@@ -41,7 +41,7 @@ export default function CategoriesScreen() {
   if (isCreating) {
     return <Loading text="Criando Categoria.." />;
   }
-  console.log(categories);
+  // console.log(categories);
 
   return (
     <div className={styles.dashboard_container}>

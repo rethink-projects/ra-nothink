@@ -9,7 +9,7 @@ import { useData } from "../../context/DataContext";
 import styles from "./Categories.module.css";
 
 const CategoryScreen = () => {
-  const { fetchSnippets, snippets, isLoading } = useData();
+  const { fetchSnippets, snippets, isLoading, isCreating } = useData();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -40,10 +40,11 @@ const CategoryScreen = () => {
         <p>{`${location.state}`}</p>
       </div>
       {isLoading && <Loading />}
-      {snippets.length <= 0 && !isLoading && (
+      {isCreating && <Loading text="Criando Snippet..." />}
+      {snippets.length <= 0 && !isCreating && !isLoading && (
         <Loading text="Nenhuma Categoria encontrada" />
       )}
-      {!isLoading && snippets.length > 0 && (
+      {!isLoading && !isCreating && snippets.length > 0 && (
         <div className={styles.render_grid_category}>
           {snippets.map((snippet, index) => (
             <Card

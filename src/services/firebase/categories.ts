@@ -14,7 +14,7 @@ import { TypeCategory, TypeCreateCategory } from "../../types";
 export const createCategory = async ({
   owner_id,
   title,
-}: TypeCreateCategory) => {
+}: TypeCreateCategory): Promise<TypeCategory | undefined> => {
   try {
     const db = firebaseInstance.db;
     const categoryPath = collection(db, "categories");
