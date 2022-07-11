@@ -8,7 +8,7 @@ import { useData } from "../../context/DataContext";
 import styles from "./Categories.module.css";
 
 function CategoryScreen() {
-  const { fetchSnnipets, snnipets, isLoading } = useData();
+  const { fetchSnnipets, snnipets, isLoading, isCreating } = useData();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -37,10 +37,11 @@ function CategoryScreen() {
         <p>{`${location.state}`}</p>
       </div>
       {isLoading && <Loading />}
-      {snnipets.length <= 0 && !isLoading && (
-        <Loading text="Nenhuma Categoria encontrada." />
+      {isCreating && <Loading text="Criando Snnipet..." />}
+      {snnipets.length <= 0 && !isCreating && !isLoading && (
+        <Loading text="Nenhum Snnipet encontrado." />
       )}
-      {!isLoading && snnipets.length > 0 && (
+      {!isLoading && !isCreating && snnipets.length > 0 && (
         <div className={styles.render_grid_category}>
           {snnipets.map((snnipet, index) => (
             <Card

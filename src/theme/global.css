@@ -11,6 +11,7 @@
     --color-button-opacity-dark: #101010;
     --color-dark-rethink: #464438;
     --color-base: #f8f8f8;
+    --color-border-alert: rgba(206, 88, 88, 0.982);
 }
 
 * {

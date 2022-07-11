@@ -6,7 +6,6 @@ import instagramIcon from "./instagram.png";
 import linkedinIcon from "./linkedin.png";
 import nothinkLight from "./logoLight.svg";
 import shareIcon from "./Share.png";
-import cancelIcon from "./Cancel.png";
 import editorIcon from "./Editor.png";
 import doneIcon from "./Done.png";
 import iconProfile from "./Person.svg";
@@ -14,6 +13,8 @@ import code from "./code.svg";
 import like from "./heart.svg";
 import greenLike from "./greenHeart.svg";
 import backIcon from "./back.svg";
+import saveIcon from "./save.svg";
+import cancelIcon from "./Cancel.png";
 
 const Images = {
   logo: {
@@ -33,6 +34,8 @@ const Images = {
     editor: editorIcon,
     done: doneIcon,
     back: backIcon,
+    save: saveIcon,
+    Cancel: cancelIcon,
   },
   cards: {
     person: iconProfile,
